@@ -63,6 +63,4 @@ private
    params.require(:item).permit(:name, :description, :price, :business_id)
 
  end
-
-end
 end

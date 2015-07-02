@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :businesses
   resources :categories
+  resources :items
     # resources :businesses
 
   # You can have the root of your site routed with "root"
