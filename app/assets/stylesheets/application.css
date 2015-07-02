@@ -16,3 +16,12 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+/*
+NEW BUSINESS FORM
+*/
+.new-business {
+  width: 60vw;
+  max-width: 600px;
+  margin: 0 auto;
+}
