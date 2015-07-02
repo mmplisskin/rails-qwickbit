@@ -35,6 +35,8 @@ gem 'bootstrap_form'
 
 gem 'figaro'
 
+gem 'bootstrap-generators', '~> 3.3.4'
+
 
 group :production do
   gem 'rails_12factor'
