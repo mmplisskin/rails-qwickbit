@@ -35,6 +35,8 @@ gem 'bootstrap_form'
 
 gem 'figaro'
 
+gem 'bootstrap-generators', '~> 3.3.4'
+
 
 group :production do
   gem 'rails_12factor'
@@ -54,6 +56,8 @@ end
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  gem "better_errors"
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
