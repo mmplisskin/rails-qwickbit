@@ -6,6 +6,8 @@ class Business < ActiveRecord::Base
 
   validates :name, length: { in: 5..25 }
 
+  validates :description, length: { in: 30..175 }
+
   validates_format_of :zipcode,
                   with: /\A\d{5}-\d{4}|\A\d{5}\z/,
                   message: "please enter a valid zip"

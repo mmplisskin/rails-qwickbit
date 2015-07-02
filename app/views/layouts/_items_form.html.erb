@@ -1,0 +1,8 @@
+<%= bootstrap_form_for @item do |f| %>
+  <%= f.text_field :name, placeholder: 'i.e. Blue Pants' %>
+  <%= f.text_field :price , placeholder: 'i.e $10' %>
+  <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
+  <div>
+      <%= f.submit%>
+  </div>
+<% end %>
