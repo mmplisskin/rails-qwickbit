@@ -32,8 +32,10 @@ class BusinessesController < ApplicationController
     @business=Business.new(business_params)
     if @business.save
       flash[:notice] = 'Business was successfully listed!'
+      redirect_to businesses_path
     else
       flash.now[:error] = @business.errors.full_messages
+      render :new
     end
   end
 
