@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150702051242) do
     t.integer  "category_id"
     t.string   "name"
     t.text     "description"
-    t.string   "adress"
+    t.string   "address"
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
