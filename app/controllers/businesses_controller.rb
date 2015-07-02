@@ -32,14 +32,14 @@ class BusinessesController < ApplicationController
 
     @business=Business.new
 
-    # respond_to do |format|
-    #     format.html {
-    #         render
-    #     }
-    #     format.json {
-    #         render json: @business
-    #     }
-    # end
+    respond_to do |format|
+        format.html {
+            render
+        }
+        format.json {
+            render json: @business
+        }
+    end
   end
 
 
@@ -49,7 +49,6 @@ class BusinessesController < ApplicationController
 
     if @business.save
       flash[:notice] = 'Business was successfully listed!.'
-
     else
       flash.now[:error] = @business.errors.full_messages
     end

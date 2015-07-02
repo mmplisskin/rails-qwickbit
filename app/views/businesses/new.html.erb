@@ -1,17 +1,1 @@
-<div class="col-md-3">
-</div>
-<div class="col-md-6">
-</div>
-<%= bootstrap_form_for @business do |f| %>
-      <%= f.text_field :name, placeholder: 'i.e. Cool Business' %>
-      <%= f.text_field :address, placeholder: '123 2nd street' %>
-      <%= f.text_field :city, placeholder: 'e.x Los Angeles' %>
-      <%= f.select(:state, options_for_select(us_states, "CA"))%>
-      <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
-      <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
-      <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
-      <%= f.text_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
-    <div>
-        <%= f.submit %>
-    </div>
-<% end %>
+<%= render 'layouts/business_form' %>
