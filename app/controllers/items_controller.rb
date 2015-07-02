@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_items, only:[:show, :edit, :update, :destroy]
+  before_action :find_item, only:[:show, :edit, :update, :destroy]
 def index
    @items=Item.all
    respond_to do |format|
@@ -55,12 +55,11 @@ def index
  end
 
 private
-  def find_items
-    @items = Item.find(params[:id])
+  def find_item
+    @item = Item.find(params[:id])
   end
 
  def item_params
    params.require(:item).permit(:name, :description, :price, :business_id)
-
  end
 end
