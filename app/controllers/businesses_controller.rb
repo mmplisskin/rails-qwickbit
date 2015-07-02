@@ -1,8 +1,7 @@
 class BusinessesController < ApplicationController
+  before_action :find_business, only:[:show, :edit, :update, :destroy]
   def index
-
     @businesses = Business.all
-
     respond_to do |format|
         format.html {
             render
@@ -14,9 +13,6 @@ class BusinessesController < ApplicationController
   end
 
   def show
-
-    @business = Business.find(params[:id])
-
     respond_to do |format|
         format.html {
             render
@@ -29,40 +25,40 @@ class BusinessesController < ApplicationController
 
 
   def new
-
     @business=Business.new
-
-    respond_to do |format|
-        format.html {
-            render
-        }
-        format.json {
-            render json: @business
-        }
-    end
   end
 
-
   def create
-
     @business=Business.new(business_params)
-
     if @business.save
-      flash[:notice] = 'Business was successfully listed!.'
+      flash[:notice] = 'Business was successfully listed!'
     else
       flash.now[:error] = @business.errors.full_messages
     end
   end
 
-  def destroy
+  def edit
+  end
 
-    @business=Business.find(parms[:id])
-    @item.destroy
+  def update
+    if @business.update_attributes(business_params)
+      flash[:notice] = "Business was successfully updated!"
+      return
+    end
+    render :edit
+  end
+
+  def destroy
+    @business.destroy
     redirect_to root_path
   end
 
-  private
-    def business_params
-      params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :user_id)
-    end
+private
+  def find_business
+    @business = Business.find(params[:id])
+  end
+
+  def business_params
+    params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :user_id)
+  end
 end
