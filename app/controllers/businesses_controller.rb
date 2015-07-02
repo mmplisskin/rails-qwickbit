@@ -1,8 +1,7 @@
-class BusinessController < ApplicationController
-
+class BusinessesController < ApplicationController
   def index
 
-    @business=Business.all
+    @businesses = Business.all
 
     respond_to do |format|
         format.html {
@@ -16,7 +15,7 @@ class BusinessController < ApplicationController
 
   def show
 
-    @business=Business.find(params[:id])
+    @business = Business.find(params[:id])
 
     respond_to do |format|
         format.html {
@@ -31,7 +30,7 @@ class BusinessController < ApplicationController
 
   def new
 
-    @business=Business.new(business_params)
+    @business=Business.new
 
     # respond_to do |format|
     #     format.html {
@@ -65,10 +64,6 @@ class BusinessController < ApplicationController
 
   private
     def business_params
-      params.require(:businesses).permit(:name, :adress, :city, :zipcode, :state, :description, :category_id, :phone_number, :user_id)
-
+      params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :user_id)
     end
-
-
-
 end

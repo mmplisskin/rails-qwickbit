@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  resources :business
+  resources :businesses
     # resources :businesses
 
   # You can have the root of your site routed with "root"

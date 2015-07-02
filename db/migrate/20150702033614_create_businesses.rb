@@ -9,7 +9,6 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :state
       t.string :zipcode
       t.string :phone_number
-
       t.float :latitude
       t.float :longitude
       t.timestamps null: false
