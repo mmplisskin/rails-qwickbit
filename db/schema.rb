@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 20150702051242) do
     t.string   "adress"
     t.string   "city"
     t.string   "state"
-    t.string   "zip"
+    t.string   "zipcode"
+    t.string   "phone_number"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "businesses", ["category_id"], name: "index_businesses_on_category_id", using: :btree
