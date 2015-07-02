@@ -6,7 +6,7 @@
   <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
   <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
   <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
-  <%= f.text_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
+  <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
   <div>
       <%= f.submit %>
   </div>
