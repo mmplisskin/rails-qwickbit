@@ -31,6 +31,7 @@ class BusinessesController < ApplicationController
   def create
     @business=Business.new(business_params)
     if @business.save
+      session[:business_id] = @business.id.to_s
       flash[:notice] = 'Business was successfully listed!'
       redirect_to businesses_path
     else
@@ -61,6 +62,6 @@ private
   end
 
   def business_params
-    params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :user_id)
+    params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :business_id, :password, :password_confirmation)
   end
 end

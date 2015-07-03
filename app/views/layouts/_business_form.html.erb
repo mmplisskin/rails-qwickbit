@@ -1,5 +1,6 @@
 <%= bootstrap_form_for @business do |f| %>
   <%= f.text_field :name, placeholder: 'i.e. Cool Business' %>
+  <%= f.text_field :email, placeholder: 'email@example.com' %>
   <%= f.text_field :address, placeholder: '123 2nd street' %>
   <%= f.text_field :city, placeholder: 'e.x Los Angeles' %>
   <%= f.select(:state, options_for_select(us_states, "CA"))%>
@@ -7,6 +8,8 @@
   <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
   <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
   <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
   <div>
       <%= f.submit %>
   </div>

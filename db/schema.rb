@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20150702051242) do
 
   create_table "businesses", force: :cascade do |t|
     t.integer  "category_id"
+    t.string   "password_digest"
+    t.string   "email"
     t.string   "name"
     t.text     "description"
     t.string   "address"
@@ -27,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150702051242) do
     t.string   "phone_number"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "businesses", ["category_id"], name: "index_businesses_on_category_id", using: :btree

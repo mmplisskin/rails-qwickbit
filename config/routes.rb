@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :businesses
   resources :categories
   resources :items
+
+  get '/login'     => 'sessions#new'
+  post '/login'    => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
     # resources :businesses
 
   # You can have the root of your site routed with "root"
