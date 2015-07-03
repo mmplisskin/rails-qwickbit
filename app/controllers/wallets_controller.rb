@@ -1,4 +1,5 @@
 class WalletsController < ApplicationController
+  require 'bitcoin'
   before_action :find_wallet, only:[:show, :destroy]
 
   def index
@@ -12,6 +13,17 @@ class WalletsController < ApplicationController
   def new
     @wallet = Wallet.new
   end
+
+  def generate
+    require 'pry'
+    key = Bitcoin::generate_key
+    # @wallet = key
+    binding.pry
+
+    # if @wallet.save
+    # end
+  end
+
   def create
     @wallet = Wallet.new(wallet_params)
     @wallet.business_id = current_business.id
