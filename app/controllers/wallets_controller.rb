@@ -29,11 +29,6 @@ class WalletsController < ApplicationController
       return
     end
 
-    # @wallet = key
-    # binding.pry
-
-    # if @wallet.save
-    # end
   end
 
   def create
@@ -50,7 +45,7 @@ class WalletsController < ApplicationController
 
   def destroy
     @wallet.destroy
-    redirect_to
+    redirect_to wallets_path
   end
 
 private
