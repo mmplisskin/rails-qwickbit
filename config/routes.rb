@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
 
-  get 'static_pages/landing'
-
+  root 'static_pages#landing'
   get 'static_pages/contact'
 
   resources :businesses
   resources :categories
   resources :items
+  resources :wallets
 
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'

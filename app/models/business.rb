@@ -3,6 +3,7 @@ class Business < ActiveRecord::Base
 
   belongs_to :category
   has_many :items
+  has_many :wallets
 
   validates :name, :description, :address, :city, :state, :zipcode, :phone_number, presence: true
   validates :name, length: { in: 5..25 }

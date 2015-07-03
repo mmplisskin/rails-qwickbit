@@ -1,0 +1,12 @@
+<h1><%= current_business.name %> Wallet</h1>
+<hr>
+<% @wallets.each do |wallet| %>
+<p>
+  Name: <%= wallet.name %>
+</p>
+<p>
+  Wallet address: <%= wallet.wallet_address %>
+</p>
+<hr>
+<% end %>
+<%= link_to "add wallet", new_wallet_path %>

@@ -34,7 +34,7 @@ class BusinessesController < ApplicationController
     if @business.save
       session[:business_id] = @business.id.to_s
       flash[:notice] = 'Business was successfully listed!'
-      redirect_to businesses_path
+      redirect_to business_path(@business.id)
     else
       flash.now[:error] = @business.errors.full_messages
       render :new
