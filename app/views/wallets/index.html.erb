@@ -7,6 +7,9 @@
 <p>
   Wallet address: <%= wallet.wallet_address %>
 </p>
+<p>
+<%=  link_to "Remove Wallet", wallets_path, method: :delete %>
+</p>
 <hr>
 <% end %>
 <%= link_to "add wallet", new_wallet_path %>
