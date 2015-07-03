@@ -5,8 +5,18 @@
   Name: <%= wallet.name %>
 </p>
 <p>
-  Wallet address: <%= wallet.wallet_address %>
+  <div id="public_adress">
+    Wallet address: <%= wallet.wallet_address %>
+  </div>
 </p>
+<p>
+  <div class="private_key" value='<%= wallet.private_key%>'>
+    key: <%= wallet.private_key%>
+</div>
+</p>
+<!-- <input id="text" type="text" value='<%= wallet.private_key%>' style="width:80%" /><br /> -->
+<div id="qrcode"></div>
+
 <p>
 <%#=  link_to "Remove Wallet", wallet_path, method: :delete %>
 <%= link_to 'Delete', wallet,
@@ -17,5 +27,5 @@
 </p>
 <hr>
 <% end %>
-<%= link_to "add wallet", new_wallet_path %>
-<%= link_to 'new wallet', generate_key_path, method: :generate %>
+<%= link_to "Add existing", new_wallet_path %>
+<%= link_to 'Make a new wallet', generate_key_path, method: :generate %>

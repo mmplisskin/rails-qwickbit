@@ -16,3 +16,33 @@
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require map.js
+//= require qrcode.js
+
+// $('.wallets.index').ready(function () {
+// var qrcode = new QRCode("qrcode");
+//   qrcode.makeCode(elText.value);
+
+// function makeCode () {
+//     var elText = document.getElementById("text");
+//
+//     if (!elText.value) {
+//         alert("Input a text");
+//         elText.focus();
+//         return;
+//     }
+//
+//     qrcode.makeCode(elText.value);
+// }
+//
+// makeCode();
+//
+// $("#text").
+//     on("blur", function () {
+//         makeCode();
+//     }).
+//     on("keydown", function (e) {
+//         if (e.keyCode == 13) {
+//             makeCode();
+//         }
+//     });
+});

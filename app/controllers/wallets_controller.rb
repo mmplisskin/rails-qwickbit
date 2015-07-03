@@ -21,7 +21,8 @@ class WalletsController < ApplicationController
     key = Bitcoin::generate_key
 
     @wallet.private_key = key[0]
-    @wallet.wallet_address = key[1]
+    # @wallet.wallet_address = key[1]
+    @wallet.wallet_address = Bitcoin::pubkey_to_address(key[1])
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
