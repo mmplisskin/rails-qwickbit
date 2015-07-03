@@ -9,3 +9,6 @@
 
 ### Description
 Bitlist is a community driven platform for businesses to sell items through the bitcoin network.
+
+### Changelog 
+Bitlist is currently in development
