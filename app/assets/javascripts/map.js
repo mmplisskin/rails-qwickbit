@@ -1,15 +1,18 @@
 $('.businesses.index').ready(function () {
 
 function initialize() {
-  alert();
+
 
   var url = window.location.origin + window.location.pathname + ".json";
 
   $.get(url, function(results){
-    var my_content = results["name"]
-    var lat = results["latitude"];
-    var long = results["longitude"];
 
+    var my_content = results[0]
+
+    var lat = my_content["latitude"];
+    var long = my_content["longitude"];
+
+    console.log(lat,long)
     var myCenter = new google.maps.LatLng(lat,long);
     var marker;
 
@@ -42,5 +45,7 @@ function initialize() {
 
   })
 }
+
+initialize();
 google.maps.event.addDomListener(window, 'load', initialize);
 });
