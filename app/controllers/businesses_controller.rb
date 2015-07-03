@@ -53,7 +53,7 @@ class BusinessesController < ApplicationController
 
   def destroy
     @business.destroy
-    redirect_to root_path
+    redirect_to businesses_path
   end
 
 private
