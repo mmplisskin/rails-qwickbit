@@ -2,6 +2,8 @@ class CreateBusinesses < ActiveRecord::Migration
   def change
     create_table :businesses do |t|
       t.references :category, index: true, foreign_key: true
+      t.string :password_digest
+      t.string :email
       t.string :name
       t.text :description
       t.string :address

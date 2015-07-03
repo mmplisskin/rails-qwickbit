@@ -1,5 +1,6 @@
 class BusinessesController < ApplicationController
   before_action :find_business, only:[:show, :edit, :update, :destroy]
+  before_action :authorized?, only:[:index, :show, :new, :edit]
   def index
     @businesses = Business.all
     respond_to do |format|
@@ -31,8 +32,9 @@ class BusinessesController < ApplicationController
   def create
     @business=Business.new(business_params)
     if @business.save
+      session[:business_id] = @business.id.to_s
       flash[:notice] = 'Business was successfully listed!'
-      redirect_to businesses_path
+      redirect_to business_path(@business.id)
     else
       flash.now[:error] = @business.errors.full_messages
       render :new
@@ -45,14 +47,15 @@ class BusinessesController < ApplicationController
   def update
     if @business.update_attributes(business_params)
       flash[:notice] = "Business was successfully updated!"
-      return
+      redirect_to business_path(@business.id)
+    else
+      render :edit
     end
-    render :edit
   end
 
   def destroy
     @business.destroy
-    redirect_to root_path
+    redirect_to businesses_path
   end
 
 private
@@ -61,6 +64,10 @@ private
   end
 
   def business_params
-    params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :user_id)
+    params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :business_id, :password, :password_confirmation)
+  end
+
+  def authorized?
+    current_business != nil
   end
 end

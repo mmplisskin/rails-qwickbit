@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :find_item, only:[:show, :edit, :update, :destroy]
+  before_action :authorized?, only:[:index, :show, :new, :edit]
 def index
    @items=Item.all
    respond_to do |format|
@@ -29,9 +30,10 @@ def index
 
  def create
    @item=Item.new(item_params)
+   @item.business_id = current_business.id
    if @item.save
-       flash[:notice] = 'Item was successfully listed!.'
-       redirect_to root_path
+       flash[:notice] = "#{@item.name} was successfully listed!."
+       redirect_to business_path(@item.business.id)
    else
      flash.now[:error] = @item.errors.full_messages
      render :new
@@ -43,15 +45,16 @@ def index
 
  def update
    if @item.update_attributes(item_params)
-     flash[:notice] = "Business was successfully updated!"
-     return
+     flash[:notice] = "#{@item.name} was successfully updated!"
+     redirect_to business_path(@item.business.id)
+   else
+     render :edit
    end
-   render :edit
  end
 
  def destroy
      @item.destroy
-     redirect_to root_path
+     redirect_to items_path
  end
 
 private
@@ -61,5 +64,9 @@ private
 
  def item_params
    params.require(:item).permit(:name, :description, :price, :business_id)
+ end
+
+ def authorized?
+   current_business != nil
  end
 end

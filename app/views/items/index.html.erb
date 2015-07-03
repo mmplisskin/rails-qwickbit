@@ -1,5 +1,17 @@
-<%=@items.each do |item|%>
-<%=item.name%>
-<%=item.description%>
-<%=item.price%>
-<%end%>
+<% current_business.items.each do |item| %>
+<div class="">
+  <p>
+    <%= item.name.capitalize %>
+  </p>
+  <p>
+    <%= item.description %>
+  </p>
+  <p>
+    <%= number_to_currency(item.price) %>
+  </p>
+  <p>
+    <%= link_to "Edit Item", edit_item_path(item.id) %>
+  </p>
+</div>
+<% end %>
+<%= link_to "Add Item", new_item_path %>

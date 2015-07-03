@@ -1,0 +1,23 @@
+<h1><%= current_business.name %></h1>
+<p>
+  <%= link_to "Edit Business", edit_business_path(current_business.id) %>
+</p>
+<hr>
+<% current_business.items.each do |item| %>
+<div class="business-items">
+  <p>
+    Item: <%= item.name.capitalize %>
+  </p>
+  <p>
+    Description: <%= item.description %>
+  </p>
+  <p>
+    Price: <%= number_to_currency(item.price) %>
+  </p>
+  <p>
+    <%= link_to "Edit Item", edit_item_path(item.id) %>
+  </p>
+</div>
+<hr>
+<% end %>
+<%= link_to "Add Item", new_item_path %>

@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702051242) do
+ActiveRecord::Schema.define(version: 20150703014305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "businesses", force: :cascade do |t|
     t.integer  "category_id"
+    t.string   "password_digest"
+    t.string   "email"
     t.string   "name"
     t.text     "description"
     t.string   "address"
@@ -27,8 +29,8 @@ ActiveRecord::Schema.define(version: 20150702051242) do
     t.string   "phone_number"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   add_index "businesses", ["category_id"], name: "index_businesses_on_category_id", using: :btree
@@ -50,6 +52,17 @@ ActiveRecord::Schema.define(version: 20150702051242) do
 
   add_index "items", ["business_id"], name: "index_items_on_business_id", using: :btree
 
+  create_table "wallets", force: :cascade do |t|
+    t.string   "wallet_address"
+    t.string   "name"
+    t.integer  "business_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "wallets", ["business_id"], name: "index_wallets_on_business_id", using: :btree
+
   add_foreign_key "businesses", "categories"
   add_foreign_key "items", "businesses"
+  add_foreign_key "wallets", "businesses"
 end

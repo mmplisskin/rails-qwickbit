@@ -1,9 +1,17 @@
 Rails.application.routes.draw do
 
 
+  root 'static_pages#landing'
+  get 'static_pages/contact'
+
   resources :businesses
   resources :categories
   resources :items
+  resources :wallets
+
+  get '/login'     => 'sessions#new'
+  post '/login'    => 'sessions#create'
+  delete '/logout' => 'sessions#destroy'
     # resources :businesses
 
   # You can have the root of your site routed with "root"
