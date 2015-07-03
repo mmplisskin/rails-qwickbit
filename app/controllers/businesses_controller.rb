@@ -64,7 +64,7 @@ private
   end
 
   def business_params
-    params.require(:business).permit(:name, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :business_id, :password, :password_confirmation)
+    params.require(:business).permit(:name, :email, :address, :city, :zipcode, :state, :description, :category_id, :phone_number, :business_id, :password, :password_confirmation)
   end
 
   def authorized?
