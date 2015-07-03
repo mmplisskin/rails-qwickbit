@@ -29,9 +29,10 @@ def index
 
  def create
    @item=Item.new(item_params)
+   @item.business_id = current_business.id
    if @item.save
        flash[:notice] = 'Item was successfully listed!.'
-       redirect_to root_path
+       redirect_to items_path
    else
      flash.now[:error] = @item.errors.full_messages
      render :new
@@ -51,7 +52,7 @@ def index
 
  def destroy
      @item.destroy
-     redirect_to root_path
+     redirect_to items_path
  end
 
 private

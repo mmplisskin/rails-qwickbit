@@ -1,5 +1,13 @@
-<%=@items.each do |item|%>
-<%=item.name%>
-<%=item.description%>
-<%=item.price%>
-<%end%>
+<% @items.each do |item| %>
+<div class="">
+  <p>
+    <%=item.name%>
+  </p>
+  <p>
+    <%=item.description%>
+  </p>
+  <p>
+    <%=item.price%>
+  </p>
+</div>
+<% end %>
