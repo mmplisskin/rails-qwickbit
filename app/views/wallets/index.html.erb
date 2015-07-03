@@ -8,7 +8,12 @@
   Wallet address: <%= wallet.wallet_address %>
 </p>
 <p>
-<%=  link_to "Remove Wallet", wallets_path, method: :delete %>
+<%#=  link_to "Remove Wallet", wallet_path, method: :delete %>
+<%= link_to 'Delete', wallet,
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %></td>
+  </td>
+
 </p>
 <hr>
 <% end %>
