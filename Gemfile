@@ -39,6 +39,10 @@ gem 'bootstrap-generators', '~> 3.3.4'
 
 gem 'rspec-rails'
 
+gem 'bitcoin-ruby'
+
+gem 'bacon', '~> 1.2.0'
+
 group :production do
   gem 'rails_12factor'
 
@@ -56,7 +60,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry-byebug'
 
   gem "better_errors"
 
