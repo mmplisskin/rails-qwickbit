@@ -1,6 +1,6 @@
 <h1><%= current_business.name %> Wallet</h1>
 <hr>
-<% @wallets.each do |wallet| %>
+<% current_business.wallets.each do |wallet| %>
 <p>
   Name: <%= wallet.name %>
 </p>
