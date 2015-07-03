@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20150703014305) do
 
   create_table "wallets", force: :cascade do |t|
     t.string   "wallet_address"
+    t.string   "private_key"
     t.string   "name"
     t.integer  "business_id"
     t.datetime "created_at",     null: false
