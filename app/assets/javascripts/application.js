@@ -18,35 +18,6 @@
 //= require map.js
 //= require qrcode.js
 
-//
-// $('.wallets.index').ready(function () {
-//
-// var qrcode = new QRCode("pub_qrcode");
-//
-// function makeCode () {
-//     var elpub_ad = document.getElementById("pub_ad");
-//
-//     if (!elpub_ad.value) {
-//       return;
-//     }
-//
-//     qrcode.makeCode(elpub_ad.value);
-// }
-//
-// makeCode();
-//
-// $("#pub_ad").
-//     on("load", function () {
-//         makeCode();
-//     })
-//     on("keydown", function (e) {
-//         if (e.keyCode == 13) {
-//             makeCode();
-//         }
-//     });
-// });
-
-
 
 var loadqr
 
@@ -78,5 +49,5 @@ loadqr = function(){
 
 }
 
-$('.wallets.index').on('page:load', loadqr)
+$(document).on('page:load', loadqr)
 $('.wallets.index').ready(loadqr)
