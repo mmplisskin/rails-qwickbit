@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # make a new key in our session object called :user_id
       # which gets stored in a cookie in our browser
       session[:business_id] = business.id.to_s
-      redirect_to businesses_path
+      redirect_to business_path(current_business.id)
     else
       render :new
     end

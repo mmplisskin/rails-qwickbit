@@ -1,3 +1,9 @@
+var initialize
+
+
+$(document).on('page:load', initialize)
+
+
 $('.businesses.index').ready(function () {
 
 function initialize() {
@@ -9,8 +15,8 @@ function initialize() {
 
     var my_content = results[0]
 
-    var lat = my_content["latitude"];
-    var long = my_content["longitude"];
+    var lat = results["latitude"];
+    var long = results["longitude"];
 
     console.log(lat,long)
     var myCenter = new google.maps.LatLng(lat,long);
@@ -41,7 +47,7 @@ function initialize() {
       content: my_content
     });
 
-    infowindow.open(map,marker);
+    // infowindow.open(map,marker);
 
   })
 }

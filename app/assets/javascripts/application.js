@@ -11,12 +11,13 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require map.js
 //= require qrcode.js
+//= require turbolinks
 
 
 var loadqr
