@@ -20,12 +20,14 @@
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/list.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/sidebar.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/transition.css">
-
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/form.css">
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheets" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/message.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/sidebar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/visibility.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/transition.js"></script>
+<script <source src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/form.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//maps.googleapis.com/maps/api/js"></script>
 
@@ -39,11 +41,9 @@
 </head>
 
 <body class="<%= controller_name %> <%= action_name %>">
-  <% if controller != "static_pages" && action_name == 'landing' %>
-  
-  <% else %>
+
     <%= render 'layouts/nav'%>
-  <% end %>
+
 
 <!-- <div class="pusher"> -->
 

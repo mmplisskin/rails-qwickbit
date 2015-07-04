@@ -56,8 +56,7 @@ $('.wallets.index').ready(loadqr)
 
 
 
-  $(document)
-    .ready(function() {
+  $(document).on('page:load',function() {
 
       // fix menu when passed
       $('.masthead')

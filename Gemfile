@@ -31,8 +31,6 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 
 gem 'font-awesome-sass'
 
-gem 'simple_form'
-
 
 
 gem 'figaro'

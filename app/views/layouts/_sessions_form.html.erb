@@ -1,10 +1,10 @@
 <h1>Log In</h1>
 <%= simple_form_for :login do |f| %>
   <div>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, placeholder: 'email@example.com' %>
   </div>
   <div>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, placeholder: 'password'  %>
   </div>
   <div>
     <%= f.submit 'Log In' %>
