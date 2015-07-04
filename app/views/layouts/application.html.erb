@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/reset.css">
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/site.css">
 
@@ -24,11 +26,12 @@
 <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheets" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/message.css">
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/sidebar.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/visibility.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/transition.js"></script>
-<script <source src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/form.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/components/form.js"></script>
+
   <script src="//maps.googleapis.com/maps/api/js"></script>
 
 
@@ -45,20 +48,20 @@
     <%= render 'layouts/nav'%>
 
 
-<!-- <div class="pusher"> -->
+<div class="ui container">
 
-
+  <div class="container">
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <%= msg %>
+      <% end %>
+    <% end %>
 
     <%= yield %>
-    <div class="container">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <%= msg %>
-        <% end %>
-      <% end %>
 
-  <!-- </div> -->
+
+    </div>
 </div>
 </body>
 </html>
