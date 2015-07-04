@@ -13,10 +13,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require bootstrap-sprockets
-//= require bootstrap
+//= require jquery
+
 //= require map.js
 //= require qrcode.js
+//= require bootstrap-sprockets
 //= require turbolinks
 
 
@@ -52,3 +53,28 @@ loadqr = function(){
 
 $(document).on('page:load', loadqr)
 $('.wallets.index').ready(loadqr)
+
+
+
+  $(document)
+    .ready(function() {
+
+      // fix menu when passed
+      $('.masthead')
+        .visibility({
+          once: false,
+          onBottomPassed: function() {
+            $('.fixed.menu').transition('fade in');
+          },
+          onBottomPassedReverse: function() {
+            $('.fixed.menu').transition('fade out');
+          }
+        })
+      ;
+
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })

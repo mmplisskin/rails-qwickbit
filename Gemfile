@@ -31,11 +31,13 @@ gem 'bootstrap-sass', '~> 3.3.4.1'
 
 gem 'font-awesome-sass'
 
-gem 'bootstrap_form'
+gem 'simple_form'
+
+
 
 gem 'figaro'
 
-gem 'bootstrap-generators', '~> 3.3.4'
+
 
 gem 'rspec-rails'
 
