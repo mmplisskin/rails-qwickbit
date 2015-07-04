@@ -43,6 +43,10 @@ gem 'bitcoin-ruby'
 
 gem 'bacon', '~> 1.2.0'
 
+gem 'chain-ruby', '~> 2.3.0'
+
+gem 'jquery-turbolinks', '~> 2.1.0'
+
 group :production do
   gem 'rails_12factor'
 

@@ -11,38 +11,44 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require map.js
 //= require qrcode.js
+//= require turbolinks
 
-// $('.wallets.index').ready(function () {
-// var qrcode = new QRCode("qrcode");
-//   qrcode.makeCode(elText.value);
 
-// function makeCode () {
-//     var elText = document.getElementById("text");
-//
-//     if (!elText.value) {
-//         alert("Input a text");
-//         elText.focus();
-//         return;
-//     }
-//
-//     qrcode.makeCode(elText.value);
-// }
-//
-// makeCode();
-//
-// $("#text").
-//     on("blur", function () {
-//         makeCode();
-//     }).
-//     on("keydown", function (e) {
-//         if (e.keyCode == 13) {
-//             makeCode();
-//         }
-//     });
-});
+var loadqr
+
+loadqr = function(){
+  var qrcode = new QRCode("pub_qrcode")
+
+  var qrcode2 = new QRCode("priv_qrcode")
+
+ function makeCode (){
+    var elpub_ad = document.getElementById("pub_ad");
+    var elpriv_ad = document.getElementById("priv_ad");
+    qrcode.makeCode(elpub_ad.value);
+    qrcode2.makeCode(elpriv_ad.value);
+  }
+  makeCode();
+  $("#pub_ad").
+      on("load", function () {
+          makeCode();
+      })
+      $("#priv_ad").
+          on("load", function () {
+              makeCode();
+          })
+      on("keydown", function (e) {
+          if (e.keyCode == 13) {
+              makeCode();
+          }
+      });
+
+}
+
+$(document).on('page:load', loadqr)
+$('.wallets.index').ready(loadqr)
