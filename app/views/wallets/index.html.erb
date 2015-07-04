@@ -5,17 +5,19 @@
   Name: <%= wallet.name %>
 </p>
 <p>
-  <div id="public_adress">
+
     Wallet address: <%= wallet.wallet_address %>
-  </div>
+
 </p>
 <p>
   <div class="private_key" value='<%= wallet.private_key%>'>
     key: <%= wallet.private_key%>
 </div>
 </p>
-<!-- <input id="text" type="text" value='<%= wallet.private_key%>' style="width:80%" /><br /> -->
-<div id="qrcode"></div>
+<input id="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
+<div id="pub_qrcode"></div>
+<input id="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" /><br />
+<div id="priv_qrcode"></div>
 
 <p>
 <%#=  link_to "Remove Wallet", wallet_path, method: :delete %>
