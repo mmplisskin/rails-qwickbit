@@ -51,5 +51,5 @@ loadqr = function(){
 
 }
 
-// $(document).on('page:load', loadqr)
+$(document).on('page:load', loadqr)
 $('.wallets.index').ready(loadqr)

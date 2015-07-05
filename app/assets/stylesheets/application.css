@@ -41,6 +41,9 @@
 */
 
 
+
+
+
 * {
   border-radius: 0 !important;
 }
@@ -49,6 +52,11 @@
   width: 21vw;
   height: 20vh;
 }
+
+/*textarea {
+   resize: none;
+   width: 3vw;
+}*/
 
 
 #qrcode {
@@ -65,8 +73,8 @@
 
 #landing{
   position: absolute;
-  top: 42vh;
-  left: 32vw;
+  top: 33vh;
+  left: 26vw;
 }
 
   .landing{
@@ -104,3 +112,13 @@
   color: #d3d3d3;
 
 }
+
+
+.ui.grid{
+  margin-top: 12vh;
+}
+
+
+/*.lbtn{
+  padding-left: 1vw;
+}*/
