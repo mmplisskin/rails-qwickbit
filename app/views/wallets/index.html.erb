@@ -1,5 +1,7 @@
+<div class="ui four column doubling grid container">
+
 <h1><%= current_business.name %> Wallet</h1>
-<hr>
+
 <% current_business.wallets.each do |wallet| %>
 <p>
   Name: <%= wallet.name %>
@@ -27,7 +29,8 @@
   </td>
 
 </p>
-<hr>
+
 <% end %>
 <%= link_to "Add existing", new_wallet_path %>
 <%= link_to 'Make a new wallet', generate_key_path, method: :generate %>
+</div>

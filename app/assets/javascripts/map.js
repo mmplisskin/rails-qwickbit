@@ -1,7 +1,7 @@
 var initialize
 
 
-$(document).on('page:load', initialize)
+$('.businesses.show').on('page:load', initialize)
 
 
 $('.businesses.index').ready(function () {
