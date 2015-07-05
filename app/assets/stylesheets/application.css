@@ -49,15 +49,16 @@ textarea {
 }
 
 #qrcode {
-}  width:160px;
+ width:160px;
   height:160px;
   margin-top:15px;
+}
 
 
 
-  .hidden.menu {
-    display: none;
-  }
+.hidden.menu {
+  display: none;
+}
 
 
 #landing{
@@ -66,42 +67,40 @@ textarea {
   left: 32vw;
 }
 
-  .landing{
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png');
-    background-repeat: no-repeat;
-    position: fixed;
-    width: 100vw;
-    height: 100vh
-    background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -webkit-background-size: cover;
+.landing{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png');
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100vw;
+  height: 100vh
+  background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+}
+
+.overlay {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  top: 0px;
+  left: 0px;
+  background: rgba(12, 13, 35, 0.6);
   }
 
-  .overlay {
-      z-index: -1;
-      height: 100%;
-      width: 100%;
-      position: fixed;
-      overflow: auto;
-      top: 0px;
-      left: 0px;
-      background: rgba(12, 13, 35, 0.6);
-  }
+h1.ui.header{
+  font-size: 5vw;
+}
 
-  h1.ui.header{
-    font-size: 5vw;
-  }
-
-  h2{
-    font-size: 2.3vw;
-  }
+h2{
+  font-size: 2.3vw;
+}
 
 .h2.txt{
   color: #d3d3d3;
-
 }
-
 
 .ui.grid{
   margin-top: 4vh;
@@ -109,12 +108,5 @@ textarea {
 
 input.ui.standard.black.button {
   margin-left: 14vw;
-
   margin-top: 3vh;
 }
-
-
-
-/*.lbtn{
-  padding-left: 1vw;
-}*/
