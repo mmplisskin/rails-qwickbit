@@ -22,26 +22,12 @@
  @import "bootstrap";
 
 
-/*
-
-
-*/
-
-
-/*.new-business {
-  width: 60vw;
-  max-width: 600px;
-  margin: 0 auto;
-}*/
-
 
 
 /*
 
+ *= require rails_bootstrap_forms
 */
-
-
-
 
 
 * {
@@ -53,11 +39,14 @@
   height: 20vh;
 }
 
-/*textarea {
-   resize: none;
+textarea {
+   resize: none !important;;
    width: 3vw;
-}*/
+}
 
+.form-group {
+  padding-top: 1vh;
+}
 
 #qrcode {
 }  width:160px;
@@ -74,7 +63,7 @@
 #landing{
   position: absolute;
   top: 33vh;
-  left: 26vw;
+  left: 32vw;
 }
 
   .landing{
@@ -97,7 +86,7 @@
       overflow: auto;
       top: 0px;
       left: 0px;
-      background: rgba(0, 0, 0, 0.7); /*can be anything, of course*/
+      background: rgba(12, 13, 35, 0.6);
   }
 
   h1.ui.header{
@@ -105,7 +94,7 @@
   }
 
   h2{
-    font-size: 3vw;
+    font-size: 2.3vw;
   }
 
 .h2.txt{
@@ -115,8 +104,15 @@
 
 
 .ui.grid{
-  margin-top: 12vh;
+  margin-top: 4vh;
 }
+
+input.ui.standard.black.button {
+  margin-left: 14vw;
+
+  margin-top: 3vh;
+}
+
 
 
 /*.lbtn{

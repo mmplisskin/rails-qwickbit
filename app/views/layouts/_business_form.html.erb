@@ -1,4 +1,5 @@
-<%= simple_form_for @business do |f| %>
+<%= bootstrap_form_for @business do |f| %>
+<div class="ui form">
   <%= f.text_field :name, placeholder: 'Business Name' %>
   <%= f.text_field :email, placeholder: 'email@example.com' %>
   <%= f.text_field :address, placeholder: 'Adress' %>
@@ -10,7 +11,7 @@
   <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
   <%= f.password_field :password, placeholder: 'password'  %>
   <%= f.password_field :password_confirmation, placeholder: 'password confirmation'   %>
-  <div>
-      <%= f.submit %>
+
+      	<%=  f.submit "list Business", class:'ui standard black button'%>
   </div>
 <% end %>

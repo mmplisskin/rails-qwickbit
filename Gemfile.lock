@@ -52,6 +52,7 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    bootstrap_form (2.3.0)
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
@@ -123,6 +124,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.2)
       sprockets-rails
+    rails-bootstrap-helpers (0.1.0)
+      rails (>= 3.2.11)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.6)
@@ -172,9 +175,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.1.0)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     slop (3.6.0)
     sprockets (3.2.0)
       rack (~> 1.0)
@@ -211,6 +211,7 @@ DEPENDENCIES
   better_errors
   bitcoin-ruby
   bootstrap-sass (~> 3.3.4.1)
+  bootstrap_form
   chain-ruby (~> 2.3.0)
   coffee-rails (~> 4.1.0)
   figaro
@@ -222,11 +223,11 @@ DEPENDENCIES
   pg
   pry-byebug
   rails (= 4.2.2)
+  rails-bootstrap-helpers
   rails_12factor
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form
   turbolinks
   uglifier (>= 1.3.0)
   unicorn
