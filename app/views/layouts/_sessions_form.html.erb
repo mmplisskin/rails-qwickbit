@@ -1,12 +1,13 @@
-<h1>Log In</h1>
-<%= simple_form_for :login do |f| %>
-  <div>
+
+<%= bootstrap_form_for :login do |f| %>
+<div class="ui form">
     <%= f.text_field :email, placeholder: 'email@example.com' %>
-  </div>
-  <div>
+
+
     <%= f.password_field :password, placeholder: 'password'  %>
+
+
+    <%= f.submit 'Log In',class: 'ui standard black button'%>
   </div>
-  <div>
-    <%= f.submit 'Log In' %>
-  </div>
+
 <% end %>

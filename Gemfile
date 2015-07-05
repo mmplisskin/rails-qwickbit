@@ -34,7 +34,11 @@ gem 'font-awesome-sass'
 
 gem 'figaro'
 
-gem 'simple_form'
+# gem 'simple_form'
+gem 'bootstrap_form'
+
+gem "rails-bootstrap-helpers"
+
 
 
 gem 'rspec-rails'

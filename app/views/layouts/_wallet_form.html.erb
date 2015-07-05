@@ -1,7 +1,11 @@
-<%= simple_form_for @wallet do |f| %>
+<%= bootstrap_form_for @wallet do |f| %>
+
+  <div class="ui text container">
+    <div class="ui form">
   <%= f.text_field :name, placeholder: 'Business Wallet' %>
   <%= f.text_field :wallet_address , placeholder: 'i.e hxenowr3289x84932f' %>
-  <div>
-      <%= f.submit%>
+
+        <%= f.submit "Add Wallet", class: 'ui standard black button'%>
   </div>
+    </div>
 <% end %>
