@@ -2,9 +2,10 @@
 
 <h1><%= current_business.name %> Wallet</h1>
 <% if current_business.wallets.size > 0 %>
-<% @balances.each do |bal| %>
+<%= @balances %>
+<%# @balances.each do |bal| %>
 <h2>
-<%= bal["total"]["balance"] * 0.00000001 %>
+<%#= bal["total"]["balance"] * 0.00000001 %>
 </h2>
 <% end %>
 <% @wallets.each do |wallet| %>
@@ -13,7 +14,7 @@
 </p>
 <h1></h1>
 <p>
-<h2>  <%#= wallet.balance  %></h2>
+<h2>  <%= wallet.balance  %></h2>
 
     Wallet address: <%= wallet.wallet_address %>
 
@@ -37,8 +38,8 @@
 
 </p>
 
-<% end %>
-<% else %>
+<%# end %>
+<%# else %>
 <% end %>
 
 

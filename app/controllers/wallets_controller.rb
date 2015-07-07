@@ -14,23 +14,21 @@ class WalletsController < ApplicationController
     end
 
     if addresses.size > 0
-      @balances = chain_client.get_addresses(addresses)
-      return
-    else
-      @balances = nil
+      result = chain_client.get_addresses(addresses)
+      result.each do |r|
+        wallet_address = r["address"]
+        bal = r["total"]["balance"]
+        balance = bal * 0.00000001
+        # binding.pry
+        @wallet = Wallet.find_by(wallet_address: wallet_address)
+        # @wallet.balance = balance
+        if @wallet.update(balance: balance)
+        # binding.pry
+        else
+        end
+      end
     end
 
-    # balance = addresses_amounts.each do |bal|
-    #   @balances << bal["total"]["balance"]
-    # @wallets = wallets
-    #  @bal
-    # bal = bal[0]["total"]["balance"]
-    # @bal = bal * 0.00000001
-  #   wallets.each do |w|
-  #       w.balance = chain_client.get_address(w.wallet_address)
-  #       w.save
-  #   end
-  #  @wallets
     respond_to do |format|
         format.html {
             render
@@ -39,7 +37,10 @@ class WalletsController < ApplicationController
             render json: @wallets
         }
     end
-  end
+end
+
+
+
 
   def show
 
@@ -55,7 +56,7 @@ class WalletsController < ApplicationController
     @wallet.private_key = key[0]
     @wallet.wallet_address = Bitcoin::pubkey_to_address(key[1])
     balcal = chain_client.get_address(@wallet.wallet_address)
-    @wallet.balance = balcal[0]["total"]["balance"]
+    @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
@@ -68,7 +69,7 @@ class WalletsController < ApplicationController
   def create
     @wallet = Wallet.new(wallet_params)
     balcal = chain_client.get_address(@wallet.wallet_address)
-    @wallet.balance = balcal[0]["total"]["balance"]
+    @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
