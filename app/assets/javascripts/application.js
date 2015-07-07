@@ -21,35 +21,31 @@
 //= require turbolinks
 
 
-var loadqr
-
-loadqr = function(){
+var loadqrpub
+loadqrpub = function(){
   var qrcode = new QRCode("pub_qrcode")
-
-  var qrcode2 = new QRCode("priv_qrcode")
-
+  // var qrcode2 = new QRCode("priv_qrcode")
  function makeCode (){
     var elpub_ad = document.getElementById("pub_ad");
-    var elpriv_ad = document.getElementById("priv_ad");
+    // var elpriv_ad = document.getElementById("priv_ad");
     qrcode.makeCode(elpub_ad.value);
-    qrcode2.makeCode(elpriv_ad.value);
+    // qrcode2.makeCode(elpriv_ad.value);
   }
   makeCode();
   $("#pub_ad").
       on("load", function () {
           makeCode();
       })
-      $("#priv_ad").
-          on("load", function () {
-              makeCode();
-          })
+      // $("#priv_ad").
+      //     on("load", function () {
+      //         makeCode();
+      //     })
       on("keydown", function (e) {
           if (e.keyCode == 13) {
               makeCode();
           }
       });
-
 }
 
-$(document).on('page:load', loadqr)
-$('.wallets.index').ready(loadqr)
+$(document).on('page:load', loadqrpub)
+$('.wallets.index').ready(loadqrpub)

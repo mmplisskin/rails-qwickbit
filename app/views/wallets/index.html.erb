@@ -1,5 +1,5 @@
 <div class="ui four column doubling grid container">
-
+<h2><%= @bal %></h2>
 <h1><%= current_business.name %> Wallet</h1>
 
 <% current_business.wallets.each do |wallet| %>
@@ -7,13 +7,14 @@
   Name: <%= wallet.name %>
 </p>
 <p>
+<h2>  <%= wallet.balance  %></h2>
 
     Wallet address: <%= wallet.wallet_address %>
 
 </p>
 <p>
   <div class="private_key" value='<%= wallet.private_key%>'>
-    key: <%= wallet.private_key%>
+    key: <%#= wallet.private_key%>
 </div>
 </p>
 <input id="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
@@ -31,6 +32,7 @@
 </p>
 
 <% end %>
+
 <%= link_to "Add existing", new_wallet_path %>
 <%= link_to 'Make a new wallet', generate_key_path, method: :generate %>
 </div>
