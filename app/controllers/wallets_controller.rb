@@ -8,11 +8,25 @@ class WalletsController < ApplicationController
 
   def index
     @wallets = Wallet.where(business_id: current_business)
-    #  bal = chain_client.get_addresses(@wallets)
+    addresses = []
+    @wallets.each do |w|
+      addresses << w.wallet_address
+    end
+
+    if addresses.size > 0
+      @balances = chain_client.get_addresses(addresses)
+      return
+    else
+      @balances = nil
+    end
+
+    # balance = addresses_amounts.each do |bal|
+    #   @balances << bal["total"]["balance"]
+    # @wallets = wallets
     #  @bal
     # bal = bal[0]["total"]["balance"]
     # @bal = bal * 0.00000001
-  #   @wallets.each do |w|
+  #   wallets.each do |w|
   #       w.balance = chain_client.get_address(w.wallet_address)
   #       w.save
   #   end
@@ -41,7 +55,7 @@ class WalletsController < ApplicationController
     @wallet.private_key = key[0]
     @wallet.wallet_address = Bitcoin::pubkey_to_address(key[1])
     balcal = chain_client.get_address(@wallet.wallet_address)
-    @wallet.balance = balcal[0]["total"]["balance"]* 0.00000001
+    @wallet.balance = balcal[0]["total"]["balance"]
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
@@ -54,7 +68,7 @@ class WalletsController < ApplicationController
   def create
     @wallet = Wallet.new(wallet_params)
     balcal = chain_client.get_address(@wallet.wallet_address)
-    @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
+    @wallet.balance = balcal[0]["total"]["balance"]
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
