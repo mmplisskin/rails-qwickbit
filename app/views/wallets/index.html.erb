@@ -10,6 +10,12 @@
 <% end %>
 <% @wallets.each do |wallet| %>
 <p>
+  <strong>created: <%= wallet.created_at %></strong>
+</p>
+<p>
+  <strong>updated: <%= wallet.updated_at %></strong>
+</p>
+<p>
   Name: <%= wallet.name %>
 </p>
 <h1></h1>
@@ -22,7 +28,7 @@
 <p>
   <div class="private_key" value='<%= wallet.private_key%>'>
     key: <%= wallet.private_key%>
-</div>
+  </div>
 </p>
 <input id="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
 <!-- <div id="pub_qrcode"></div> -->

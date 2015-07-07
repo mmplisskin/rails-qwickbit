@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
     # resources :businesses
 
-  post '/wallets' => 'wallets#index'
+  patch '/wallets' => 'wallets#index'
     # get '/wallets/generate'     => 'wallets#generate', as: :generate_key
-    post '/wallets/generate'     => 'wallets#generate', as: :generate_key
+  post '/wallets/generate'     => 'wallets#generate', as: :generate_key
     # delete '/wallets/:id'     => 'wallets#destroy'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -19,13 +19,8 @@ class WalletsController < ApplicationController
         wallet_address = r["address"]
         bal = r["total"]["balance"]
         balance = bal * 0.00000001
-        # binding.pry
         @wallet = Wallet.find_by(wallet_address: wallet_address)
-        # @wallet.balance = balance
-        if @wallet.update(balance: balance)
-        # binding.pry
-        else
-        end
+        @wallet.update(balance: "balance")
       end
     end
 
