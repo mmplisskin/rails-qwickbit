@@ -21,21 +21,38 @@
 //= require turbolinks
 
 
+/*
+make two separate functions called render_pub and render_priv and put render_priv into a conditional.
+*/
 
 var loadqrpub
 loadqrpub = function() {
-  function render_QR (){
-    for (var i = 0; i < $(".pub_ad").length; i++) {
-      var qrcode_pub = new QRCode("pub-qr-test", i)
-      var qrcode_priv = new QRCode("priv-qr-test", i)
-      var elpub_ad = $(".pub_ad")[i];
-      var elpriv_ad = $(".priv_ad")[i];
-      qrcode_pub.makeCode(elpub_ad.value);
-      console.log(elpriv_ad.title);
-      qrcode_priv.makeCode(elpriv_ad.value);
+  function render_QR(divClass, inputClass) {
+    for (var i = 0; i < $(inputClass).length; i++) {
+      var qrVar = new QRCode(divClass, i)
+      qrVar.makeCode($(inputClass)[i].value)
     }
   }
-  render_QR()
+
+  // function render_QR (){
+  //   for (var i = 0; i < $(".pub_ad").length; i++) {
+  //     var qrcode_pub = new QRCode("pub-qrcode", i)
+  //     var qrcode_priv = new QRCode("priv-qrcode", i)
+  //     var elpub_ad = $(".pub_ad")[i];
+  //     var elpriv_ad = $(".priv_ad")[i];
+  //     qrcode_pub.makeCode(elpub_ad.value);
+  //     if (elpriv_ad.value.length !== 0) {
+  //       qrcode_priv.makeCode(elpriv_ad.value);
+  //     }
+  //   }
+  // }
+  render_QR("pub-qrcode", ".pub_ad")
+  for (var i = 0; i < $(".pub_ad").length; i++) {
+    console.log($(".priv_ad"));
+    if ($("priv_ad")[i].value) {
+      render_QR("priv-qrcode", ".priv_ad")
+    }
+  }
 }
 
 $('.wallets.index').ready(loadqrpub)
