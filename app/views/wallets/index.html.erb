@@ -5,14 +5,12 @@
   <p>Balance: <%= wallet.balance %></p>
   <div class="public_key_wrapper">
     <input id="pub_ad" class="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
-    <div id="pub_qrcode0"></div>
-    <div id="pub_qrcode1"></div>
+    <div id="pub_qrcode" class="pub-qr-test"></div>
     <p>Wallet address: <%= wallet.wallet_address %></p>
   </div>
   <div class="private_key_wrapper">
     <input id="priv_ad" class="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" /><br />
-    <div id="priv_qrcode0"></div>
-    <div id="priv_qrcode1"></div>
+    <div id="priv_qrcode" class="priv-qr-test"></div>
     <p class="private_key" value='<%= wallet.private_key %>'>private key: <%= wallet.private_key%></p>
     <p><%= link_to 'Delete', wallet, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </div>

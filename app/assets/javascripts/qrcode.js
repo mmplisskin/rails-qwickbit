@@ -533,7 +533,7 @@ var QRCode;
 	* @param {String} [vOption.colorLight="#ffffff"]
 	* @param {QRCode.CorrectLevel} [vOption.correctLevel=QRCode.CorrectLevel.H] [L|M|Q|H]
 	*/
-	QRCode = function (el, vOption) {
+	QRCode = function (el, index, vOption) {
 		this._htOption = {
 			width : 150,
 			height : 150,
@@ -557,7 +557,7 @@ var QRCode;
 		}
 
 		if (typeof el == "string") {
-			el = document.getElementById(el);
+			el = document.getElementsByClassName(el)[index];
 		}
 
 		if (this._htOption.useSVG) {

@@ -26,8 +26,10 @@ var loadqrpub
 loadqrpub = function() {
   function render_QR (){
     for (var i = 0; i < $(".pub_ad").length; i++) {
-      var qrcode_pub = new QRCode("pub_qrcode"+[i])
-      var qrcode_priv = new QRCode("priv_qrcode"+[i])
+      var qrcode_pub = new QRCode("pub-qr-test", i)
+      var qrcode_priv = new QRCode("priv-qr-test", i)
+
+      console.log(qrcode_pub);
       var elpub_ad = $(".pub_ad")[i];
       var elpriv_ad = $(".priv_ad")[i];
       qrcode_pub.makeCode(elpub_ad.value);
