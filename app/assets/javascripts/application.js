@@ -25,15 +25,16 @@
 var loadqrpub
 loadqrpub = function() {
   function render_QR (){
-    var qrcode = new QRCode("pub_qrcode")
-    var qrcode2 = new QRCode("priv_qrcode")
-    var elpub_ad = document.getElementById("pub_ad");
-    var elpriv_ad = document.getElementById("priv_ad");
-    qrcode.makeCode(elpub_ad.value);
-    qrcode2.makeCode(elpriv_ad.value);
+    for (var i = 0; i < $(".pub_ad").length; i++) {
+      var qrcode_pub = new QRCode("pub_qrcode"+[i])
+      var qrcode_priv = new QRCode("priv_qrcode"+[i])
+      var elpub_ad = $(".pub_ad")[i];
+      var elpriv_ad = $(".priv_ad")[i];
+      qrcode_pub.makeCode(elpub_ad.value);
+      qrcode_priv.makeCode(elpriv_ad.value);
+    }
   }
-  
-  render_QR();
+  render_QR()
 }
 
 $('.wallets.index').ready(loadqrpub)
