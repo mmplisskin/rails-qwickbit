@@ -11,7 +11,9 @@
   <div class="private_key_wrapper">
     <input id="priv_ad" class="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" /><br />
     <div id="priv_qrcode" class="priv-qrcode"></div>
+    <% if wallet.private_key %>
     <p class="private_key" value='<%= wallet.private_key %>'>private key: <%= wallet.private_key %></p>
+    <% end %>
   </div>
   <p><%= link_to 'Delete', wallet, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 </div>
