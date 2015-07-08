@@ -22,41 +22,40 @@
       Sign Up
     </h2>
   </div>
-    <div class="col-md-2">
-    </div>
+    <!-- <div class="col-md-2">
+    </div> -->
     <%= bootstrap_form_for @business do |f| %>
-    <div class="col-md-8">
-      <div class=sign_upfields1>
-        <%= f.text_field :name, placeholder: 'Business Name', label: 'Business Name' %>
-        <%= f.text_field :email, placeholder: 'email@example.com' %>
-      </div>
-      <div class=sign_upfields2 style="display: none">
-        <%= f.text_field :address, placeholder: 'Adress' %>
-        <%= f.text_field :city, placeholder: 'City' %>
-        <%= f.select(:state, options_for_select(us_states, "CA"))%>
-        <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
-      </div>
-      <div class=sign_upfields3 style="display: none">
-        <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
-        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
-        <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
-        <%= f.password_field :password, placeholder: 'password'  %>
-        <%= f.password_field :password_confirmation, placeholder: 'password confirmation'   %>
-        <%#=  f.submit "list Business", class:'ui standard black button'%>
-      </div>
+    <div class="row">
 
+      <div class="col-md-8 col-md-offset-2">
+        <div class="sign_upfields1">
+          <%= f.text_field :name, placeholder: 'Business Name', label: 'Business Name' %>
+          <%= f.text_field :email, placeholder: 'email@example.com' %>
+        </div>
+        <div class="sign_upfields2" style="display: none">
+          <%= f.text_field :address, placeholder: 'Adress' %>
+          <%= f.text_field :city, placeholder: 'City' %>
+          <%= f.select(:state, options_for_select(us_states, "CA"))%>
+          <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
+        </div>
+        <div class="sign_upfields3" style="display: none">
+          <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
+          <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
+          <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
+          <%= f.password_field :password, placeholder: 'password'  %>
+          <%= f.password_field :password_confirmation, placeholder: 'password confirmation'   %>
+          <%#=  f.submit "list Business", class:'ui standard black button'%>
+        </div>
+      </div>
+    </div>
     <% end %>
 
-</div>
-    <div class="row forward_back_btns">
-      <div class="col-md-4">
-        <div class='ui huge black button', id="nextbtn">Back <i class="fa fa-undo"></i></div>
+
+    <div class="row" id="forward_back_btns">
+        <div class="col-md-8 col-md-offset-2">
+          <div class='ui huge black button', id="backbtn">Back <i class="fa fa-undo"></i></div>
+
+          <div class='ui huge blue button', id="nextbtn">Next <i class="fa fa-arrow-right"></i></div>
       </div>
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-        <div class='ui huge blue button', id="nextbtn">Next <i class="fa fa-arrow-right"></i></div>
-      </div>
-    </div>
   </div>
 </div>

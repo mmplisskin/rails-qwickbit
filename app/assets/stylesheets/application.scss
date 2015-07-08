@@ -84,9 +84,9 @@ textarea {
   z-index: 10;
   width: 38vw;
   height: 60vh;
-  position: absolute;
-  top: 26vh;
-  left: 31vw;
+  position: relative;
+  top: 17vh;
+  left: 19vw;
   background-color: white;
   z-index: 1;
   text-align: center;
@@ -126,9 +126,9 @@ input.ui.standard.black.button {
 
 
 
-.forward_back_btns{
-  position: relative;
-  top: 44%;
+#forward_back_btns{
+  // position: absolute;
+  // top: 44%;
 }
 // .ui.huge.green.button{
 //   display: block;

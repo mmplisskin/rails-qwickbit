@@ -45,9 +45,10 @@ ActiveRecord::Schema.define(version: 20150703014305) do
     t.integer  "business_id"
     t.string   "name"
     t.text     "description"
+    t.text     "item_address"
     t.decimal  "price"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "items", ["business_id"], name: "index_items_on_business_id", using: :btree
@@ -56,10 +57,10 @@ ActiveRecord::Schema.define(version: 20150703014305) do
     t.string   "wallet_address"
     t.string   "private_key"
     t.string   "name"
-    t.decimal  "balance",        precision: 9, scale: 8
+    t.decimal  "balance"
     t.integer  "business_id"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   add_index "wallets", ["business_id"], name: "index_wallets_on_business_id", using: :btree
