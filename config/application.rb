@@ -24,7 +24,7 @@ module Qwickbit
 
          origins "*"
 
-         resource "/businesses/*",
+         resource "*",
            headers: :any,
            methods: [:get, :post, :put, :patch, :delete, :options]
        end

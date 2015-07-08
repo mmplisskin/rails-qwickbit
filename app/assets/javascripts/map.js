@@ -18,7 +18,7 @@ function initialize() {
     var lat = results["latitude"];
     var long = results["longitude"];
 
-    console.log(lat,long)
+    // console.log(lat,long)
     var myCenter = new google.maps.LatLng(lat,long);
     var marker;
 
