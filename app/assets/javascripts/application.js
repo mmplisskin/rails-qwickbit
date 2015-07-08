@@ -39,3 +39,44 @@ loadqrpub = function() {
 }
 
 $('.wallets.index').ready(loadqrpub)
+
+
+
+var signup
+
+signup = function(){
+  $(document).ready(function(){
+      $("#signupbtn").click(function(){
+          $("#sign_up1").fadeIn("slow");
+
+      });
+
+      $(document).mouseup(function (e)
+      {
+          var container = $("#sign_up1");
+
+          if (!container.is(e.target) // if the target of the click isn't the container...
+              && container.has(e.target).length === 0) // ... nor a descendant of the container
+          {
+              container.hide(1000);
+          }
+      });
+
+      // $("#nextbtn").click(function(){
+      //     $("#sign_upfields2").fadeIn("slow");
+      //     $("#sign_upfields1").hide(1000);
+      //
+      // });
+
+
+
+
+  });
+
+
+
+
+}
+
+
+$('.static_pages.landing').ready(signup)

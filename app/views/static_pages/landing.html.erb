@@ -1,11 +1,7 @@
-
-
-
 <!-- Page Contents -->
 <div class="overlay">
 
   <div class="ui center aligned segment">
-
 
     <div class="ui text container" id="landing">
       <h1 class="ui inverted header logo">
@@ -13,9 +9,54 @@
       </h1>
       <h2 class="h2 txt">The Platform for business owners to sell locally and get paid immediatly in Bitcoin
         <br>
-      <%= link_to "Sign up", new_business_path, class: 'ui huge green button block' %>
-
+        <%#= link_to "Sign up", new_business_path, class: 'ui huge green button block'%>
+      <button class='ui huge green button block', id="signupbtn">Sign up</button>
     </h2>
   </div>
-
   </div>
+</div>
+
+<div class="signupdiv" id="sign_up1" style="display: none">
+  <div class="row">
+    <h2 class="ui teal">
+      Sign Up
+    </h2>
+  </div>
+    <div class="col-md-2">
+    </div>
+    <%= bootstrap_form_for @business do |f| %>
+    <div class="col-md-8">
+      <div class=sign_upfields1>
+        <%= f.text_field :name, placeholder: 'Business Name', label: 'Business Name' %>
+        <%= f.text_field :email, placeholder: 'email@example.com' %>
+      </div>
+      <div class=sign_upfields2 style="display: none">
+        <%= f.text_field :address, placeholder: 'Adress' %>
+        <%= f.text_field :city, placeholder: 'City' %>
+        <%= f.select(:state, options_for_select(us_states, "CA"))%>
+        <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
+      </div>
+      <div class=sign_upfields3 style="display: none">
+        <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
+        <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
+        <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
+        <%= f.password_field :password, placeholder: 'password'  %>
+        <%= f.password_field :password_confirmation, placeholder: 'password confirmation'   %>
+        <%#=  f.submit "list Business", class:'ui standard black button'%>
+      </div>
+
+    <% end %>
+
+</div>
+    <div class="row forward_back_btns">
+      <div class="col-md-4">
+        <div class='ui huge black button', id="nextbtn">Back <i class="fa fa-undo"></i></div>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+        <div class='ui huge blue button', id="nextbtn">Next <i class="fa fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</div>

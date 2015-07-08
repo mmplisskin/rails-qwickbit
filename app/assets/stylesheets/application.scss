@@ -79,8 +79,21 @@ textarea {
   -webkit-background-size: cover;
 }
 
+
+.signupdiv {
+  z-index: 10;
+  width: 38vw;
+  height: 60vh;
+  position: absolute;
+  top: 26vh;
+  left: 31vw;
+  background-color: white;
+  z-index: 1;
+  text-align: center;
+}
+
 .overlay {
-  z-index: -1;
+  z-index: -2;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -111,6 +124,12 @@ input.ui.standard.black.button {
   margin-top: 3vh;
 }
 
+
+
+.forward_back_btns{
+  position: relative;
+  top: 44%;
+}
 // .ui.huge.green.button{
 //   display: block;
 //   position: absolute;
