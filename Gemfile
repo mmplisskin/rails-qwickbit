@@ -39,8 +39,6 @@ gem 'bootstrap_form'
 
 gem "rails-bootstrap-helpers"
 
-
-
 gem 'rspec-rails'
 
 gem 'bitcoin-ruby'
@@ -52,6 +50,8 @@ gem 'chain-ruby', '~> 2.3.0'
 gem 'jquery-turbolinks', '~> 2.1.0'
 
 gem 'rack-cors', :require => 'rack/cors'
+
+gem 'clockwork', '~> 1.2.0'
 
 group :production do
   gem 'rails_12factor'
