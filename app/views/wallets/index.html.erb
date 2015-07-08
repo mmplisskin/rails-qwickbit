@@ -1,54 +1,24 @@
-<div class="ui four column doubling grid container">
-
 <h1><%= current_business.name %> Wallet</h1>
-<% if current_business.wallets.size > 0 %>
-<%= @balances %>
-<%# @balances.each do |bal| %>
-<h2>
-<%#= bal["total"]["balance"] * 0.00000001 %>
-</h2>
-<% end %>
 <% @wallets.each do |wallet| %>
-<p>
-  <strong>created: <%= wallet.created_at %></strong>
-</p>
-<p>
-  <strong>updated: <%= wallet.updated_at %></strong>
-</p>
-<p>
-  Name: <%= wallet.name %>
-</p>
-<h1></h1>
-<p>
-<h2>  <%= wallet.balance  %></h2>
+<div>
+  <p>Name: <%= wallet.name %></p>
+  <p>Balance: <%= wallet.balance %></p>
+  <p>Wallet address: <%= wallet.wallet_address %></p>
+</div>
+<div class="private_key" value='<%= wallet.private_key%>'>
+  <p>key: <%= wallet.private_key%></p>
+</div>
 
-    Wallet address: <%= wallet.wallet_address %>
+<div>
+  <%= link_to 'Delete', wallet, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
 
-</p>
-<p>
-  <div class="private_key" value='<%= wallet.private_key%>'>
-    key: <%= wallet.private_key%>
-  </div>
-</p>
 <input id="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
-<!-- <div id="pub_qrcode"></div> -->
+<div id="pub_qrcode"></div>
 <input id="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" /><br />
-<!-- <div id="priv_qrcode"></div> -->
+<div id="priv_qrcode"></div>
 
-<p>
 
-<%= link_to 'Delete', wallet,
-  method: :delete,
-  data: { confirm: 'Are you sure?' } %></td>
-  </td>
-
-</p>
-
-<%# end %>
-<%# else %>
 <% end %>
-
-
 <%= link_to "Add existing", new_wallet_path %>
 <%= link_to 'Make a new wallet', generate_key_path, method: :generate %>
-</div>
