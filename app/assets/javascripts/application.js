@@ -65,7 +65,6 @@ signup = function(){
   $(document).ready(function(){
       $("#signupbtn").click(function(){
           $("#sign_up1").fadeIn("slow");
-
       });
 
       $(document).mouseup(function (e)
@@ -79,14 +78,23 @@ signup = function(){
           }
       });
 
-      // $("#nextbtn").click(function(){
-      //     $("#sign_upfields2").fadeIn("slow");
-      //     $("#sign_upfields1").hide(1000);
-      //
-      // });
+      $("#nextbtn").click(function(){
+
+        if ( $(".sign_upfields2").css('display') == 'none' && $(".sign_upfields1").css('display') !== 'none'  ){
+            $(".sign_upfields2").fadeIn("slow");
+            $(".sign_upfields1").hide(1000);
+            $(".ui.huge.blue.button").addClass("nextbtn")
+
+        }
+
+      })
+
+      $(".ui.huge.blue.button").click(function(){
+            alert()
 
 
 
+      });
 
   });
 

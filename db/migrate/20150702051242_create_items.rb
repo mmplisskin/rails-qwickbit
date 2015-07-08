@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.references :business, index: true, foreign_key: true
       t.string :name
       t.text :description
+      t.text :item_address
       t.decimal :price
       t.timestamps null: false
     end
