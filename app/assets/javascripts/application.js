@@ -19,27 +19,35 @@
 //= require qrcode.js
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require wallets.js
 
 
 /*
 make two separate functions called render_pub and render_priv and put render_priv into a conditional.
 */
-
-function render_QR(divClass, inputClass) {
-  for (var i = 0; i < $(inputClass).length; i++) {
-    if ($(inputClass)[i].value.length !== 0) {
-      var qrVar = new QRCode(divClass, i)
-      qrVar.makeCode($(inputClass)[i].value)
+function walletIndexLoad() {
+  function render_QR(divClass, inputClass) {
+    for (var i = 0; i < $(inputClass).length; i++) {
+      if ($(inputClass)[i].value.length !== 0) {
+        var qrVar = new QRCode(divClass, i)
+        qrVar.makeCode($(inputClass)[i].value)
+      }
     }
   }
-}
-function loadqrpub() {
-  render_QR("pub-qrcode", ".pub_ad")
-  render_QR("priv-qrcode", ".priv_ad")
+  (function loadqrpub() {
+    render_QR("pub-qrcode", ".pub_ad")
+    render_QR("priv-qrcode", ".priv_ad")
+  })()
+
+
+  var private_key = $(".private_key_wrapper")
+  var button = $(".private_key_button")
+  $(".private_key_button").click(function () {
+    $(this).next().toggle("fast")
+  })
 }
 
-$('.wallets.index').ready(loadqrpub)
-
+$('.wallets.index').ready(walletIndexLoad)
 
 
 var signup
