@@ -159,8 +159,23 @@ input.ui.standard.black.button {
 //   top: 29vh;
 //   left: 17vw;
 // }
+
+/********************************
+          WALLETS INDEX
+********************************/
 .private_key_wrapper {
-  display: none;
+  background-color: rgba(20,80,40,0.4);
+}
+.hide {
+  display:none;
+}
+.public_key_wrapper {
+  background-color: rgba(120,120,120,0.4);
+}
+.private_key_wrapper,
+.public_key_wrapper {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
+  height: 531px;
 }
 //
 // .item.ui.inverted.button{
