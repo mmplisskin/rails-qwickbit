@@ -13,16 +13,16 @@ class WalletsController < ApplicationController
       addresses << w.wallet_address
     end
 
-    if addresses.size > 0
-      result = chain_client.get_addresses(addresses)
-      result.each do |r|
-        wallet_address = r["address"]
-        bal = r["total"]["balance"]
-        balance = bal * 0.00000001
-        @wallet = Wallet.find_by(wallet_address: wallet_address)
-        @wallet.update(balance: "balance")
-      end
-    end
+    # if addresses.size > 0
+    #   result = chain_client.get_addresses(addresses)
+    #   result.each do |r|
+    #     wallet_address = r["address"]
+    #     bal = r["total"]["balance"]
+    #     balance = bal * 0.00000001
+    #     @wallet = Wallet.find_by(wallet_address: wallet_address)
+    #     @wallet.update(balance: "balance")
+    #   end
+    # end
 
     respond_to do |format|
         format.html {

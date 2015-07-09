@@ -43,7 +43,10 @@ function walletIndexLoad() {
   var private_key = $(".private_key_wrapper")
   var button = $(".private_key_button")
   $(".private_key_button").click(function () {
-    $(this).next().toggle("fast")
+    $(this).parent().parent().next(".private_key_wrapper").toggle("fast")
+    console.log($(this).parent().parent().next(".private_key_wrapper"));
+    // $(this).parent().parent().next(".private_key_wrapper").toggleClass("private_key_hide private_key_show")
+    $(this).parent().parent().next(".private_key_wrapper").removeClass("hide")
   })
 }
 
