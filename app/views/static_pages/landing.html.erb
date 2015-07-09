@@ -31,12 +31,25 @@
         <div class="sign_upfields1">
           <%= f.text_field :name, placeholder: 'Business Name', label: 'Business Name' %>
           <%= f.text_field :email, placeholder: 'email@example.com' %>
+          <div class="row" id="forward_back_btns">
+              <div class="col-md-8 col-md-offset-2">
+
+                <div class='ui huge blue button', id="nextbtn">Next <i class="fa fa-arrow-right"></i></div>
+            </div>
+        </div>
         </div>
         <div class="sign_upfields2" style="display: none">
           <%= f.text_field :address, placeholder: 'Adress' %>
           <%= f.text_field :city, placeholder: 'City' %>
           <%= f.select(:state, options_for_select(us_states, "CA"))%>
           <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
+          <div class="row" id="forward_back_btns">
+              <div class="col-md-8 col-md-offset-2">
+                <div class='ui huge black button', id="backbtn1">Back <i class="fa fa-undo"></i></div>
+
+                <div class='ui huge blue button', id="nextbtn2">Next <i class="fa fa-arrow-right"></i></div>
+            </div>
+        </div>
         </div>
         <div class="sign_upfields3" style="display: none">
           <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
@@ -44,18 +57,19 @@
           <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
           <%= f.password_field :password, placeholder: 'password'  %>
           <%= f.password_field :password_confirmation, placeholder: 'password confirmation'   %>
-          <%#=  f.submit "list Business", class:'ui standard black button'%>
+          <%=  f.submit "list Business", class:'ui huge blue button'%>
+          <div class="row" id="forward_back_btns">
+              <div class="col-md-8 col-md-offset-2">
+                <div class='ui huge black button', id="backbtn2">Back <i class="fa fa-undo"></i></div>
+
+                <!-- <div class='ui huge blue button', id="nextbtn3">Next <i class="fa fa-arrow-right"></i></div> -->
+            </div>
+        </div>
         </div>
       </div>
     </div>
     <% end %>
 
 
-    <div class="row" id="forward_back_btns">
-        <div class="col-md-8 col-md-offset-2">
-          <div class='ui huge black button', id="backbtn">Back <i class="fa fa-undo"></i></div>
 
-          <div class='ui huge blue button', id="nextbtn">Next <i class="fa fa-arrow-right"></i></div>
-      </div>
-  </div>
 </div>
