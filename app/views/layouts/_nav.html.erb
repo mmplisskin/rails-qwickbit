@@ -15,9 +15,12 @@
       </div>
       <% else %>
       <div class="right item">
-        <%= link_to "Sign up", new_business_path, class: 'item, ui inverted button' %>
-        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-        <%= link_to "Log in", login_path, class: 'item, ui inverted button rbtn' %>
+        <%#= link_to "Sign up", new_business_path, class: 'item, ui inverted button' %>
+        <button class='item ui inverted button', id="signupbtn">Sign up</button>
+        <!-- <button class="item ui inverted button rbtn" id="loginbtn">Sign Up</button> -->
+        <!-- &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp -->
+        <%#= link_to "Log in", login_path, class: 'item, ui inverted button rbtn' %>
+        <button class="item ui inverted button" id="loginbtn">Log In</button>
       </div>
       <% end %>
     </div>
