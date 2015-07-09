@@ -53,6 +53,8 @@ gem 'rack-cors', :require => 'rack/cors'
 
 gem 'clockwork', '~> 1.2.0'
 
+gem 'html5_validators'
+
 group :production do
   gem 'rails_12factor'
 

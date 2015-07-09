@@ -26,7 +26,11 @@ module Qwickbit
 
          resource "/businesses",
            headers: :any,
-           methods: [:get, :post, :put, :patch, :delete, :options]
+           methods: [:get, :post, :patch, :options]
+
+           resource "/items",
+             headers: :any,
+             methods: [:get, :post, :patch, :options]
        end
      end
     config.active_record.raise_in_transactional_callbacks = true
