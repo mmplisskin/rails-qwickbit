@@ -74,23 +74,30 @@ signup = function(){
         if ( $(".sign_upfields2").css('display') == 'none' && $(".sign_upfields1").css('display') !== 'none'  ){
             $(".sign_upfields2").fadeIn("slow");
             $(".sign_upfields1").hide(1000);
-            $(".ui.huge.blue.button").addClass("nextbtn")
-
         }
-
       })
+        $("#nextbtn2").click(function(){
+        $(".sign_upfields3").fadeIn("slow");
+        $(".sign_upfields2").hide(1000);
 
-      $(".ui.huge.blue.button").click(function(){
-            alert()
-
-
+      });
+      // console.log($("#backbtn1")[0])
+      $("#backbtn1").click(function(){
+        $(".sign_upfields1").fadeIn("slow");
+        $(".sign_upfields2").hide(1000);
 
       });
 
+      $("#backbtn2").click(function(){
+        $(".sign_upfields2").fadeIn("slow");
+        $(".sign_upfields3").hide(1000);
+
+    });
+
+
+
+
   });
-
-
-
 
 }
 
