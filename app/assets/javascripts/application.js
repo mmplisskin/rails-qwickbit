@@ -43,7 +43,7 @@ function walletIndexLoad() {
   var private_key = $(".private_key_wrapper")
   var button = $(".private_key_button")
   $(".private_key_button").click(function () {
-    $(this).next().toggle("fast")
+    $(this).next().toggle("slow")
   })
 }
 
@@ -56,6 +56,7 @@ signup = function(){
   $(document).ready(function(){
       $("#signupbtn").click(function(){
           $("#sign_up1").fadeIn("slow");
+
       });
 
       $(document).mouseup(function (e)
@@ -65,36 +66,53 @@ signup = function(){
           if (!container.is(e.target) // if the target of the click isn't the container...
               && container.has(e.target).length === 0) // ... nor a descendant of the container
           {
-              container.hide(1000);
+              container.hide(500);
           }
       });
 
       $("#nextbtn").click(function(){
 
         if ( $(".sign_upfields2").css('display') == 'none' && $(".sign_upfields1").css('display') !== 'none'  ){
-            $(".sign_upfields2").fadeIn("slow");
-            $(".sign_upfields1").hide(1000);
+            $(".sign_upfields2").slideDown("slow");
+            $(".sign_upfields1").hide(500);
         }
       })
         $("#nextbtn2").click(function(){
         $(".sign_upfields3").fadeIn("slow");
-        $(".sign_upfields2").hide(1000);
+        $(".sign_upfields2").hide(500);
 
       });
       // console.log($("#backbtn1")[0])
       $("#backbtn1").click(function(){
         $(".sign_upfields1").fadeIn("slow");
-        $(".sign_upfields2").hide(1000);
+        $(".sign_upfields2").hide(500);
 
       });
 
       $("#backbtn2").click(function(){
         $(".sign_upfields2").fadeIn("slow");
-        $(".sign_upfields3").hide(1000);
+        $(".sign_upfields3").hide(500);
 
     });
 
+    $("#loginbtn").click(function(){
+      $("#login").fadeIn("slow");
+      $("#signupbtn").fadeOut(200);
+      $(document).mouseup(function (e)
+      {
+          var container = $("#login");
 
+          if (!container.is(e.target) // if the target of the click isn't the container...
+              && container.has(e.target).length === 0) // ... nor a descendant of the container
+          {
+              container.hide(500);
+                $("#signupbtn").fadeIn(400);
+          }
+      });
+      // $(".sign_upfields2").fadeIn("slow");
+      // $(".sign_upfields3").hide(500);
+
+  });
 
 
   });

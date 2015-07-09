@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
     # resources :businesses
+  post '/'    => 'sessions#create'
 
   patch '/wallets' => 'wallets#index'
     # get '/wallets/generate'     => 'wallets#generate', as: :generate_key
