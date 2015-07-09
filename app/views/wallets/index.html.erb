@@ -10,10 +10,11 @@
       <% end %>
       <p><%= wallet.balance %></p>
       <div class="row">
-        <button class="private_key_button btn btn-primary">
+        <button class="private_key_button ui primary button large">
+          <i class="fa fa-eye"></i>
           toggle private key
         </button>
-        <span><%= link_to 'Delete', wallet, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></span>
+        <span><%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, wallet, method: :delete, data: { confirm: 'Are you sure?' }, class:"ui red button large" %></span>
       </div>
     </div>
     <div class="private_key_wrapper col-sm-6 hide panel panel-body">
@@ -27,6 +28,5 @@
     </div>
   </div>
 <% end %> <!-- end @wallets loop -->
-<%= link_to "Add existing<i class=fa fa-plus></i>", new_wallet_path, class:'ui huge blue button' %>
-<%= link_to 'Make a new wallet', generate_key_path, method: :generate %>
-<i class="fa fa-plus"></i>
+<%= link_to '<i class="fa fa-plus"></i> Add existing'.html_safe, new_wallet_path, class:'ui huge blue button' %>
+<%= link_to '<i class="fa fa-refresh"></i> Make a new wallet'.html_safe, generate_key_path, method: :generate, class:'ui large black button'%>
