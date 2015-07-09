@@ -121,8 +121,8 @@ signup = function(){
                 $("#signupbtnm").fadeIn(400);
           }
       });
-      // $(".sign_upfields2").fadeIn("slow");
-      // $(".sign_upfields3").hide(500);
+      $(".sign_upfields2").fadeIn("slow");
+      $(".sign_upfields3").hide(500);
 
   });
 
