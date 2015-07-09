@@ -25,8 +25,7 @@
 /*
 make two separate functions called render_pub and render_priv and put render_priv into a conditional.
 */
-function indexLoad() {
-
+function walletIndexLoad() {
   function render_QR(divClass, inputClass) {
     for (var i = 0; i < $(inputClass).length; i++) {
       if ($(inputClass)[i].value.length !== 0) {
@@ -44,11 +43,11 @@ function indexLoad() {
   var private_key = $(".private_key_wrapper")
   var button = $(".private_key_button")
   $(".private_key_button").click(function () {
-    $(this).next().toggle()
+    $(this).next().toggle("fast")
   })
 }
 
-$('.wallets.index').ready(indexLoad)
+$('.wallets.index').ready(walletIndexLoad)
 
 
 var signup

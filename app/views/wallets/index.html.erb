@@ -1,27 +1,33 @@
 <h1><%= current_business.name %> Wallet</h1>
 <% @wallets.each do |wallet| %>
-<div class="wallet_info" style="border:1px solid black">
-  <p>Name: <%= wallet.name %></p>
-  <p>Balance: <%= wallet.balance %></p>
-  <div class="public_key_wrapper">
-    <input id="pub_ad" class="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
-    <div id="pub_qrcode" class="pub-qrcode"></div>
-    <p>Wallet address: <%= wallet.wallet_address %></p>
-  </div>
-  <button class="private_key_button">
-    toggle private key
-  </button>
-  <div class="private_key_wrapper">
+  <div class="wallet_info panel panel-body">
+    <div class="">
+      <p>Name: <%= wallet.name %></p>
+      <p>Balance: <%= wallet.balance %></p>
+      <div class="public_key_wrapper">
+        <input id="pub_ad" class="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
+        <div id="pub_qrcode" class="pub-qrcode"></div>
+        <p>Wallet address: <%= wallet.wallet_address %></p>
+      </div>
+    </div>
     <% if wallet.private_key %>
-    <input id="priv_ad" class="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" /><br />
-    <div id="priv_qrcode" class="priv-qrcode"></div>
-    <p class="private_key" value='<%= wallet.private_key %>'>private key: <%= wallet.private_key %></p>
+    <button class="private_key_button">
+      toggle private key
+    </button>
+    <% else %>
+    <p>no private key given.</p>
     <% end %>
+    <div class="private_key_wrapper">
+      <% if wallet.private_key %>
+      <input id="priv_ad" class="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" />
+      <div id="priv_qrcode" class="priv-qrcode"></div>
+      <p class="private_key" value='<%= wallet.private_key %>'>
+        private key: <%= wallet.private_key %>
+      </p>
+      <% end %> <!-- end wallet.private_key if statement -->
+    </div>
+    <p><%= link_to 'Delete', wallet, method: :delete, data: { confirm: 'Are you sure?' } %></p>
   </div>
-  <p><%= link_to 'Delete', wallet, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-</div>
-
-
-<% end %>
+<% end %> <!-- end @wallets loop -->
 <%= link_to "Add existing", new_wallet_path %>
 <%= link_to 'Make a new wallet', generate_key_path, method: :generate %>
