@@ -55,12 +55,16 @@ function walletIndexLoad() {
 $('.wallets.index').ready(walletIndexLoad)
 
 
+
 var signup
 
 signup = function(){
   $(document).ready(function(){
-      $("#signupbtn").click(function(){
+
+      $("#signupbtn, #signupbtnm").click(function(){
+        // alert()
           $("#sign_up1").fadeIn("slow");
+          $("#signupbtn, #signupbtnm").fadeOut(400);
 
       });
 
@@ -72,6 +76,8 @@ signup = function(){
               && container.has(e.target).length === 0) // ... nor a descendant of the container
           {
               container.hide(500);
+              $("#signupbtn").fadeIn(400);
+              $("#signupbtnm").fadeIn(400);
           }
       });
 
@@ -102,7 +108,7 @@ signup = function(){
 
     $("#loginbtn").click(function(){
       $("#login").fadeIn("slow");
-      $("#signupbtn").fadeOut(200);
+      $("#signupbtn, #signupbtnm").fadeOut(400);
       $(document).mouseup(function (e)
       {
           var container = $("#login");
@@ -112,6 +118,7 @@ signup = function(){
           {
               container.hide(500);
                 $("#signupbtn").fadeIn(400);
+                $("#signupbtnm").fadeIn(400);
           }
       });
       // $(".sign_upfields2").fadeIn("slow");

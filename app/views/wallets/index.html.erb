@@ -27,5 +27,6 @@
     </div>
   </div>
 <% end %> <!-- end @wallets loop -->
-<%= link_to "Add existing", new_wallet_path %>
+<%= link_to "Add existing<i class=fa fa-plus></i>", new_wallet_path, class:'ui huge blue button' %>
 <%= link_to 'Make a new wallet', generate_key_path, method: :generate %>
+<i class="fa fa-plus"></i>
