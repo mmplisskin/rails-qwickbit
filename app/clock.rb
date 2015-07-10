@@ -10,10 +10,11 @@ module Clockwork
 
   every(10.minutes, 'rake get money'){
     `rake get:money`
+
   }
 
-  every(5.minutes, 'rake get rate') {
-    'rake get:rate'
+  every(5.minutes, 'rake get rate'){
+    `rake get:rate`
   }
 
 end
