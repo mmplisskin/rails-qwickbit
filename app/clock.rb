@@ -12,6 +12,8 @@ module Clockwork
     `rake get:money`
   }
 
-
+  every(5.minutes, 'rake get rate') {
+    'rake get:rate'
+  }
 
 end

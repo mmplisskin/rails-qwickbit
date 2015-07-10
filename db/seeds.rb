@@ -14,3 +14,7 @@ categories = Category.create([{name: 'Automotive'},{name: 'Computers & Electroni
 
 
 businesses = Business.create([{name: 'Bay Cities', email: 'bay@cities.com', address: '125 6th street', city: 'los angeles', state: 'California', zipcode: '90404', description: 'Bay Cities is a great local market for getting sandwhiches', category_id: '4', phone_number: '9547786633', password: '12345', password_confirmation: '12345'}])
+
+rate = Rate.create([
+  {coinbase_rate:0,bitfinex_rate:0,okcoin_rate:0,average_rate:0}
+  ])
