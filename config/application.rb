@@ -30,7 +30,11 @@ module Qwickbit
 
            resource "/items",
              headers: :any,
-             methods: [:get, :post, :patch, :options]
+             methods: [:get, :patch, :options]
+
+          resource "/rates",
+              headers: :any,
+              methods: [:get ]
        end
      end
     config.active_record.raise_in_transactional_callbacks = true
