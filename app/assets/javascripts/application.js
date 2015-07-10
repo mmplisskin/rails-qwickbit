@@ -119,6 +119,7 @@ signup = function(){
               container.hide(500);
                 $("#signupbtn").fadeIn(400);
                 $("#signupbtnm").fadeIn(400);
+                $(".sign_upfields1").hide(0);
           }
       });
       $(".sign_upfields2").fadeIn("slow");
