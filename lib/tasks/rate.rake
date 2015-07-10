@@ -8,7 +8,7 @@ namespace :get do
     bitfinex_rate=parsed_response["bitfinex"]["rates"]["last"]
     coinbase_rate=parsed_response["coinbase"]["rates"]["last"]
     okcoin_rate=parsed_response["okcoinintl"]["rates"]["last"]
-    average_rate=(bitfinex_rate+coinbase_rate+okcoin_rate)/3
+    average_rate=((bitfinex_rate+coinbase_rate+okcoin_rate)/3).round(2)
     puts "$%$%$%$%$%$% Got The Rates $%$%$%$%$%$%"
     puts "#{bitfinex_rate}" + "is the bitfinex rate"
     puts "#{okcoin_rate}" + "is the okcoin rate"
