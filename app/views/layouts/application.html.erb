@@ -40,7 +40,7 @@
     <title>Qwickbit</title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', params[:controller], 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 
   </head>
@@ -59,11 +59,11 @@
         <% end %>
         <%= yield %>
       </div>
-      <%= form_tag search_businesses_path, method: :get, :class => "form-inline" do %>
-                     <%= text_field_tag :search, nil, placeholder: 'search' %>
-                     
-                     <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-                 <% end %>
+      <%#= form_tag search_businesses_path, method: :get, :class => "form-inline" do %>
+                     <%#= text_field_tag :search, nil, placeholder: 'search' %>
+
+                     <%#= submit_tag "Search", name: nil, class: "btn btn-default" %>
+                 <%# end %>
         <% else %>
         <% flash.each do |name, msg| %>
           <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>

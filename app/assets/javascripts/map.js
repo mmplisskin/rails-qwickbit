@@ -1,15 +1,12 @@
 var initialize
 
-$('.static_pages.locations').ready(function () {
-  $(document).ready(function(){
+$(document).ready(function(){
+$('.static_pages.locations').ready(function (){
 
 initialize = function() {
-
+  console.log("init running")
 
   var url = window.location.origin + "/businesses" + ".json";
-
-
-
 
   $.get(url, function(results){
     // console.log(results)
@@ -55,8 +52,10 @@ initialize = function() {
       })
   })
 }
+initialize();
 
-// initialize();
-google.maps.event.addDomListener(window, 'load', initialize);
+
 });
+
+// google.maps.event.addDomListener(window, 'load', initialize);
 })
