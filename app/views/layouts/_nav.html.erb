@@ -6,6 +6,7 @@
         <i class="sidebar icon"></i>
       </a>
       <%= link_to "QwikBit", root_path, class: 'item' %>
+      <%= link_to "Qwickbit Locations", locations_path, class: 'item' %>
       <% if current_business %>
       <%= link_to current_business.name, business_path(current_business.id), class: 'item' %>
       <%= link_to "Wallets", wallets_path, class: 'item' %>

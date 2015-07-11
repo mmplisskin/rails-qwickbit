@@ -1,57 +1,62 @@
 var initialize
 
+$('.static_pages.locations').ready(function () {
+  $(document).ready(function(){
 
-$('.businesses.show').on('page:load', initialize)
-
-
-$('.businesses.index').ready(function () {
-
-function initialize() {
+initialize = function() {
 
 
-  var url = window.location.origin + window.location.pathname + ".json";
+  var url = window.location.origin + "/businesses" + ".json";
+
+
+
 
   $.get(url, function(results){
+    // console.log(results)
 
-    var my_content = results[0]
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      // console.log(pos.coords.latitude, pos.coords.longitude);
 
-    var lat = results["latitude"];
-    var long = results["longitude"];
-
-    // console.log(lat,long)
+      var lat = pos.coords.latitude
+      var long = pos.coords.longitude
     var myCenter = new google.maps.LatLng(lat,long);
-    var marker;
 
     var mapProp = {
       center: myCenter,
       zoom:12,
-      zoomControl:false,
-      panControl:false,
-      mapTypeId:google.maps.MapTypeId.HYBRID
+      styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]
+
     };
     var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-    var marker = new google.maps.Marker({
-      position:myCenter
+    var markers = []
 
-    });
+  		for (i = 0; i < results.length; i++) {
+  			var markerPosition = new google.maps.LatLng(results[i]["latitude"], results[i]["longitude"])
+              var infowindow = new google.maps.InfoWindow({
+                  });
+              var marker = new google.maps.Marker({
+                      position: markerPosition,
+                      animation: google.maps.Animation.DROP
+                  	})
 
-    marker.setMap(map);
+                    console.log(results[i].name)
+                    // infowindow.setContent(results[i].name)
+                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                      return function () {
+                      infowindow.setContent(results[i].name)
+                      infowindow.open(map, marker)
+                    }
+                    })(marker, i))
 
-    google.maps.event.addListener(marker,'click', function() {
-      map.setZoom(16);
-      map.setCenter(marker.getPosition());
-    });
-
-    var infowindow = new google.maps.InfoWindow({
-      content: my_content
-    });
-
-    // infowindow.open(map,marker);
-
+                    marker.setMap(map)
+        }
+        (marker, i);
+      })
   })
 }
 
-initialize();
+// initialize();
 google.maps.event.addDomListener(window, 'load', initialize);
 });
+})

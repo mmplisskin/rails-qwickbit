@@ -58,6 +58,20 @@ class BusinessesController < ApplicationController
     redirect_to businesses_path
   end
 
+  def search
+
+    @businesses = Business.search(params)
+    respond_to do |format|
+        format.html {
+            render
+        }
+        format.json {
+            render json: @businesses
+        }
+    end
+  end
+
+
 private
   def find_business
     @business = Business.find(params[:id])
