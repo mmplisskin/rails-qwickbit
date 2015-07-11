@@ -59,6 +59,11 @@
         <% end %>
         <%= yield %>
       </div>
+      <%= form_tag search_businesses_path, method: :get, :class => "form-inline" do %>
+                     <%= text_field_tag :search, nil, placeholder: 'search' %>
+                     
+                     <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+                 <% end %>
         <% else %>
         <% flash.each do |name, msg| %>
           <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>

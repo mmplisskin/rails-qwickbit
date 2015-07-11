@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get '/login'     => 'sessions#new'
   post '/login'    => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+
+  get '/search' => 'businesses#search', as: :search_businesses
+
     # resources :businesses
   post '/'    => 'sessions#create'
 
