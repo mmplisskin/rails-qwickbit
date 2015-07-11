@@ -63,7 +63,7 @@ private
   end
 
  def item_params
-   params.require(:item).permit(:name, :description, :price, :business_id)
+   params.require(:item).permit(:name, :description, :price, :business_id, :image)
  end
 
  def authorized?

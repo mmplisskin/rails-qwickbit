@@ -8,9 +8,30 @@
   <%= f.label w.wallet_address %>
   <%= f.radio_button :item_address, w.wallet_address %>
 
- <% end %>
+
+<% end %>
+
+<!-- <div class="fallback">
+ <%= f.file_field :image %><br>
+
+</div> -->
+
+
+    <%#= f.file_field :image %>
+
+
+
+    <%= f.label :image, "Upload items:" %>
+  <%= f.file_field :image, multiple: true, name: "item[image]" %>
 
 
   <%= f.submit "Add Item", class: 'ui standard blue button huge'%>
-</div>
 <% end %>
+
+
+<script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>

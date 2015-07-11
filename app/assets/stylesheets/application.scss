@@ -11,9 +11,11 @@
  * file per style scope.
  *
 
-
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
  *= require_tree .
  *= require_self
+
 
 
 
@@ -27,6 +29,8 @@
 /*
 
  *= require rails_bootstrap_forms
+
+
 */
 
 

@@ -13,13 +13,14 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
-//= require jquery
-
+//= require jquery-fileupload/basic
+//= require jquery-fileupload/vendor/tmpl
 //= require map.js
 //= require qrcode.js
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require wallets.js
+
 
 
 /*

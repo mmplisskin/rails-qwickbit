@@ -13,6 +13,9 @@
     </h3>
     <p>
       Description: <%= item.description %>
+        <%= image_tag item.image.url(:large) %>
+
+
     </p>
     <p>
       Price: <%= number_to_currency(item.price) %>
@@ -28,4 +31,12 @@
   <!-- <div class="ui button "><i class="fa fa-plus"></i> -->
   </div>
   </div>
+
+
+  <script id="template-upload" type="text/x-tmpl">
+<div class="upload">
+  {%=o.name%}
+  <div class="progress"><div class="bar" style="width: 0%"></div></div>
+</div>
+</script>
 </div>
