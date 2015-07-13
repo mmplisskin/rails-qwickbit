@@ -22,7 +22,7 @@
 
 
     <%= f.label :image, "Upload items:" %>
-  <%= f.file_field :image, multiple: true, name: "item[image]" %>
+  <%= f.file_field :image, multiple: true, name: "item[image]", as: :file %>
 
 
   <%= f.submit "Add Item", class: 'ui standard blue button huge'%>

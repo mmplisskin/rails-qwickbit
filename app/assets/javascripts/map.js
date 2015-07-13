@@ -1,7 +1,11 @@
 var initialize
 
 $(document).ready(function(){
+
 $('.static_pages.locations').ready(function (){
+  // $(".businesses_locations")[1].click(function (){
+  //   alert()
+  // })
 
 initialize = function() {
   console.log("init running")
@@ -44,6 +48,9 @@ initialize = function() {
                       infowindow.setContent(results[i].name)
                       infowindow.open(map, marker)
                     }
+
+
+
                     })(marker, i))
 
                     marker.setMap(map)

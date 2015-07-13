@@ -29,6 +29,7 @@
 /*
 
  *= require rails_bootstrap_forms
+ *= require parsley
 
 
 */
@@ -39,10 +40,25 @@
 // }
 #googleMap{
 
-  width: 100vw;
+  width: 81vw;
   height: 100vh;
 }
 
+
+
+.right_locations.col-md-4 {
+  float: right;
+  width: 21vw;
+  position: relative;
+  top: -97vh;
+
+}
+
+
+.businesses_locations {
+  box-shadow: 3px 2px 4px black;
+  width: 17.5vw;
+}
 textarea {
    resize: none !important;;
    width: 3vw;
@@ -163,6 +179,11 @@ input.ui.standard.black.button {
 //   top: 29vh;
 //   left: 17vw;
 // }
+
+.items_image{
+  width: 40%;
+  height: 40%;
+}
 
 /********************************
           WALLETS INDEX

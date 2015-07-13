@@ -40,5 +40,5 @@ module Qwickbit
     config.active_record.raise_in_transactional_callbacks = true
   end
 
-  Rails.application.config.middleware.use JQuery::FileUpload::Rails::Middleware
+  # Rails.application.config.middleware.use JQuery::FileUpload::Rails::Middleware
 end
