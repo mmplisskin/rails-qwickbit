@@ -1,0 +1,7 @@
+
+<% if @item.new_record? %>
+
+  alert("Failed to upload item: <%= j @item.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $("#item").append("<%= j render(@item) %>");
+<% end %>

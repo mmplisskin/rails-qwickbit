@@ -1,1 +1,21 @@
+
+<%= render 'layouts/modal_signup' %>
 <div id = "googleMap"></div>
+<div class="right_locations col-md-4">
+
+
+<div class="col-md-8 col-md-offset-1">
+<%# x = 1 %>
+<%  @businesses.each do |b| %>
+<div class="businesses_locations" >
+<%#= "#{x}" %>
+<h1>  <%= b.name %> </h1>
+<h3>  <%= b.address %> </h3>
+  <%= b.zipcode %>
+  <%# x += 1 %>
+</div>
+<% end %>
+<!-- businesses_locations  -->
+
+  </div>
+</div>

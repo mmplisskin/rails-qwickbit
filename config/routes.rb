@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     # resources :businesses
   post '/'    => 'sessions#create'
 
+  # post 'static_pages/locations' => 'sessions#create'
+
+
+
   patch '/wallets' => 'wallets#index'
     # get '/wallets/generate'     => 'wallets#generate', as: :generate_key
   post '/wallets/generate'     => 'wallets#generate', as: :generate_key

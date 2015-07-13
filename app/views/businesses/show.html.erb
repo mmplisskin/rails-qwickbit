@@ -1,7 +1,11 @@
 <div class="col-md-8 col-md-offset-1">
   <div clas="row">
   <h1><%= current_business.name %></h1>
+  <div class="col-md-offset-6">
     <%= link_to "Edit Business Info", edit_business_path(current_business.id) %>
+
+      <%= link_to '<i class="fa fa-plus"></i> New Item'.html_safe, new_item_path, class: 'ui blue button ' %>
+    </div>
   </div>
   </div>
 <div class="col-md-8 col-md-offset-1">
@@ -13,6 +17,9 @@
     </h3>
     <p>
       Description: <%= item.description %>
+        <%= image_tag item.image.url(:large), class:'items_image' %>
+
+
     </p>
     <p>
       Price: <%= number_to_currency(item.price) %>
@@ -20,12 +27,23 @@
     </p>
     <p>
       <%= link_to '<i class="fa fa-pencil"></i> Edit Item'.html_safe, edit_item_path(item.id), class: 'ui button' %>
+      <%= link_to '<i class="fa fa-trash-o"></i> Delete Item'.html_safe, item_path(item.id), :method => 'delete', class: 'ui button' %>
+
+
     </p>
   </div>
 
   <% end %>
-  <%= link_to '<i class="fa fa-plus"></i> New Item'.html_safe, new_item_path, class: 'ui blue button ' %>
+
   <!-- <div class="ui button "><i class="fa fa-plus"></i> -->
   </div>
   </div>
+
+
+//   <script id="template-upload" type="text/x-tmpl">
+// <div class="upload">
+//   {%=o.name%}
+//   <div class="progress"><div class="bar" style="width: 0%"></div></div>
+// </div>
+// </script>
 </div>

@@ -8,7 +8,7 @@ Rails.application.config.assets.version = '1.0'
 #   Rails.application.config.assets.precompile += ["#{controller}.js.coffee", "#{controller}.css"]
 # end
 
-Rails.application.config.assets.precompile += %w( static_pages.js businesses.js items.js categories.js sessions.js wallets.js )
+Rails.application.config.assets.precompile += %w(items.coffee static_pages.js businesses.js items.js categories.js sessions.js wallets.js)
 # Rails.application.config.assets.precompile += %w( businesses.js )
 # Rails.application.config.assets.precompile += %w( items.js )
 #

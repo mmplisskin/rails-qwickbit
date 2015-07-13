@@ -5,7 +5,7 @@ def index
    @items=Item.all
    respond_to do |format|
        format.html {
-           render
+           redirect_to current_business
        }
        format.json {
            render json: @items
@@ -63,7 +63,7 @@ private
   end
 
  def item_params
-   params.require(:item).permit(:name, :description, :price, :business_id)
+   params.require(:item).permit(:name, :description, :price, :business_id, :image)
  end
 
  def authorized?
