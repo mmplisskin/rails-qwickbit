@@ -58,8 +58,6 @@ gem 'html5_validators'
 
 gem 'paperclip'
 
-gem 'jquery-fileupload-rails'
-
 group :production do
   gem 'rails_12factor'
 
