@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :items
   resources :wallets
   resources :rates
+
+
+  resources :businesses, :id => { :format => 'json' } do
+   resources :items, :item_id => { :format => 'json' }
+ end
   # resources :static_pages
 
   get '/login'     => 'sessions#new'

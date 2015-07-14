@@ -19,7 +19,8 @@ class BusinessesController < ApplicationController
             render
         }
         format.json {
-            render json: @business
+            render json: @business.to_json(:include => :items)
+
         }
     end
   end
