@@ -2,24 +2,30 @@ var initialize
 
 $(document).ready(function(){
 
+
 $('.static_pages.locations').ready(function (){
+
+
+
+
+
   // $(".businesses_locations")[1].click(function (){
   //   alert()
   // })
 
-initialize = function() {
+initialize = function(e) {
   console.log("init running")
-
+  // console.log(e)
   var url = window.location.origin + "/businesses" + ".json";
 
   $.get(url, function(results){
     // console.log(results)
 
-    navigator.geolocation.getCurrentPosition(function(pos) {
+  navigator.geolocation.getCurrentPosition(function(pos) {
       // console.log(pos.coords.latitude, pos.coords.longitude);
 
-      var lat = pos.coords.latitude
-      var long = pos.coords.longitude
+    var lat = pos.coords.latitude
+    var long = pos.coords.longitude
     var myCenter = new google.maps.LatLng(lat,long);
 
     var mapProp = {
@@ -33,29 +39,59 @@ initialize = function() {
     var markers = []
 
   		for (i = 0; i < results.length; i++) {
+        //
+        // $('.businesses_locations').click(function(i){
+        //   console.log(i)
+        // })
+
   			var markerPosition = new google.maps.LatLng(results[i]["latitude"], results[i]["longitude"])
-              var infowindow = new google.maps.InfoWindow({
-                  });
-              var marker = new google.maps.Marker({
-                      position: markerPosition,
-                      animation: google.maps.Animation.DROP
-                  	})
+        var infowindow = new google.maps.InfoWindow({
+        });
+        var marker = new google.maps.Marker({
+          position: markerPosition,
+          animation: google.maps.Animation.DROP
+        })
+        markers.push(markerPosition)
 
-                    console.log(results[i].name)
-                    // infowindow.setContent(results[i].name)
-                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                      return function () {
-                      infowindow.setContent(results[i].name)
-                      infowindow.open(map, marker)
-                    }
+        console.log(results[i].name)
+        // infowindow.setContent(results[i].name)
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+          return function () {
+            map.panTo(marker.getPosition());
+            infowindow.setContent(results[i].name)
+            infowindow.open(map, marker)
+            // var bounds = new google.maps.LatLngBounds();
+            console.log(marker)
+          }
 
 
+        })(marker, i))
 
-                    })(marker, i))
 
-                    marker.setMap(map)
-        }
-        (marker, i);
+        // document.getElementsByClassName("businesses_locations")[i].addEventListener("click", function(e){
+        //
+        //   console.log(this)
+        //   // console.log(e.target)
+        //   // console.log("works")
+        //
+        //   map.panTo(marker.getPosition());
+        //   infowindow.setContent(this)
+        //   infowindow.open(map, marker)
+        // })
+      marker.setMap(map)
+    }
+
+
+    console.log(markers)
+    $('.businesses_locations').each(function(e){
+
+      $(this).click( function() {
+        console.log(e)
+
+
+      })
+    });
+
       })
   })
 }
