@@ -63,8 +63,8 @@ end
 
   def create
     @wallet = Wallet.new(wallet_params)
-    balcal = chain_client.get_address(@wallet.wallet_address)
-    @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
+    # balcal = chain_client.get_address(@wallet.wallet_address)
+    # @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
@@ -95,7 +95,10 @@ private
   end
 
   def chain_client
+
     chain_client = Chain::Client.new(key_id: ENV['API-KEY-ID'], key_secret: ENV['API-KEY-SECRET'])
+    chain_client.block_chain = 'testnet3'
+
   end
   def wallet_params
     params.require(:wallet).permit(:name, :wallet_address, :private_key, :business_id)
