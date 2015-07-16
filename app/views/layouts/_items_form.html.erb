@@ -1,7 +1,7 @@
 <%= bootstrap_form_for @item do |f| %>
 <div class="ui form">
   <%= f.text_field :name, placeholder: 'Item Name' %>
-  <%= f.text_field :price , placeholder: 'Price' %>
+  <%= f.text_field :price , placeholder: 'Price', label: "Dollar Price" %>
   <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of the item'  %>
   <%#= f.select(:description, options_for_select(wallets.each { |w| w.wallet_address })) %>
   <% wallets.each do |w| %>

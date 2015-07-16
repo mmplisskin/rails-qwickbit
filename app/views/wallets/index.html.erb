@@ -8,7 +8,9 @@
       <% if wallet.name %>
       <p><%= wallet.name %></p>
       <% end %>
+      <% if wallet.wallet.balance %>
       <p><%= wallet.balance * 0.00000001 %></p>
+      <% end %>
       <div class="row">
         <button class="private_key_button ui primary button large">
           <i class="fa fa-eye"></i>

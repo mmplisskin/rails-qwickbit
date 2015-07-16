@@ -65,6 +65,7 @@ end
     @wallet = Wallet.new(wallet_params)
     # balcal = chain_client.get_address(@wallet.wallet_address)
     # @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
+      # @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
