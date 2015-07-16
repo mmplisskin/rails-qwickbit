@@ -102,7 +102,6 @@ private
 
   end
 
-  end
 
   def wallet_params
     params.require(:wallet).permit(:name, :wallet_address, :private_key, :business_id)
