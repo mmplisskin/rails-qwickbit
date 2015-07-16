@@ -3,7 +3,7 @@ class WalletsController < ApplicationController
   require 'chain'
   before_action :find_wallet, only:[:show, :destroy, :delete]
   before_action :check_wallet_amount, only:[:new, :create, :generate]
-  # before_action :check_item_relationship, only:[:delete]
+
   before_action :chain_client, only:[:create, :index, :generate]
 
   def index
@@ -96,10 +96,8 @@ private
   end
 
   def chain_client
-
     chain_client = Chain::Client.new(key_id: ENV['API-KEY-ID'], key_secret: ENV['API-KEY-SECRET'])
     # chain_client.block_chain = 'testnet3'
-
   end
 
 
