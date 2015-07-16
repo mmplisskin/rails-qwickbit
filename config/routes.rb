@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :businesses
   resources :categories
+
+
   resources :items
   resources :wallets
   resources :rates
@@ -14,6 +16,11 @@ Rails.application.routes.draw do
   resources :businesses, :id => { :format => 'json' } do
    resources :items, :item_id => { :format => 'json' }
  end
+
+ resources :categories, :id => { :format => 'json' } do
+  resources :businesses, :business_id => { :format => 'json' }
+end
+
   # resources :static_pages
 
   get '/login'     => 'sessions#new'

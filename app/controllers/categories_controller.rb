@@ -6,7 +6,8 @@ class CategoriesController < ApplicationController
         render
       }
       format.json {
-        render json: @categories
+        render json: @categories.to_json(:include => :businesses)
+
       }
     end
   end
