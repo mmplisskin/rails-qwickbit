@@ -1,10 +1,10 @@
 class WalletsController < ApplicationController
   require 'bitcoin'
-  require 'pry'
   require 'chain'
   before_action :find_wallet, only:[:show, :destroy, :delete]
   before_action :check_wallet_amount, only:[:new, :create, :generate]
-  # before_action :chain_client, only:[:create, :index]
+  # before_action :check_item_relationship, only:[:delete]
+  before_action :chain_client, only:[:create, :index, :generate]
 
   def index
     @wallets = Wallet.where(business_id: current_business)
@@ -13,16 +13,16 @@ class WalletsController < ApplicationController
       addresses << w.wallet_address
     end
 
-    # if addresses.size > 0
-    #   result = chain_client.get_addresses(addresses)
-    #   result.each do |r|
-    #     wallet_address = r["address"]
-    #     bal = r["total"]["balance"]
-    #     balance = bal * 0.00000001
-    #     @wallet = Wallet.find_by(wallet_address: wallet_address)
-    #     @wallet.update(balance: "balance")
-    #   end
-    # end
+    if addresses.size > 0
+      result = chain_client.get_addresses(addresses)
+      result.each do |r|
+        wallet_address = r["address"]
+        balance = r["total"]["balance"]
+        # balance = bal * 0.00000001
+        @wallet = Wallet.find_by(wallet_address: wallet_address)
+        @wallet.update(balance: balance)
+      end
+    end
 
     respond_to do |format|
         format.html {
@@ -63,9 +63,9 @@ end
 
   def create
     @wallet = Wallet.new(wallet_params)
-    # balcal = chain_client.get_address(@wallet.wallet_address)
+    balcal = chain_client.get_address(@wallet.wallet_address)
+    @wallet.balance = balcal[0]["total"]["balance"]
     # @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
-      # @wallet.balance = balcal[0]["total"]["balance"] * 0.00000001
     @wallet.business_id = current_business.id
     if @wallet.save
       flash[:notice] = 'Wallet was successfully added!'
@@ -98,9 +98,12 @@ private
   def chain_client
 
     chain_client = Chain::Client.new(key_id: ENV['API-KEY-ID'], key_secret: ENV['API-KEY-SECRET'])
-    chain_client.block_chain = 'testnet3'
+    # chain_client.block_chain = 'testnet3'
 
   end
+
+  end
+
   def wallet_params
     params.require(:wallet).permit(:name, :wallet_address, :private_key, :business_id)
   end

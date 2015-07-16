@@ -8,12 +8,12 @@ module Clockwork
   end
 
 
-  every(10.minutes, 'rake get money'){
-    `rake get:money`
+  # every(10.minutes, 'rake get money'){
+  #   `rake get:money`
+  #
+  # }
 
-  }
-
-  every(5.minutes, 'rake get rate'){
+  every(5.seconds, 'rake get rate'){
     `rake get:rate`
   }
 

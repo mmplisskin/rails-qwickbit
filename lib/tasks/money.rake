@@ -12,10 +12,10 @@ namespace :get do
       result = chain_client.get_addresses(addresses)
       result.each do |r|
         wallet_address = r["address"]
-        bal = r["total"]["balance"]
-        balance = bal * 0.00000001
+        balance = r["total"]["balance"]
+        # balance = bal * 0.00000001
         @wallet = Wallet.find_by(wallet_address: wallet_address)
-        @wallet.update(balance: "balance")
+        @wallet.update(balance: balance)
       end
     end
   end
