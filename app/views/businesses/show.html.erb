@@ -16,9 +16,11 @@
        <%= item.name.capitalize %>
     </h3>
     <p>
-      Description: <%= item.description %>
-        <%= image_tag item.image.url(:large), class:'items_image' %>
 
+      Description: <%= item.description %>
+      <% if item.image_file_name %>
+        <%= image_tag item.image.url(:large), class:'items_image' %>
+      <% end %>
 
     </p>
     <p>

@@ -27,10 +27,9 @@ initialize = function(e) {
     var lat = pos.coords.latitude
     var long = pos.coords.longitude
     var myCenter = new google.maps.LatLng(lat,long);
-
     var mapProp = {
       center: myCenter,
-      zoom:12,
+      zoom:11,
       styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]
 
     };
@@ -47,9 +46,14 @@ initialize = function(e) {
   			var markerPosition = new google.maps.LatLng(results[i]["latitude"], results[i]["longitude"])
         var infowindow = new google.maps.InfoWindow({
         });
+        var bitcoin_icon = {
+          url: 'http://i.imgur.com/yuqNP88.png',
+          size: new google.maps.Size(30,30)
+        }
         var marker = new google.maps.Marker({
           position: markerPosition,
-          animation: google.maps.Animation.DROP
+          animation: google.maps.Animation.DROP,
+          icon: bitcoin_icon
         })
         markers.push(markerPosition)
 
@@ -58,7 +62,9 @@ initialize = function(e) {
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
           return function () {
             map.panTo(marker.getPosition());
-            infowindow.setContent(results[i].name)
+            // infowindow.setContent(results[i].name)
+            infowindow.setContent("<h5><a>" + results[i].name + "</a><p>" + results[i].address + "</p><h5><p>" + results[i].phone_number + "</p>")
+
             infowindow.open(map, marker)
             // var bounds = new google.maps.LatLngBounds();
             console.log(marker)
