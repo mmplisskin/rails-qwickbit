@@ -14,3 +14,5 @@ Bitlist is a community driven platform for businesses to sell items through the 
 
 ### Changelog
 Bitlist connects businesses that accept bitcoins with users via a [hybrid mobile app]('https://github.com/Ephapox/ionic-qwkbit').
+
+https://github.com/Ephapox/ionic-qwkbit
