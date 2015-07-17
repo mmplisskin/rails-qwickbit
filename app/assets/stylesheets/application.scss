@@ -344,16 +344,18 @@ input.ui.standard.black.button {
 
   box-shadow: 0 10px 20px rgba(0,0,0,0.19);
   text-align: center;
-  height: 26vh;
+  // height: 37vh;
   // height: 30vh;
 }
 
 #pub_qrcode,#priv_qrcode {
   padding-left: 10vw;
+
 }
 
 #priv_qrcode{
   padding-top: 2vh;
+  padding-bottom: 5vh;
 }
 
 
@@ -390,4 +392,24 @@ input.ui.standard.black.button {
 
 a.ui.blue.button.item {
   margin-left: 25vw;
+}
+
+.item.rate{
+  left: 8vw;
+  color: rgb(80, 171, 80)!important;
+  font-weight: 1vw;
+    font-style: oblique;
+}
+
+
+.right.item {
+  left: 8vw;
+}
+
+
+
+#wallet_btns {
+  // position: relative;
+  top: 3vh;
+  // padding-bottom: 1vw;
 }

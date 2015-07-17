@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+
+
 
   root 'static_pages#landing'
 
@@ -41,4 +42,10 @@ end
   post '/wallets/generate'     => 'wallets#generate', as: :generate_key
 
   get 'static_pages/locations' => 'static_pages#locations', as: :locations
+
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
+
+
 end
