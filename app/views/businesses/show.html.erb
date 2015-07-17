@@ -1,44 +1,52 @@
-<div class="col-md-8 col-md-offset-1">
+<div class="col-md-8 col-md-offset-1" id="business_description">
   <div clas="row">
-  <h1><%= current_business.name %></h1>
-  <div class="col-md-offset-6">
+    <h1><%= current_business.name %></h1>
+    <span></span>
+  </div>
+
+    <%= current_business.description %>
+    
+
+  </div>
+
+<div class="col-md-8 col-md-offset-1" id="business_description">
+  <div clas="row" id="business_btns">
+  <!-- <div class="col-md-12 col-offset-6"> -->
     <%= link_to "Edit Business Info", edit_business_path(current_business.id) %>
 
-      <%= link_to '<i class="fa fa-plus"></i> New Item'.html_safe, new_item_path, class: 'ui blue button ' %>
+      <%= link_to '<i class="fa fa-plus"></i> List Item'.html_safe, new_item_path, class: 'ui blue button item' %>
+    <!-- </div> -->
     </div>
-  </div>
-  </div>
-<div class="col-md-8 col-md-offset-1">
-  <h1>What's for Sale</h1>
+  <!-- <h2>What's for Sale</h2> -->
   <% current_business.items.each do |item| %>
   <div class="business-items">
+    <% if item.image_file_name %>
+      <div class="item_image">
+        <%= image_tag item.image.url(:large), class:'items_image' %>
+      </div>
+    <% end %>
+    <hr>
     <h3>
        <%= item.name.capitalize %>
     </h3>
-    <p>
-
+    <h4>
       Description: <%= item.description %>
-      <% if item.image_file_name %>
-        <%= image_tag item.image.url(:large), class:'items_image' %>
-      <% end %>
-
-    </p>
+    </h4>
     <p>
       Price: <%= number_to_currency(item.price) %>
+    </p>
+    <p>
       wallet: <%= item.item_address%>
     </p>
     <p>
       <%= link_to '<i class="fa fa-pencil"></i> Edit Item'.html_safe, edit_item_path(item.id), class: 'ui button' %>
       <%= link_to '<i class="fa fa-trash-o"></i> Delete Item'.html_safe, item_path(item.id), :method => 'delete', class: 'ui button' %>
-
-
     </p>
-  </div>
 
+  </div>
   <% end %>
 
   <!-- <div class="ui button "><i class="fa fa-plus"></i> -->
-  </div>
-  </div>
+
 
 </div>

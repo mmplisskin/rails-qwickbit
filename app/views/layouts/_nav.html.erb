@@ -7,6 +7,7 @@
       </a>
       <%= link_to "QwikBit", root_path, class: 'item' %>
       <%= link_to "Qwickbit Locations", locations_path, class: 'item' %>
+
       <% if current_business %>
       <%= link_to current_business.name, business_path(current_business.id), class: 'item' %>
       <%= link_to "Wallets", wallets_path, class: 'item' %>
@@ -24,6 +25,14 @@
         <button class="item ui inverted button" id="loginbtn">Log In</button>
       </div>
       <% end %>
+      <div class="item rate"><%= current_rate.average_rate %>
+      <br> Average</div>
+      <div class="item rate"><%= current_rate.coinbase_rate %>
+      <br> Coinbase</div>
+      <div class="item rate"><%= current_rate.okcoin_rate %>
+        <br> Ok Coin</div>
+        <div class="item rate"><%= current_rate.bitfinex_rate %>
+          <br> bitfinex</div>
     </div>
   </div>
 

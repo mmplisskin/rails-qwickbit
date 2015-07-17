@@ -9,13 +9,18 @@
       <p><%= wallet.name %></p>
       <% end %>
       <% if wallet.balance %>
-      <p><%= wallet.balance * 0.00000001 %></p>
+      <h4>
+        <% money=wallet.balance * 0.00000001 %>
+        <%=number_to_currency(money*@rates)%>
+      </h4>
       <% end %>
       <div class="row">
+        <% if wallet.private_key %>
         <button class="private_key_button ui primary button large">
           <i class="fa fa-eye"></i>
           toggle private key
         </button>
+        <% end %>
         <span><%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, wallet, method: :delete, data: { confirm: 'Are you sure?' }, class:"ui red button large" %></span>
       </div>
     </div>
@@ -24,11 +29,14 @@
       <input id="priv_ad" class="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" />
       <div id="priv_qrcode" class="priv-qrcode"></div>
       <p class="private_key" value='<%= wallet.private_key %>'>
-        private key: <%= wallet.private_key %>
+        <%= wallet.private_key %>
       </p>
+      <h4> <b>Do not ever show your private key to anyone!!!</b> </h4>
       <% end %> <!-- end wallet.private_key if statement -->
     </div>
   </div>
 <% end %> <!-- end @wallets loop -->
+<div class="row">
 <%= link_to '<i class="fa fa-plus"></i> Add existing'.html_safe, new_wallet_path, class:'ui huge blue button' %>
 <%= link_to '<i class="fa fa-refresh"></i> Make a new wallet'.html_safe, generate_key_path, method: :generate, class:'ui large black button'%>
+</div>

@@ -104,6 +104,7 @@ signup = function(){
 
     $("#loginbtn").click(function(){
       $("#login").fadeIn("slow");
+      
       $("#signupbtn, #signupbtnm").fadeOut(400);
       $(document).mouseup(function (e)
       {

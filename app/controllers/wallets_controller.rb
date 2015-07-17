@@ -7,6 +7,7 @@ class WalletsController < ApplicationController
   before_action :chain_client, only:[:create, :index, :generate]
 
   def index
+    @rates=Rate.first.average_rate
     @wallets = Wallet.where(business_id: current_business)
     addresses = []
     @wallets.each do |w|
@@ -22,15 +23,6 @@ class WalletsController < ApplicationController
         @wallet = Wallet.find_by(wallet_address: wallet_address)
         @wallet.update(balance: balance)
       end
-    end
-
-    respond_to do |format|
-        format.html {
-            render
-        }
-        format.json {
-            render json: @wallets
-        }
     end
 end
 

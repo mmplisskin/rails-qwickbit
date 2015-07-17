@@ -1,5 +1,5 @@
 <% current_business.items.each do |item| %>
-<div class="">
+<!-- <div class=""> -->
   <p>
     <%= item.name.capitalize %>
   </p>
@@ -14,6 +14,6 @@
   <p>
     <%= link_to "Edit Item", edit_item_path(item.id) %>
   </p>
-</div>
+<!-- </div> -->
 <% end %>
 <%= link_to "Add Item", new_item_path %>
