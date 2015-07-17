@@ -11,7 +11,7 @@
       <% if wallet.balance %>
       <h4>
         <% money=wallet.balance * 0.00000001 %>
-        <%=number_to_currency(money*@rates)%>
+        <%= number_to_currency(money*@rates) %>
       </h4>
       <% end %>
       <div class="row">
