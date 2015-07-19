@@ -104,7 +104,7 @@ signup = function(){
 
     $("#loginbtn").click(function(){
       $("#login").fadeIn("slow");
-      
+
       $("#signupbtn, #signupbtnm").fadeOut(400);
       $(document).mouseup(function (e)
       {
@@ -131,3 +131,48 @@ signup = function(){
 
 
 $('.static_pages.landing').ready(signup)
+
+function get_rates(){
+
+  console.log("get rates running")
+  $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: "/rates",
+          success: function(data){
+          var rates = data[0]
+          document.getElementsByClassName("item rate")[0].innerHTML = rates.average_rate + "<br>  Average"
+          document.getElementsByClassName("item rate")[1].innerHTML = rates.coinbase_rate + "<br> Coinbase"
+          document.getElementsByClassName("item rate")[2].innerHTML = rates.okcoin_rate + "<br> Ok Coin"
+          document.getElementsByClassName("item rate")[3].innerHTML = rates.bitfinex_rate + "<br> Bitfinex"
+          // var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+          // jQuery('.rate')[0].fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100);
+
+        //   var colors = ["green", "blue"]
+         //
+        //   function changeColor(){
+        //     var colorIndex = 0
+        //     colorIndex += 1
+        //     document.getElementsByClassName("item rate")[0].style.color = colors[colorIndex]
+        //     document.getElementsByClassName("item rate")[1].style.color = colors[colorIndex]
+        //     document.getElementsByClassName("item rate")[2].style.color = colors[colorIndex]
+        //     document.getElementsByClassName("item rate")[3].style.color = colors[colorIndex]
+        //     console.log(colorIndex)
+        //     colorIndex = 0
+        //  }
+         //
+        //  changeColor()
+
+
+          }
+      });
+}
+
+
+$(document).ready(function(){
+  setInterval(function(){get_rates()},3000)
+  // setInterval(function()changeColor()},3000)
+
+
+
+})
