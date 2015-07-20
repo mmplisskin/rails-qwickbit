@@ -86,6 +86,9 @@ signup = function(){
 
         var validateName = nameInput.match(businessRegex)
         var validateEmail = emailInput.match(emailRegex)
+        document.getElementById("new_business").removeAttribute("data-remote")
+        // document.getElementById("new_business").removeAttribute("method")
+      // document.getElementById("new_business").attributes[5].value = false
 
 
         if ( validateName && validateName[0] == nameInput ){
@@ -162,9 +165,9 @@ signup = function(){
 
       });
 
-      $("#submit").click(function(){
 
-
+      setInterval(function(){
+        
           var textInput = document.getElementsByTagName("textarea")[0].value
           var phoneInput = document.getElementsByTagName("input")[7].value
           var passwordInput = document.getElementsByTagName("input")[8].value
@@ -183,7 +186,9 @@ signup = function(){
               if(validatePassword && validatePassword[0] == passwordInput){
                 if(passwordInput == passwordConfInput){
                   console.log("some thing")
-                    $("#submit").attr('data-remote',true);
+                  // document.getElementById("new_business").setAttribute("data-remote", true)
+                  $('.new_business').submit()
+
                 }
                 else{
                   var notice = "Passwords do not match :("
@@ -216,10 +221,10 @@ signup = function(){
             $('#sinUpAlert').text(messagesArray)
             $('#sinUpAlert').show(100)
           }
+        }, 3000);
 
 
 
-      })
 
 
 
