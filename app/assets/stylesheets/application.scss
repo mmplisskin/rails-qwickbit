@@ -172,8 +172,8 @@
   animation-name: bigEntrance;
   -webkit-animation-name: bigEntrance;
 
-  animation-duration: 1.6s;
-  -webkit-animation-duration: 1.6s;
+  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
   animation-timing-function: ease-out;
   -webkit-animation-timing-function: ease-out;
 
@@ -423,4 +423,8 @@ a.ui.blue.button.item {
 .item_image {
   margin-left: 10vw;
   margin-top: 12vh;
+}
+
+.warning {
+  color: red;
 }
