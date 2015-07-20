@@ -8,7 +8,7 @@ class BusinessesController < ApplicationController
             render
         }
         format.json {
-            render json: @businesses
+            render json: @businesses, :except => [:password_digest]
         }
     end
   end
@@ -19,7 +19,7 @@ class BusinessesController < ApplicationController
             render
         }
         format.json {
-            render json: @business.to_json(:include => :items)
+            render json: @business.to_json(:include => :items, :except => [:password_digest] )
 
         }
     end

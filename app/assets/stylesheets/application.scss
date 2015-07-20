@@ -221,7 +221,7 @@ textarea {
 #landing{
   position: absolute;
   top: 33vh;
-  left: 32vw;
+  left: 31vw;
   width: 40vw;
   height: 30vh;
 }
@@ -313,10 +313,10 @@ input.ui.standard.black.button {
 // .ui.huge.green.button{
 //   display: block;
 //   position: absolute;
-//   width: 20%;
-//   height: 20%;
-//   top: 29vh;
-//   left: 17vw;
+//   // width: 20%;
+//   // height: 20%;
+//   // top: 29vh;
+//   left: 15vw;
 // }
 
 .items_image{
@@ -378,13 +378,13 @@ input.ui.standard.black.button {
 
 .items_image{
   float: right;
-  padding-top: 1em;
+  padding-top: 4em;
 
 }
-#business_description{
-    padding-top: 4vh;
-
-}
+// #business_description{
+//     padding-top: 4vh;
+//
+// }
 
 // #business_btns{
 //   padding-bottom: 4vh;
@@ -412,4 +412,15 @@ a.ui.blue.button.item {
   // position: relative;
   top: 3vh;
   // padding-bottom: 1vw;
+}
+
+
+#list_btn {
+  margin-left: 42vw;
+}
+
+
+.item_image {
+  margin-left: 10vw;
+  margin-top: 12vh;
 }
