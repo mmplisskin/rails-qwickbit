@@ -165,63 +165,63 @@ signup = function(){
 
       });
 
-
-      setInterval(function(){
-        
-          var textInput = document.getElementsByTagName("textarea")[0].value
-          var phoneInput = document.getElementsByTagName("input")[7].value
-          var passwordInput = document.getElementsByTagName("input")[8].value
-          var passwordConfInput = document.getElementsByTagName("input")[9].value
-
-          var messagesArray = []
-
-          var phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/
-          var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
-
-          var validatePhone = phoneInput.match(phoneRegex)
-          var validatePassword = passwordInput.match(passwordRegex)
-
-          if(textInput.length > 15 && textInput.length < 500){
-            if(validatePhone && validatePhone[0] == phoneInput){
-              if(validatePassword && validatePassword[0] == passwordInput){
-                if(passwordInput == passwordConfInput){
-                  console.log("some thing")
-                  // document.getElementById("new_business").setAttribute("data-remote", true)
-                  $('.new_business').submit()
-
-                }
-                else{
-                  var notice = "Passwords do not match :("
-                  messagesArray.push(notice)
-                  $('#sinUpAlert').text(messagesArray)
-                  $('#sinUpAlert').show(100)
-                }
-
-              }
-              else{
-                var notice = "Password must be at least 6 characters and have different cases"
-                messagesArray.push(notice)
-                $('#sinUpAlert').text(messagesArray)
-                $('#sinUpAlert').show(100)
-              }
-
-
-            }
-            else {
-              var notice = "Phone Number is not valid"
-              messagesArray.push(notice)
-              $('#sinUpAlert').text(messagesArray)
-              $('#sinUpAlert').show(100)
-            }
-
-          }
-          else{
-            var notice = "Description should be between 15 and 500 characters"
-            messagesArray.push(notice)
-            $('#sinUpAlert').text(messagesArray)
-            $('#sinUpAlert').show(100)
-          }
-        }, 3000);
+      //
+      // setInterval(function(){
+      //
+      //     var textInput = document.getElementsByTagName("textarea")[0].value
+      //     var phoneInput = document.getElementsByTagName("input")[7].value
+      //     var passwordInput = document.getElementsByTagName("input")[8].value
+      //     var passwordConfInput = document.getElementsByTagName("input")[9].value
+      //
+      //     var messagesArray = []
+      //
+      //     var phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/
+      //     var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
+      //
+      //     var validatePhone = phoneInput.match(phoneRegex)
+      //     var validatePassword = passwordInput.match(passwordRegex)
+      //
+      //     if(textInput.length > 15 && textInput.length < 500){
+      //       if(validatePhone && validatePhone[0] == phoneInput){
+      //         if(validatePassword && validatePassword[0] == passwordInput){
+      //           if(passwordInput == passwordConfInput){
+      //             console.log("some thing")
+      //             // document.getElementById("new_business").setAttribute("data-remote", true)
+      //             $('.new_business').submit()
+      //
+      //           }
+      //           else{
+      //             var notice = "Passwords do not match :("
+      //             messagesArray.push(notice)
+      //             $('#sinUpAlert').text(messagesArray)
+      //             $('#sinUpAlert').show(100)
+      //           }
+      //
+      //         }
+      //         else{
+      //           var notice = "Password must be at least 6 characters and have different cases"
+      //           messagesArray.push(notice)
+      //           $('#sinUpAlert').text(messagesArray)
+      //           $('#sinUpAlert').show(100)
+      //         }
+      //
+      //
+      //       }
+      //       else {
+      //         var notice = "Phone Number is not valid"
+      //         messagesArray.push(notice)
+      //         $('#sinUpAlert').text(messagesArray)
+      //         $('#sinUpAlert').show(100)
+      //       }
+      //
+      //     }
+      //     else{
+      //       var notice = "Description should be between 15 and 500 characters"
+      //       messagesArray.push(notice)
+      //       $('#sinUpAlert').text(messagesArray)
+      //       $('#sinUpAlert').show(100)
+      //     }
+      //   }, 3000);
 
 
 
