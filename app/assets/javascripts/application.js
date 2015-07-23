@@ -121,7 +121,7 @@ signup = function(){
 
 
         $("#nextbtn2").click(function(){
-          var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Rd.)/
+          var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Pl|AVE|st|ct|Rd.)/
           var cityRegex = /[a-zA-Z]+(?:[\s-][a-zA-Z]+)*/
           var zipRegex = /((\d{5}-\d{4})|(\d{5})|([A-Z]\d[A-Z]\s\d[A-Z]\d))/
 
@@ -165,7 +165,7 @@ signup = function(){
 
       });
 
-      //
+      // 
       // setInterval(function(){
       //
       //     var textInput = document.getElementsByTagName("textarea")[0].value
@@ -263,19 +263,13 @@ signup = function(){
       });
       $(".sign_upfields2").fadeIn("slow");
       $(".sign_upfields3").hide(500);
-
   });
-
-
   });
-
-
-
 }
 
 
 $('.static_pages.landing').ready(signup)
-
+  index = 0
 function get_rates(){
 
   console.log("get rates running")
@@ -285,37 +279,37 @@ function get_rates(){
           url: "/rates",
           success: function(data){
           var rates = data[0]
+          var colors = ["#61B329", "#A6D785"]
+
+
+
           document.getElementsByClassName("item rate")[0].innerHTML = rates.average_rate + "<br>  Average"
           document.getElementsByClassName("item rate")[1].innerHTML = rates.coinbase_rate + "<br> Coinbase"
           document.getElementsByClassName("item rate")[2].innerHTML = rates.okcoin_rate + "<br> Ok Coin"
           document.getElementsByClassName("item rate")[3].innerHTML = rates.bitfinex_rate + "<br> Bitfinex"
-          // var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
-          // jQuery('.rate')[0].fadeIn(100).fadeOut(100).fadeIn(100).fadeOut(100);
 
-        //   var colors = ["green", "blue"]
-         //
-        //   function changeColor(){
-        //     var colorIndex = 0
-        //     colorIndex += 1
-        //     document.getElementsByClassName("item rate")[0].style.color = colors[colorIndex]
-        //     document.getElementsByClassName("item rate")[1].style.color = colors[colorIndex]
-        //     document.getElementsByClassName("item rate")[2].style.color = colors[colorIndex]
-        //     document.getElementsByClassName("item rate")[3].style.color = colors[colorIndex]
-        //     console.log(colorIndex)
-        //     colorIndex = 0
-        //  }
-         //
-        //  changeColor()
+          document.getElementsByClassName("item rate")[0].style.color = colors[index]
+          document.getElementsByClassName("item rate")[1].style.color = colors[index]
+          document.getElementsByClassName("item rate")[2].style.color = colors[index]
+          document.getElementsByClassName("item rate")[3].style.color = colors[index]
 
+          if (index == 0){
+            index += 1
+          }
+          else{ index = 0
+          }
 
           }
       });
+
 }
 
 
+
+
 $(document).ready(function(){
-  // setInterval(function(){get_rates()},3000)
-  // setInterval(function()changeColor()},3000)
+  setInterval(function(){get_rates()},3000)
+
 
 
 

@@ -218,12 +218,12 @@ textarea {
 }
 
 
-#landing{
+#landing {
   position: absolute;
   top: 33vh;
-  left: 31vw;
-  width: 40vw;
-  height: 30vh;
+  left: 26vw;
+  width: 100vw;
+  height: 39vh;
 }
 
 .landing{
@@ -373,7 +373,7 @@ input.ui.standard.black.button {
 
 #signupbtnm{
   margin-right: 2em;
-  margin-top: 2em;
+  // margin-top: 2em;
 
 }
 
@@ -403,6 +403,8 @@ a.ui.blue.button.item {
 }
 
 
+
+
 .right.item {
   left: 8vw;
 }
@@ -430,5 +432,5 @@ a.ui.blue.button.item {
   color: red;
 }
 .ui.container{
-  padding-top: 4vh;
+
 }
