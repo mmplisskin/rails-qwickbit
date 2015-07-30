@@ -28,8 +28,8 @@
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         </ul>
         <% else %>
-        <li><%= link_to "Sign up", new_business_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><a href="#signup-modal" class="modal-trigger wave-effect waves-light">Sign Up</a></li>
+        <li><a href="#login-modal" class="modal-trigger wave-effect waves-light">Log In</a></li>
         <% end %>
       </ul>
       <ul class="side-nav" id="mobile-demo">
@@ -41,8 +41,8 @@
         <li><%= link_to "Add Items", new_item_path %></li>
         <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% else %>
-        <li><%= link_to "Sign up", new_business_path %></li>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><a href="#signup-modal" class="modal-trigger wave-effect waves-light">Sign Up</a></li>
+        <li><a href="#login-modal" class="modal-trigger wave-effect waves-light">Log In</a></li>
         <% end %>
       </ul>
     </div>

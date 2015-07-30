@@ -1,0 +1,19 @@
+<div id="login-modal" class="modal">
+  <div class="modal-content">
+  <%= form_for :login do |f| %>
+    <div class="">
+      <%= f.label :email %>
+      <%= f.text_field :email, placeholder: 'email@example.com' %>
+    </div>
+    <div class="">
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: 'email@Password.com' %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="">
+      <%= f.submit "Log In", class:"waves-light wave-effect btn" %>
+    </div>
+  <% end %>
+  </div>
+</div>
