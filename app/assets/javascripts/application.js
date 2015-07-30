@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require map.js
 //= require qrcode.js
-//= require bootstrap-sprockets
+//= require materialize-sprockets
 //= require turbolinks
 //= require wallets.js
 
@@ -165,7 +165,7 @@ signup = function(){
 
       });
 
-      // 
+      //
       // setInterval(function(){
       //
       //     var textInput = document.getElementsByTagName("textarea")[0].value
@@ -308,8 +308,8 @@ function get_rates(){
 
 
 $(document).ready(function(){
-  setInterval(function(){get_rates()},3000)
-
+  // setInterval(function(){get_rates()},3000)
+  $(".button-collapse").sideNav();
 
 
 

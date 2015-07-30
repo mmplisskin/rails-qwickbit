@@ -57,6 +57,7 @@ gem 'clockwork', '~> 1.2.0'
 gem 'html5_validators'
 
 gem 'paperclip'
+gem 'materialize-sass'
 
 group :production do
   gem 'rails_12factor'

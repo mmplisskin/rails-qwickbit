@@ -15,422 +15,52 @@
  *= require_tree .
  *= require_self
 
-
-
-
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
-
-
 
 
 /*
-
  *= require rails_bootstrap_forms
-
-
-
 */
 
+@import "materialize";
+@import "materialize/components/color";
+$primary: #b2ebf2;
+$primary-light: #e0f7fa;
+$secondary: #f0f4c3;
+$secondary-light: #f9fbe7;
+$text: #546e7a;
 
-
-
-
-@keyframes bigEntrance {
-	0% {
-		transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
-		opacity: 0.2;
-	}
-	30% {
-		transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
-		opacity: 1;
-	}
-	45% {
-		transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	60% {
-		transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	75% {
-		transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	90% {
-		transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-}
-
-@-webkit-keyframes bigEntrance {
-	0% {
-		-webkit-transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
-		opacity: 0.2;
-	}
-	30% {
-		-webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
-		opacity: 1;
-	}
-	45% {
-		-webkit-transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	60% {
-		-webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	75% {
-		-webkit-transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	90% {
-		-webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	100% {
-		-webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-}
-
-
-
-@keyframes pulse {
-	0% {
-		transform: scale(1);
-		opacity: 0.7;
-	}
-  25% {
-    transform: scale(0.9);
-    opacity: 0.7;
+/*
+NAVBAR
+*/
+#header-nav {
+  background-color: $primary;
+  a {
+    color: $text;
   }
-	50% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(0.9);
-		opacity: 0.7;
-	}
-}
-
-@-webkit-keyframes pulse {
-	0% {
-		-webkit-transform: scale(1);
-		opacity: 0.7;
-	}
-  25% {
-		-webkit-transform: scale(0.95);
-		opacity: 0.7;
-	}
-	50% {
-		-webkit-transform: scale(1);
-		opacity: 1;
-	}
-	100% {
-		-webkit-transform: scale(0.95);
-		opacity: 0.7;
-	}
-}
-
-
-
-
-
-
-#googleMap{
-
-  width: 82vw;
-  height: 100vh;
-}
-
-
-
-.right_locations.col-md-4 {
-  float: right;
-  width: 20vw;
-  position: relative;
-  top: -97vh;
-
-}
-
-
-.businesses_locations {
-  box-shadow: 3px 2px 4px black;
-  width: 15.5vw;
-}
-
-.businesses_locations:active {
-  box-shadow: 8px 3px 6px black;
-
-  animation-name: bigEntrance;
-  -webkit-animation-name: bigEntrance;
-
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease-out;
-
-  visibility: visible !important;
-
-}
-.businesses_locations:hover {
-  // box-shadow: 8px 3px 6px black;
-
-  animation-name: pulse;
-  	-webkit-animation-name: pulse;
-
-  	animation-duration: 1.5s;
-  	-webkit-animation-duration: 1.5s;
-
-  	animation-iteration-count: 1;
-  	-webkit-animation-iteration-count: 1;
-
-
-}
-
-
-
-
-
-
-
-textarea {
-   resize: none !important;;
-   width: 3vw;
-}
-
-.form-group {
-  padding-top: 1vh;
-}
-
-
-
-
-.hidden.menu {
-  display: none;
-}
-
-
-#landing {
-  position: absolute;
-  top: 33vh;
-  left: 26vw;
-  width: 100vw;
-  height: 39vh;
-}
-
-.landing{
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png');
-  background-repeat: no-repeat;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-}
-
-
-.signupdiv {
-  z-index: 10;
-  // width: 38vw;
-  // height: 60vh;
-  // position: relative;
-  margin-top: 8%;
-  padding-bottom: 2%;
-  left: 19vw;
-  background-color: white;
-  z-index: 1;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30)
-
-}
-
-#forward_back_btns{
-  text-align: center;
-
-}
-
-
-.logindiv {
-  z-index: 10;
-  // width: 38vw;
-  // height: 60vh;
-  // position: relative;
-  margin-top: 13%;
-  padding-bottom: 2%;
-  left: 19vw;
-  background-color: white;
-  z-index: 1;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30)
-}
-
-.overlay {
-  z-index: -2;
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  overflow: auto;
-  top: 0px;
-  left: 0px;
-  background: rgba(12, 13, 35, 0.6);
+  .rate-wrapper {
+    span {
+      position:relative;
+      color: $text;
+      font-size: .8em;
+    }
+    .rate-title {
+      top: -10px;
+    }
+    .rate {
+      top: 10px;
+      left: -35px;
+    }
   }
-
-h1.ui.header{
-  font-size: 5vw;
 }
-
-h2.h2{
-  font-size: 2.3vw;
-}
-
-.h2.txt{
-  color: #d3d3d3;
-}
-
-.ui.grid{
-  margin-top: 4vh;
-}
-
-input.ui.standard.black.button {
-  margin-left: 14vw;
-  margin-top: 3vh;
-}
-
-
-
-#forward_back_btns{
-  // position: absolute;
-  // top: 44%;
-}
-// .ui.huge.green.button{
-//   display: block;
-//   position: absolute;
-//   // width: 20%;
-//   // height: 20%;
-//   // top: 29vh;
-//   left: 15vw;
-// }
-
-.items_image{
-  width: 40%;
-  height: 40%;
-}
-
-/********************************
-          WALLETS INDEX
-********************************/
-.private_key_wrapper {
-  background-color: rgba(20,80,40,0.4);
-
-  text-align: center;
-  padding-left: 1vw;
-}
-.hide {
-  display:none;
-}
-.public_key_wrapper {
-  background-color: rgba(120,120,120,0.4);
-}
-.private_key_wrapper,
-.public_key_wrapper {
-
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
-  text-align: center;
-  // height: 37vh;
-  // height: 30vh;
-}
-
-#pub_qrcode,#priv_qrcode {
-  padding-left: 10vw;
-
-}
-
-#priv_qrcode{
-  padding-top: 2vh;
-  padding-bottom: 5vh;
-}
-
-
-//
-// .item.ui.inverted.button{
-//   margin-left: 10px;
-// }
-
-
-#pub_qrcode{
-
-
-}
-
-
-#signupbtnm{
-  margin-right: 2em;
-  // margin-top: 2em;
-
-}
-
-.items_image{
-  float: right;
-  padding-top: 4em;
-
-}
-// #business_description{
-//     padding-top: 4vh;
-//
-// }
-
-// #business_btns{
-//   padding-bottom: 4vh;
-// }
-
-a.ui.blue.button.item {
-  margin-left: 25vw;
-}
-
-.item.rate{
-  left: 8vw;
-  color: rgb(80, 171, 80);
-  font-weight: 1vw;
-    font-style: oblique;
-}
-
-
-
-
-.right.item {
-  left: 8vw;
-}
-
-
-
-#wallet_btns {
-  // position: relative;
-  top: 3vh;
-  // padding-bottom: 1vw;
-}
-
-
-#list_btn {
-  margin-left: 42vw;
-}
-
-
-.item_image {
-  margin-left: 10vw;
-  margin-top: 12vh;
-}
-
-.warning {
-  color: red;
-}
-.ui.container{
-
+@media (max-width: 992px) {
+  .nav-logo {
+    display: none;
+  }
+  #header-nav {
+    text-align: center;
+    .rate-wrapper {
+      position: static;
+    }
+  }
 }
