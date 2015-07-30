@@ -1,111 +1,23 @@
 
 <%= render 'layouts/modal_signup' %>
 <div id = "googleMap"></div>
-<div class="right_locations col-md-4">
-
-
-<div class="col-md-8 col-md-offset-1">
-<%# x = 1 %>
-<%  @businesses.each do |b| %>
-<div class="businesses_locations" >
-<%#= "#{x}" %>
-<h1>  <%= b.name %> </h1>
-<h3>  <%= b.address %> </h3>
-  <%= b.zipcode %>
-  <%# x += 1 %>
-</div>
-<% end %>
-<!-- businesses_locations  -->
+<div id="googleMapSearch" class="z-depth-3">
+  <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+  <div class="googleMapSearch-results">
 
   </div>
 </div>
-<!--
-<script>
-var initialize
 
-$(document).ready(function(){
+<%  @businesses.each do |b| %>
 
-
-$('.static_pages.locations').ready(function (){
-
-initialize = function(e) {
-  console.log("init running")
-
-  var url = window.location.origin + "/businesses" + ".json";
-
-  $.get(url, function(results){
-
-
-  navigator.geolocation.getCurrentPosition(function(pos) {
-
-    var lat = pos.coords.latitude
-    var long = pos.coords.longitude
-    var myCenter = new google.maps.LatLng(lat,long);
-    var mapProp = {
-      center: myCenter,
-      zoom:13,
-      styles: [{"featureType":"landscape.natural","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#e0efef"}]},{"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"hue":"#1900ff"},{"color":"#c0e8e8"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":100},{"visibility":"simplified"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":700}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#7dcdcd"}]}]
-
-    };
-    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
-    var markers = []
-
-  		for (i = 0; i < results.length; i++) {
-
-  			var markerPosition = new google.maps.LatLng(results[i]["latitude"], results[i]["longitude"])
-        var infowindow = new google.maps.InfoWindow({
-        });
-        var bitcoin_icon = {
-          url: 'http://i.imgur.com/yuqNP88.png',
-          size: new google.maps.Size(30,30)
-        }
-        var marker = new google.maps.Marker({
-          position: markerPosition,
-          animation: google.maps.Animation.DROP,
-          icon: bitcoin_icon
-        })
-        markers.push(markerPosition)
-
-        console.log(results[i].name)
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-          return function () {
-            map.panTo(marker.getPosition());
-            infowindow.setContent("<h5><a>" + results[i].name + "</a><p>" + results[i].address + "</p><h5><p>" + results[i].phone_number + "</p>")
-
-            infowindow.open(map, marker)
-            console.log(marker)
-          }
-
-
-        })(marker, i))
-
-
-
-      marker.setMap(map)
-    }
-
-
-    console.log(markers)
-    $('.businesses_locations').each(function(e){
-
-      $(this).click( function() {
-        console.log(e)
-
-
-      })
-    });
-
-      })
-  })
-}
-
-
-
-});
-
-google.maps.event.addDomListener(window, 'load', initialize);
-})
-
-
-</script> -->
+<% end %>

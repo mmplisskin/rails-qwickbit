@@ -28,9 +28,7 @@ $primary: #eceff1;
 $primary-light: #e0f7fa;
 $secondary: #ff5722;
 $secondary-light: #ff7043;
-$text: #546e7a;
-$grey: #eceff1;
-$orange: #fbe9e7;
+$nav-text: #546e7a;
 
 @mixin landing-position($position) {
   position: relative;
@@ -53,12 +51,12 @@ NAVBAR
 #header-nav {
   background-color: rgba(255,255,255,.9);
   a {
-    color: $text;
+    color: $nav-text;
   }
   .rate-wrapper {
     span {
       position:relative;
-      color: $text;
+      color: $nav-text;
       font-size: .8em;
     }
     .rate-title {
@@ -73,6 +71,10 @@ NAVBAR
 /*
 LANDING PAGE
 */
+$landing-promo: #eceff1;
+$landing-contact: #fbe9e7;
+$landing-overlay: rgba(35, 35, 50, 0.6);
+
 .landing-cta,
 .landing-promo,
 .landing-contact {
@@ -82,7 +84,7 @@ LANDING PAGE
 .cta-overlay {
   height: 100%;
   width: 100%;
-  background: rgba(35, 35, 50, 0.6);
+  background: $landing-overlay;
 }
 .landing-cta {
   background: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png");
@@ -100,7 +102,7 @@ LANDING PAGE
 }
 
 .landing-promo {
-  background: $grey;
+  background: $landing-promo;
   .container {
     @include landing-position(30vh);
   }
@@ -110,7 +112,7 @@ LANDING PAGE
 }
 
 .landing-contact {
-  background: $orange;
+  background: $landing-contact;
   .container {
     @include landing-position(20vh);
   }
@@ -119,6 +121,34 @@ LANDING PAGE
   }
 }
 
+/*
+LOCATIONS PAGE
+*/
+$searchInput: #C0E8E8;
+.locations {
+  input {
+    background-color: $searchInput;
+  }
+  width: 100vw;
+  height: 92vh;
+  #googleMap {
+    width: 70%;
+    height: 100%;
+    float:left;
+  }
+  #googleMapSearch {
+    width: 30%;
+    height: 100%;
+    float:left;
+    .googleMapSearch-results {
+      
+    }
+  }
+}
+
+/*
+MEDIA QUERIES
+*/
 @media (max-width: 992px) {
   .nav-logo {
     display: none;
@@ -163,7 +193,6 @@ LANDING PAGE
     }
   }
 }
-
 @media only screen and (max-device-width: 992px) {
   .nav-logo {
     display: none;

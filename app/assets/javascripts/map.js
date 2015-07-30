@@ -47,8 +47,9 @@ initialize = function(e) {
         console.log(results[i].name)
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
           return function () {
+            var contentString = "<a>" + results[i].name + "</a><p>" + results[i].address + "</p><p>" + results[i].phone_number + "</p>";
             map.panTo(marker.getPosition());
-            infowindow.setContent("<h5><a>" + results[i].name + "</a><p>" + results[i].address + "</p><h5><p>" + results[i].phone_number + "</p>")
+            infowindow.setContent(contentString)
 
             infowindow.open(map, marker)
             console.log(marker)
