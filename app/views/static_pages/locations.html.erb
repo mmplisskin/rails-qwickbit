@@ -1,13 +1,17 @@
 <%= render 'layouts/modal_signup' %>
 <%= render 'layouts/modal_login' %>
+
+<div class="progress container">
+    <div class="indeterminate"></div>
+</div>
+
 <div id="googleMapSearch" class="z-depth-3">
   <nav>
     <div class="nav-wrapper">
-      <form>
+      <form id="searchForm">
         <div class="input-field">
-          <input id="search" type="search" required>
+          <input id="search" type="search">
           <label for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
         </div>
       </form>
     </div>

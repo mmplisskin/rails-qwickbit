@@ -126,6 +126,11 @@ LOCATIONS PAGE
 */
 $searchInput: #C0E8E8;
 .locations {
+  .progress {
+    position: absolute;
+    top: 50vh;
+    left: 15vw;
+  }
   #search {
     background-color: $searchInput;
   }
