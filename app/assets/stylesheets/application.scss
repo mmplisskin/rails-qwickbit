@@ -126,7 +126,7 @@ LOCATIONS PAGE
 */
 $searchInput: #C0E8E8;
 .locations {
-  input {
+  #search {
     background-color: $searchInput;
   }
   width: 100vw;
@@ -141,7 +141,7 @@ $searchInput: #C0E8E8;
     height: 100%;
     float:left;
     .googleMapSearch-results {
-      
+
     }
   }
 }
@@ -190,6 +190,23 @@ MEDIA QUERIES
       h5 {
         font-size: 1.2em;
       }
+    }
+  }
+  #googleMap, #googleMapSearch {
+    width: 100vw !important;
+    float: none !important;
+  }
+  #googleMap {
+    height: 70vh !important;
+  }
+  #googleMapSearch {
+    max-height: 30vh !important;
+    .googleMapSearch-results {
+      max-height: 20vh;
+    }
+    .material-icons {
+      position: relative;
+      top: 2px;
     }
   }
 }
