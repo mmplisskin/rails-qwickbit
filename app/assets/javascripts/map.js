@@ -48,6 +48,38 @@ $(document).ready(function(){
             })(marker, i))
             marker.setMap(map)
           }
+
+          var resultWrapper = $(".googleMapSearch-results");
+          function allBusiness(url) {
+            $.ajax({
+              type:"GET",
+              dataType: "json",
+              url: url,
+              success: function (data) {
+                data.forEach(function (element) {
+                  var resultString = "<div class='result'><h5>" + element.name + "</h5><p>" + element.address + "</p>" + "</div>"
+                  resultWrapper.append(resultString);
+                })
+                var results = $(".result");
+                results.on("click", function () {
+                  
+                })
+              }
+            })
+          }
+          allBusiness("/businesses");
+          $("#searchForm").on("submit", function (e) {
+            var searchInput = $("#search").val();
+            resultWrapper.empty();
+            e.preventDefault("/businesses");
+            console.log(searchInput);
+            if (searchInput === null || searchInput.length === 0) {
+              allBusiness("/businesses");
+            } else {
+              allBusiness("/search.json?utf=✓&search=" + searchInput);
+            }
+          })
+
           console.log(markers)
           $('.businesses_locations').each(function(e){
             $(this).click( function() {
@@ -58,32 +90,5 @@ $(document).ready(function(){
       })
     }
   });
-
-  var resultWrapper = $(".googleMapSearch-results");
-  function allBusiness(url) {
-    $.ajax({
-      type:"GET",
-      dataType: "json",
-      url: url,
-      success: function (data) {
-        data.forEach(function (element) {
-          var resultString = "<div class='result'><h5>" + element.name + "</h5><p>" + element.address + "</p>" + "</div>"
-          resultWrapper.append(resultString);
-        })
-      }
-    })
-  }
-  allBusiness("/businesses");
-  $("#searchForm").on("submit", function (e) {
-    var searchInput = $("#search").val();
-    resultWrapper.empty();
-    e.preventDefault("/businesses");
-    console.log(searchInput);
-    if (searchInput === null || searchInput.length === 0) {
-      allBusiness("/businesses");
-    } else {
-      allBusiness("/search.json?utf=✓&search=" + searchInput);
-    }
-  })
   google.maps.event.addDomListener(window, 'load', initialize);
 })

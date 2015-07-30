@@ -146,7 +146,12 @@ $searchInput: #C0E8E8;
     height: 100%;
     float:left;
     .googleMapSearch-results {
-
+      height: 90%;
+      overflow: scroll;
+      .result {
+        border-bottom: 1px solid $searchInput;
+        padding: 15px;
+      }
     }
   }
 }
@@ -212,6 +217,9 @@ MEDIA QUERIES
     .material-icons {
       position: relative;
       top: 2px;
+    }
+    .googleMapSearch-results {
+      overflow:scroll;
     }
   }
 }
