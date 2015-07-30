@@ -115,7 +115,7 @@ LANDING PAGE
   }
 }
 
-@media (max-width: 992px) {
+@media screen and (max-width: 992px) {
   .nav-logo {
     display: none;
   }
@@ -125,16 +125,31 @@ LANDING PAGE
       position: static;
     }
   }
+  .landing-cta {
+    height: 90vh;
+    h2 {
+      font-size: 1.5em;
+    }
+    h4 {
+      font-size: 1.5em;
+    }
+  }
   .landing-promo {
-    height: 150vh;
+    height: 160vh;
     .container {
       @include landing-position(10vh);
     }
+    .col h5 {
+      font-size: 1.2em;
+    }
   }
   .landing-contact {
-    height: 150vh;
+    height: 160vh;
     .container {
       @include landing-position(10vh);
+    }
+    .col h5 {
+      font-size: 1.2em;
     }
   }
 }
