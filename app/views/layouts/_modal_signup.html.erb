@@ -1,90 +1,52 @@
-<div class="signupdiv" id="sign_up1" style="display: none">
-    <div class="col-md-6">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-10">
-        <h2>
-          Sign Up
-        </h2>
+<div id="modal1" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <h4>Sign Up</h4>
+    <%= form_for @business do |f| %>
+      <div class="">
+        <%= f.label :name %>
+        <%= f.text_field :name, placeholder:'Business name', :required => true %>
       </div>
+      <div class="">
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder:'email@example.com', :required => true %>
       </div>
-    </div>
-    <%= bootstrap_form_for @business do |f| %>
-    <div class="row">
-      <!-- <div class="messages">
-      </div> -->
-      <div class="col-md-8 col-md-offset-2">
-        <div class="alert alert-warning" style="display:none;" id="sinUpAlert">
-
-        </div>
+      <div class="">
+        <%= f.label :address %>
+        <%= f.text_field :address, placeholder:'Address' %>
       </div>
-      <div class="col-md-8 col-md-offset-2">
-        <div class="sign_upfields1">
-          <%= f.text_field :name, placeholder: 'Business Name', label: 'Business Name', :required => true  %>
-          <%= f.text_field :email, placeholder: 'email@example.com' %>
-          <div class="row" id="forward_back_btns">
-              <div class="col-md-8 col-md-offset-2">
-
-                <div class='ui huge blue button', id="nextbtn">Next <i class="fa fa-arrow-right"></i></div>
-            </div>
-        </div>
-        </div>
-        <div class="sign_upfields2" style="display: none">
-          <%= f.text_field :address, placeholder: 'Adress' %>
-          <%= f.text_field :city, placeholder: 'City' %>
-          <%= f.select(:state, options_for_select(us_states, "CA"))%>
-          <%= f.text_field :zipcode , placeholder: '5 digit zipcode' %>
-          <div class="row" id="forward_back_btns">
-              <div class="col-md-8 col-md-offset-2">
-                <div class='ui huge black button', id="backbtn1">Back <i class="fa fa-undo"></i></div>
-
-                <div class='ui huge blue button', id="nextbtn2">Next <i class="fa fa-arrow-right"></i></div>
-            </div>
-        </div>
-        </div>
-        <div class="sign_upfields3" style="display: none">
-          <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of your business'  %>
-          <%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
-          <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder: '(555)-523-5678' %>
-          <%= f.password_field :password, placeholder: 'password'  %>
-          <%= f.password_field :password_confirmation, placeholder: 'password confirmation'   %>
-
-          <div class="row" id="forward_back_btns">
-
-              <div class="col-md-8 col-md-offset-2">
-                <div class='ui huge black button', id="backbtn2">Back <i class="fa fa-undo"></i></div>
-                <!-- <div class='ui huge blue button', id="submit">List Business </div> -->
-                <%=  f.submit "list Business", class:'ui huge blue button'%>
-                <!-- <div class='ui huge blue button', id="nextbtn3">Next <i class="fa fa-arrow-right"></i></div> -->
-            </div>
-        </div>
-        </div>
+      <div class="">
+        <%= f.label :city %>
+        <%= f.text_field :city, placeholder:'City' %>
       </div>
-    </div>
-    <% end %>
-</div>
-<div class="logindiv" id="login" style="display: none">
-  <div class="col-md-6">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-10">
-      <h2>
-        Log In
-      </h2>
-    </div>
-    </div>
+      <div class="">
+        <%= f.select :state, options_for_select(us_states, "CA") %>
+      </div>
+      <div class="">
+        <%= f.label :zipcode %>
+        <%= f.text_field :zipcode, placeholder:'5 digit zipcode' %>
+      </div>
+      <div class="">
+        <%= f.label :description %>
+        <%= f.text_area :description, placeholder:'A brief description of your business', class:"materialize-textarea" %>
+      </div>
+      <div class="">
+        <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: false %>
+      </div>
+      <div class="">
+        <%= f.label :phone_number %>
+        <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder:'(555)555-5555' %>
+      </div>
+      <div class="">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder:'Password' %>
+      </div>
+      <div class="">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, placeholder:'Confirm Password' %>
+      </div>
   </div>
-
-  <div class="row">
-
-    <div class="col-md-8 col-md-offset-2">
-    <%= bootstrap_form_for :login do |f| %>
-    <div class="ui form">
-      <%= f.text_field :email, placeholder: 'email@example.com' %>
-      <%= f.password_field :password, placeholder: 'password'  %>
-      <div class="row" id="forward_back_btns">
-          <%= f.submit 'Log In',class: 'ui huge blue button'%>
-      </div>
-    </div>
-    <% end %>
+  <div class="modal-footer">
+    <%= f.submit "List Business", class:"btn waves-light wave-effect" %>
   </div>
-</div>
+  <% end %>
 </div>

@@ -24,17 +24,34 @@
 
 @import "materialize";
 @import "materialize/components/color";
-$primary: #b2ebf2;
+$primary: #eceff1;
 $primary-light: #e0f7fa;
-$secondary: #f0f4c3;
-$secondary-light: #f9fbe7;
+$secondary: #ff5722;
+$secondary-light: #ff7043;
 $text: #546e7a;
+$grey: #eceff1;
+$orange: #fbe9e7;
 
+@mixin landing-position($position) {
+  position: relative;
+  top: $position;
+}
+
+select {
+  display: block;
+}
+
+.btn {
+  background: $secondary;
+  &:hover {
+    background-color: $secondary-light;
+  }
+}
 /*
 NAVBAR
 */
 #header-nav {
-  background-color: $primary;
+  background-color: rgba(255,255,255,.9);
   a {
     color: $text;
   }
@@ -53,6 +70,51 @@ NAVBAR
     }
   }
 }
+/*
+LANDING PAGE
+*/
+.landing-cta,
+.landing-promo,
+.landing-contact {
+  height: 90vh;
+  width: 100vw;
+}
+.landing-cta {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  h2 {
+    margin: 0;
+  }
+  .container {
+    @include landing-position(25vh);
+    text-align: center;
+    padding: 30px;
+    background-color: rgba(220,220,220,0.6);
+  }
+}
+
+.landing-promo {
+  background: $grey;
+  .container {
+    @include landing-position(25vh);
+  }
+  .col {
+    text-align: center;
+  }
+}
+
+.landing-contact {
+  background: $orange;
+  .container {
+    @include landing-position(20vh);
+  }
+  .col {
+    text-align: center;
+  }
+}
+
 @media (max-width: 992px) {
   .nav-logo {
     display: none;
@@ -61,6 +123,18 @@ NAVBAR
     text-align: center;
     .rate-wrapper {
       position: static;
+    }
+  }
+  .landing-promo {
+    height: 150vh;
+    .container {
+      @include landing-position(10vh);
+    }
+  }
+  .landing-contact {
+    height: 150vh;
+    .container {
+      @include landing-position(10vh);
     }
   }
 }
