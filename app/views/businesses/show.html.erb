@@ -1,4 +1,5 @@
 <div class="row container">
+<% if current_business %>
   <div class="business-description">
     <h3><%= current_business.name %></h3>
     <div class="description-btn-wrapper">
@@ -33,4 +34,25 @@
     </div>
   <% end %>
   </div>
+<% else %>
+  <div class="business-description">
+    <h3><%= @business.name %></h3>
+    <p>Address: <%= @business.full_address %></p>
+    <p>Phone: <%= @business.phone_number %></p>
+    <p>Description: <%= @business.description %></p>
+  </div>
+  <div class="business-item-wrapper row">
+  <% @business.items.each do |item| %>
+    <div class="business-item col m4">
+      <% if item.image_file_name %>
+      <div class="item_image">
+        <%= image_tag item.image.url(:large), class:'items_image' %>
+      </div>
+      <% end %>
+      <h5><%= item.name.capitalize %></h5>
+      <p><%= item.description %></p>
+      <p>Price: <%= number_to_currency(item.price) %></p>
+    </div>
+  <% end %>
+<% end %>
 </div>

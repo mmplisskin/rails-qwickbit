@@ -39,7 +39,7 @@ $(document).ready(function(){
             console.log(results[i].name)
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
               return function () {
-                var contentString = "<a>" + results[i].name + "</a><p>" + results[i].address + "</p><p>" + results[i].phone_number + "</p>";
+                var contentString = "<a href='/businesses/" + results[i].id + "'>" + results[i].name + "</a><p>" + results[i].address + "</p><p>" + results[i].phone_number + "</p>";
                 map.panTo(marker.getPosition());
                 infowindow.setContent(contentString)
                 infowindow.open(map, marker)
