@@ -147,7 +147,12 @@ $landing-overlay: rgba(35, 35, 50, 0.6);
 LOCATIONS PAGE
 */
 $searchInput: #C0E8E8;
+.static_pages-locations-wrapper {
+  height:92vh;
+}
 .locations {
+  width: 100vw;
+  height: 92vh;
   .progress {
     position: absolute;
     top: 50vh;
@@ -156,8 +161,6 @@ $searchInput: #C0E8E8;
   #search {
     background-color: $searchInput;
   }
-  width: 100vw;
-  height: 92vh;
   #googleMap {
     width: 70%;
     height: 100%;
