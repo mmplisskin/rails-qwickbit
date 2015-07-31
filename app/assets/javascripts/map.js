@@ -65,6 +65,7 @@ $(document).ready(function(){
                   var inputValue = $(this).find("input").val().split(",");
                   var latlng = new google.maps.LatLng(parseFloat(inputValue[0]), parseFloat(inputValue[1]));
                   map.panTo(latlng);
+                  map.setZoom(15);
                 })
               }
             })

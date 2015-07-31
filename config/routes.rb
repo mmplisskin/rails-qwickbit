@@ -32,6 +32,7 @@ end
 
     # resources :businesses
   post '/'    => 'sessions#create'
+  post '/static_pages/locations' => 'sessions#create'
 
   # post 'static_pages/locations' => 'sessions#create'
 

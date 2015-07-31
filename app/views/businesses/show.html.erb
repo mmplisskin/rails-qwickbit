@@ -1,5 +1,5 @@
 <div class="row container">
-<% if current_business %>
+<% if current_business.id == @business.id %>
   <div class="business-description">
     <h3><%= current_business.name %></h3>
     <div class="description-btn-wrapper">
@@ -13,7 +13,7 @@
   </div>
   <div class="business-item-wrapper row">
   <% current_business.items.each do |item| %>
-    <div class="business-item col m4">
+    <div class="business-item col l4">
       <% if item.image_file_name %>
       <div class="item_image">
         <%= image_tag item.image.url(:large), class:'items_image' %>
@@ -24,8 +24,8 @@
         <a href="/items/<%= item.id %>/edit" class="btn-floating wave-effect waves-light btn-blue tooltipped" data-position="top" data-delay="10" data-tooltip="Edit Item"><i class="material-icons">mode_edit</i></a>
         <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Item"><i class="material-icons">delete</i></a>
       </div>
-      <p><%= item.description %></p>
       <p>Price: <%= number_to_currency(item.price) %></p>
+      <p><%= item.description %></p>
       <% if item.item_address %>
       <p>Wallet: <%= item.item_address %></p>
       <% else %>
