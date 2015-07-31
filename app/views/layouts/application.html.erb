@@ -20,30 +20,16 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render 'layouts/nav'%>
-
-    <% if params[:action] != "locations" %>
-
-      <div class="">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <%= msg %>
-          <% end %>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <%= msg %>
         <% end %>
-        <%= yield %>
-      </div>
-
-        <% else %>
-
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            <%= msg %>
-          <% end %>
-        <% end %>
-        <%= yield %>
-
-    <% end %>
-
+      <% end %>
+    </div>
+    <div class="<%= controller_name %>-<%= action_name %>-wrapper">
+      <%= yield %>
+    </div>
   </body>
 </html>

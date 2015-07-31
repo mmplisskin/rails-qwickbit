@@ -57,7 +57,7 @@ $(document).ready(function(){
               url: url,
               success: function (data) {
                 data.forEach(function (element) {
-                  var resultString = "<div class='result'><h5>" + element.name + "</h5><p>" + element.address + "</p><input type='hidden' value='" + element.latitude + "," + element.longitude + "'/>" + "</div>"
+                  var resultString = "<div class='result z-depth-1'><h5>" + element.name + "</h5><p>" + element.address + "</p><input type='hidden' value='" + element.latitude + "," + element.longitude + "'/>" + "</div>"
                   resultWrapper.append(resultString);
                 })
                 var results = $(".result");
