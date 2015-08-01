@@ -7,7 +7,7 @@
 
 
 
-#### **qwickbit** connects businesses that accept bitcoins with users via a [hybrid mobile app]('https://github.com/Ephapox/ionic-qwkbit').
+#### qwickbit connects businesses that accept bitcoins with users via a [hybrid mobile app]('https://github.com/Ephapox/ionic-qwkbit').
 
  <br />
 
