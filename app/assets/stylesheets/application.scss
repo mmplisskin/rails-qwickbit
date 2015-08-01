@@ -256,7 +256,15 @@ MEDIA QUERIES
   #header-nav {
     text-align: center;
     .rate-wrapper {
-      position: static;
+      font-size: 12px;
+      .rate {
+        position:relative;
+        left:-15px;
+      }
+      .rate-title {
+        position: relative;
+        left:20px;
+      }
     }
   }
   .landing-cta {
