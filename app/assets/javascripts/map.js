@@ -5,7 +5,7 @@ $(document).ready(function(){
     $("#googleMapSearch").hide();
     initialize = function(e) {
       console.log("init running")
-      var url = window.location.origin + "/businesses" + ".json";
+      var url = "/businesses.json"
       $.get(url, function(results){
         navigator.geolocation.getCurrentPosition(function(pos) {
           var lat = pos.coords.latitude
@@ -36,14 +36,13 @@ $(document).ready(function(){
               icon: bitcoin_icon
             })
             markers.push(markerPosition)
-            console.log(results[i].name)
+
             google.maps.event.addListener(marker, 'click', (function (marker, i) {
               return function () {
                 var contentString = "<a href='/businesses/" + results[i].id + "'>" + results[i].name + "</a><p>" + results[i].address + "</p><p>" + results[i].phone_number + "</p>";
                 map.panTo(marker.getPosition());
                 infowindow.setContent(contentString)
                 infowindow.open(map, marker)
-                console.log(marker)
               }
             })(marker, i))
             marker.setMap(map)
@@ -75,7 +74,6 @@ $(document).ready(function(){
             var searchInput = $("#search").val();
             resultWrapper.empty();
             e.preventDefault("/businesses");
-            console.log(searchInput);
             if (searchInput === null || searchInput.length === 0) {
               allBusiness("/businesses");
             } else {
@@ -83,12 +81,6 @@ $(document).ready(function(){
             }
           })
 
-          console.log(markers)
-          $('.businesses_locations').each(function(e){
-            $(this).click( function() {
-              console.log(e)
-            })
-          });
         })
       })
     }
