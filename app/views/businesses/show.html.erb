@@ -1,6 +1,6 @@
 <%= render 'layouts/modals/modal_items_form' %>
 <div class="row container">
-<% if current_business.id == @business.id %>
+<% if current_business && current_business.id == @business.id %>
   <div class="business-description">
     <h3><%= current_business.name %></h3>
     <div class="description-btn-wrapper">
