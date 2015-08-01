@@ -24,7 +24,6 @@
         <ul id="profile-dropdown" class="dropdown-content">
           <li><%= link_to "Profile", business_path(current_business.id) %></li>
           <li><%= link_to "Wallets", wallets_path %></li>
-          <li><%= link_to "Add Items", new_item_path %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
         </ul>
         <% else %>
@@ -38,7 +37,6 @@
         <% if current_business %>
         <li><%= link_to current_business.name, business_path(current_business.id) %></li>
         <li><%= link_to "Wallets", wallets_path %></li>
-        <li><%= link_to "Add Items", new_item_path %></li>
         <li><%= link_to "Log out", logout_path, method: :delete %></li>
         <% else %>
         <li><a href="#signup-modal" class="modal-trigger wave-effect waves-light">Sign Up</a></li>

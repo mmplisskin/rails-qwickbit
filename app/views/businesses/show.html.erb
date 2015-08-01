@@ -1,16 +1,17 @@
+<%= render 'layouts/modals/modal_items_form' %>
 <div class="row container">
 <% if current_business.id == @business.id %>
   <div class="business-description">
     <h3><%= current_business.name %></h3>
     <div class="description-btn-wrapper">
       <%= link_to "Edit Info", edit_business_path(current_business.id), class:"wave-effect waves-light btn-blue btn" %>
-      <a href="/items/new" class="btn-green btn wave-effect waves-light"><i class="material-icons">add_circle_outline</i><span>Add Item</span></a>
     </div>
     <p>Address: <%= current_business.full_address %></p>
     <p>Phone: <%= current_business.phone_number %></p>
     <p>Email: <%= current_business.email %></p>
     <p>Description: <%= current_business.description %></p>
   </div>
+  <a href="#item-modal" class="modal-trigger btn-green btn wave-effect waves-light"><i class="material-icons">add_circle_outline</i><span>Add Item</span></a>
   <div class="business-item-wrapper row">
   <% current_business.items.each do |item| %>
     <div class="business-item col l4">
@@ -21,8 +22,7 @@
       <% end %>
       <h5 class="item-name"><%= item.name.capitalize %></h5>
       <div class="item-btn-wrapper">
-        <a href="/items/<%= item.id %>/edit" class="btn-floating wave-effect waves-light btn-blue tooltipped" data-position="top" data-delay="10" data-tooltip="Edit Item"><i class="material-icons">mode_edit</i></a>
-        <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Item"><i class="material-icons">delete</i></a>
+        <a href="/items/<%= item.id %>/edit" class="btn-floating wave-effect waves-light btn-blue tooltipped" data-position="top" data-delay="10" data-tooltip="Edit Item"><i class="material-icons">mode_edit</i></a>                  <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Item"><i class="material-icons">delete</i></a>
       </div>
       <p>Price: <%= number_to_currency(item.price) %></p>
       <p><%= item.description %></p>

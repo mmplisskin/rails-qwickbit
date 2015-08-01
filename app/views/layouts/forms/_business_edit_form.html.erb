@@ -1,0 +1,46 @@
+<h4>Edit Info</h4>
+<%= form_for @business do |f| %>
+<div class="">
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder:'Business name', :required => true %>
+</div>
+<div class="">
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder:'email@example.com', :required => true %>
+</div>
+<div class="">
+  <%= f.label :address %>
+  <%= f.text_field :address, placeholder:'Address' %>
+</div>
+<div class="">
+  <%= f.label :city %>
+  <%= f.text_field :city, placeholder:'City' %>
+</div>
+<div class="">
+  <%= f.select :state, options_for_select(us_states, "CA") %>
+</div>
+<div class="">
+  <%= f.label :zipcode %>
+  <%= f.text_field :zipcode, placeholder:'5 digit zipcode' %>
+</div>
+<div class="">
+  <%= f.label :description %>
+  <%= f.text_area :description, placeholder:'A brief description of your business', class:"materialize-textarea" %>
+</div>
+<div class="">
+  <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: false %>
+</div>
+<div class="">
+  <%= f.label :phone_number %>
+  <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder:'(555)555-5555' %>
+</div>
+<div class="">
+  <%= f.label :password %>
+  <%= f.password_field :password, placeholder:'Password' %>
+</div>
+<div class="">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, placeholder:'Confirm Password' %>
+</div>
+<%= f.submit "Update Business", class:"btn waves-light wave-effect btn-green" %>
+<% end %>

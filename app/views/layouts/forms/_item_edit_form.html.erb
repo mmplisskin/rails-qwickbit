@@ -1,0 +1,28 @@
+<%= form_for @item do |f| %>
+  <div class="">
+    <%= f.label :name %>
+    <%= f.text_field :name, placeholder: 'Item Name' %>
+  </div>
+  <div class="">
+    <%= f.label :price %>
+    <%= f.text_field :price , placeholder: 'Price', label: "Dollar Price" %>
+  </div>
+  <div class="">
+    <%= f.label :description %>
+    <%= f.text_area :description,  cols: 40, rows: 4, placeholder: 'A brief description of the item', class:"materialize-textarea"  %>
+  </div>
+  <%= f.label "Select wallet:" %>
+  <% wallets.each do |w| %>
+  <div class="item-wallet-select">
+    <%= f.radio_button :item_address, w.wallet_address , id:w.wallet_address, class:"with-gap"%>
+    <%= f.label w.wallet_address, for:w.wallet_address %>
+  </div>
+  <% end %>
+  <div class="item-image-submit">
+  <%= f.label :image, "Upload Image:" %>
+  <%= f.file_field :image, multiple: true, name: "item[image]", as: :file %>
+  </div>
+  <div class="">
+    <%= f.submit "Update Item", class: 'btn btn-green waves-light wave-effect'%>
+  </div>
+<% end %>

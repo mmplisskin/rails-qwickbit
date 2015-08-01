@@ -196,7 +196,7 @@ BUSINESS SHOW
     left: 2px;
   }
   .business-description {
-    margin-top: 35px;
+    margin: 25px 0;
   }
   .business-description {
     border-bottom: 2px solid $border-color;
@@ -222,6 +222,26 @@ BUSINESS SHOW
   }
 }
 
+/*
+ITEM FORM
+*/
+.item-image-submit {
+  margin: 20px 0;
+}
+
+/*
+ITEM EDIT FORM
+*/
+.edit-form-wrapper {
+  margin-top: 35px;
+  width: 60vw;
+}
+
+.edit-business-form {
+  margin-top: 35px;
+  margin-bottom: 50px;
+  width: 60vw;
+}
 
 /*
 MEDIA QUERIES

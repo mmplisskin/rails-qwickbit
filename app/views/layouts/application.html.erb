@@ -19,6 +19,12 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
+    <% if params[:controller] == "static_pages" %>
+    <%= render 'layouts/modals/modal_signup' %>
+    <%= render 'layouts/modals/modal_login' %>
+    <% end %>
+    <%= render 'layouts/modals/modal_items_form' if params[:controller] == "businesses" && params[:action] == "show" %>
+
     <%= render 'layouts/nav'%>
     <div class="container">
       <% flash.each do |name, msg| %>
