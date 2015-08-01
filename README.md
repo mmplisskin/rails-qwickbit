@@ -43,3 +43,6 @@
 - balance checking
 - Average bitcoin rate is calculated every 2 minutes from five api's
 
+##### Deploy
+- deployed with unicorn/nginx/ubuntu
+
