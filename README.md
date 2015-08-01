@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/mmplisskin/rails-qwickbit.svg)](https://travis-ci.org/mmplisskin/rails-qwickbit)
 
 
-### **qwickbit** is a community driven platform for businesses to sell items through the bitcoin network.
+###qwickbit is a community driven platform for businesses to sell items through the bitcoin network.
 
 
 
@@ -13,6 +13,7 @@
  <br />
 
 ##Tech Used
+
 * Ruby 2.1.5
 * Rails 4.2.3
 * Postgresql Database
