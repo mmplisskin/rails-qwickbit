@@ -1,7 +1,17 @@
+ 
 #Qwikbit
 [![Build Status](https://travis-ci.org/mmplisskin/rails-qwickbit.svg)](https://travis-ci.org/mmplisskin/rails-qwickbit)
 
-### Tech
+
+### **qwickbit** is a community driven platform for businesses to sell items through the bitcoin network.
+
+
+
+#### **qwickbit** connects businesses that accept bitcoins with users via a [hybrid mobile app]('https://github.com/Ephapox/ionic-qwkbit').
+
+ <br />
+
+##Tech Used
 * Ruby 2.1.5
 * Rails 4.2.3
 * Postgresql Database
@@ -9,10 +19,27 @@
 * [AngularJS]('https://angularjs.org/')
 * [Chain API]('https://chain.com/')
 
-### Description
-Bitlist is a community driven platform for businesses to sell items through the bitcoin network.
+## Gems
 
-### Changelog
-Bitlist connects businesses that accept bitcoins with users via a [hybrid mobile app]('https://github.com/Ephapox/ionic-qwkbit').
+- [Bitcoin-ruby]('https://github.com/lian/bitcoin-ruby')
+- Geocoder
+- Sidekiq
+- Clockwork
+- Figaro
+- Paperclip
+- 12 factor
 
-https://github.com/Ephapox/ionic-qwkbit
+## Highlights
+
+
+#### layout
+- mobile compatible
+- business backend for listing items
+- dynamically generated locations page
+
+
+##### Bitcoin integration
+- wallet generation
+- balance checking
+- Average bitcoin rate is calculated every 2 minutes from five api's
+
