@@ -22,7 +22,8 @@
       <% end %>
       <h5 class="item-name"><%= item.name.capitalize %></h5>
       <div class="item-btn-wrapper">
-        <a href="/items/<%= item.id %>/edit" class="btn-floating wave-effect waves-light btn-blue tooltipped" data-position="top" data-delay="10" data-tooltip="Edit Item"><i class="material-icons">mode_edit</i></a>                  <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Item"><i class="material-icons">delete</i></a>
+        <a href="/items/<%= item.id %>/edit" class="btn-floating wave-effect waves-light btn-blue tooltipped" data-position="top" data-delay="10" data-tooltip="Edit Item"><i class="material-icons">mode_edit</i></a>
+        <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Item"><i class="material-icons">delete</i></a>
       </div>
       <p>Price: <%= number_to_currency(item.price) %></p>
       <p><%= item.description %></p>

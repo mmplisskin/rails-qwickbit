@@ -1,11 +1,32 @@
 <div class="container">
-  <h1><%= current_business.name %> Wallet</h1>
+  <h3><%= current_business.name %> Wallets</h3>
+  <div class="row add-wallet-wrapper">
+    <a href="/wallets/new" class="btn btn-green waves-light wave-effect tooltipped" data-position="top" data-tooltip="Add an existing wallet.">
+      <i class="material-icons">add_circle_outline</i>
+      <span>Add Wallet</span>
+    </a>
+    <a href="/wallets/generate" class="btn btn-blue wave-effect waves-light tooltipped" rel="nofollow" data-method="generate" data-tooltip="Generate a unique public and private key." data-position="top">
+      <i class="material-icons">account_balance_wallet</i>
+      <span>Create Wallet</span>
+    </a>
+  </div>
+  <div class="row">
   <% @wallets.each do |wallet| %>
-    <div class="wallet_info row">
-      <div class="public_key_wrapper col-sm-6 panel panel-body">
+    <div class="wallet_info col s12 m6 l4">
+      <div class="public_key_wrapper  z-depth-1">
         <input id="pub_ad" class="pub_ad" type="text" value='<%= wallet.wallet_address%>' style="display: none;" /><br />
         <div id="pub_qrcode" class="pub-qrcode"></div>
-        <p><%= wallet.wallet_address %></p>
+        <p class="public_address">
+          <%= wallet.wallet_address %>
+        </p>
+        <div class="wallet-btns">
+          <% if wallet.private_key %>
+          <button class="private_key_button wave-effect waves-light btn btn-floating tooltipped" data-position="top" data-tooltip="Show private key">
+            <i class="material-icons">vpn_key</i>
+          </button>
+          <% end %>
+          <a href="/wallets/<%= wallet.id %>" rel="nofollow" data-method="delete" data-confirm="Are you sure? Make sure you have your private key!" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Wallet"><i class="material-icons">delete</i></a>
+        </div>
         <% if wallet.name %>
         <p><%= wallet.name %></p>
         <% end %>
@@ -15,30 +36,34 @@
           <%= number_to_currency(money*@rates) %>
         </h4>
         <% end %>
-        <div class="row">
-          <% if wallet.private_key %>
-          <button class="private_key_button wave-effect waves-light btn">
-            <i class="fa fa-eye"></i>
-            toggle private key
-          </button>
-          <% end %>
-          <span><%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, wallet, method: :delete, data: { confirm: 'Are you sure?' }, class:"wave-effect waves-light btn" %></span>
-        </div>
       </div>
-      <div class="private_key_wrapper col-sm-6 hide panel panel-body">
+      <div class="private_key_wrapper z-depth-1 hide">
         <% if wallet.private_key %>
         <input id="priv_ad" class="priv_ad" type="text" value='<%= wallet.private_key%>' style="display: none;" />
         <div id="priv_qrcode" class="priv-qrcode"></div>
         <p class="private_key" value='<%= wallet.private_key %>'>
           <%= wallet.private_key %>
         </p>
-        <h4> <b class="warning">Do not ever show your private key to anyone!!!</b> </h4>
+        <div class="wallet-btns">
+          <% if wallet.private_key %>
+          <button class="private_key_button wave-effect waves-light btn btn-floating tooltipped" data-position="top" data-tooltip="Show private key">
+            <i class="material-icons">vpn_key</i>
+          </button>
+          <% end %>
+          <a href="/wallets/<%= wallet.id %>" rel="nofollow" data-method="delete" data-confirm="Are you sure? Make sure you have your private key!" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Wallet"><i class="material-icons">delete</i></a>
+          <% if wallet.name %>
+          <p><%= wallet.name %></p>
+          <% end %>
+          <% if wallet.balance %>
+          <h4>
+            <% money=wallet.balance * 0.00000001 %>
+            <%= number_to_currency(money*@rates) %>
+          </h4>
+          <% end %>
+        </div>
         <% end %> <!-- end wallet.private_key if statement -->
       </div>
     </div>
   <% end %> <!-- end @wallets loop -->
-  <div class="row">
-  <%= link_to '<i class="fa fa-plus"></i> Add existing'.html_safe, new_wallet_path, class:'wave-effect waves-light btn' %>
-  <%= link_to '<i class="fa fa-refresh"></i> Make a new wallet'.html_safe, generate_key_path, method: :generate, class:'wave-effect waves-light btn'%>
   </div>
 </div>
