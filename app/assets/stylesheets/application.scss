@@ -150,6 +150,16 @@ $landing-overlay: rgba(35, 35, 50, 0.6);
     width: 250px;
     height: 250px;
   }
+  .contact-link-wrapper {
+    .github {
+      width: 25px;
+      height: 25px;
+    }
+    .linkedin {
+      width: 30px;
+      height:25px;
+    }
+  }
 }
 
 /*
@@ -314,19 +324,19 @@ MEDIA QUERIES
     }
   }
   .landing-promo {
-    height: 115vh;
+    height: 80vh;
     .container {
       @include landing-position(10vh);
     }
     .col {
-      margin-bottom: 15px;
+      margin-bottom: 40px;
       h5 {
         font-size: 1.2em;
       }
     }
   }
   .landing-contact {
-    height: 115vh;
+    height: 125vh;
     .container {
       @include landing-position(10vh);
     }
@@ -385,7 +395,7 @@ MEDIA QUERIES
     }
   }
   .landing-promo {
-    height: 160vh;
+    height: 110vh;
     .container {
       @include landing-position(10vh);
     }
@@ -394,7 +404,7 @@ MEDIA QUERIES
     }
   }
   .landing-contact {
-    height: 160vh;
+    height: 170vh;
     .container {
       @include landing-position(10vh);
     }
