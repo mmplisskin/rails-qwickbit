@@ -44,23 +44,6 @@
         <p class="private_key" value='<%= wallet.private_key %>'>
           <%= wallet.private_key %>
         </p>
-        <div class="wallet-btns">
-          <% if wallet.private_key %>
-          <button class="private_key_button wave-effect waves-light btn btn-floating tooltipped" data-position="top" data-tooltip="Show private key">
-            <i class="material-icons">vpn_key</i>
-          </button>
-          <% end %>
-          <a href="/wallets/<%= wallet.id %>" rel="nofollow" data-method="delete" data-confirm="Are you sure? Make sure you have your private key!" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Wallet"><i class="material-icons">delete</i></a>
-          <% if wallet.name %>
-          <p><%= wallet.name %></p>
-          <% end %>
-          <% if wallet.balance %>
-          <h4>
-            <% money=wallet.balance * 0.00000001 %>
-            <%= number_to_currency(money*@rates) %>
-          </h4>
-          <% end %>
-        </div>
         <% end %> <!-- end wallet.private_key if statement -->
       </div>
     </div>

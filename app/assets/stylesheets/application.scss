@@ -133,6 +133,9 @@ $landing-overlay: rgba(35, 35, 50, 0.6);
   .col {
     text-align: center;
   }
+  .material-icons {
+
+  }
 }
 
 .landing-contact {
@@ -142,6 +145,10 @@ $landing-overlay: rgba(35, 35, 50, 0.6);
   }
   .col {
     text-align: center;
+  }
+  img {
+    width: 250px;
+    height: 250px;
   }
 }
 
