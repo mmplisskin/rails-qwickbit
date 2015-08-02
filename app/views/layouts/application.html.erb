@@ -20,7 +20,7 @@
   </head>
 
   <body class="<%= controller_name %> <%= action_name %>">
-    <% if params[:controller] == "static_pages" %>
+    <% if params[:controller] == "static_pages" || params[:controller] == "businesses" %>
     <%= render 'layouts/modals/modal_signup' %>
     <%= render 'layouts/modals/modal_login' %>
     <% end %>
