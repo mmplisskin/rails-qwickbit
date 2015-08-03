@@ -56,45 +56,6 @@ var signup
 signup = function(){
   $(document).ready(function(){
 
-      // $("#signupbtn, #signupbtnm").click(function(){
-      //     $("#sign_up1").fadeIn("slow");
-      //     $("#signupbtn, #signupbtnm").fadeOut(400);
-      //       $('#sinUpAlert').hide()
-      //
-      // });
-
-      // $(document).mouseup(function (e)
-      // {
-      //     var container = $("#sign_up1");
-      //     if (!container.is(e.target) // if the target of the click isn't the container...
-      //         && container.has(e.target).length === 0) // ... nor a descendant of the container
-      //     {
-      //         container.hide(500);
-      //         $("#signupbtn").fadeIn(400);
-      //         $("#signupbtnm").fadeIn(400);
-      //     }
-      // });
-
-// $("#name").click(function(){
-//   // alert()
-//   var messagesArray = []
-//     // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
-//   var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
-//   var nameInput = document.getElementsByTagName("input")[2].value
-//   var validateName = nameInput.match(businessRegex)
-//   if ( validateName && validateName[0] == nameInput ){
-//   }
-//   else{
-//     // var notice = "Busssiness name is not valid"
-//     Materialize.toast('Busssiness name is not valid', 400)
-//     // messagesArray.push(notice)
-//     // $('#signUpAlert').text(messagesArray)
-//     // $('#signUpAlert').show(100)
-//   }
-//
-// })
-
-
   $("#name").focus(function() {
 
     }).blur(function() {
@@ -106,6 +67,7 @@ signup = function(){
           console.log("valid")
         }
         else{
+          $("#name").select()
           console.log("name invalid")
           Materialize.toast('Busssiness name is not valid', 4000)
         }
@@ -123,6 +85,7 @@ signup = function(){
             console.log("valid")
           }
           else{
+            $("#email").select()
             Materialize.toast('Please use a valid email :)', 4000)
           }
       });
@@ -130,7 +93,7 @@ signup = function(){
       $("#address").focus(function() {
 
         }).blur(function() {
-          // validation length between 1 and 30 characters
+
             var addressInput = document.getElementsByTagName("input")[4].value
             var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Pl|AVE|st|ct|Rd.)/
             var validateAddress = addressInput.match(addressRegex)
@@ -139,6 +102,7 @@ signup = function(){
               console.log("valid")
             }
             else{
+              $("#address").select()
               Materialize.toast('Invalid Address', 4000)
             }
         });
@@ -156,6 +120,7 @@ signup = function(){
               }
               else{
                 Materialize.toast('Invalid City', 4000)
+                $("#city").select()
               }
           });
 
@@ -172,6 +137,7 @@ signup = function(){
                 }
                 else{
                   Materialize.toast('Invalid Zipcode', 4000)
+                  $("#zip").select()
                 }
             });
 
@@ -187,6 +153,7 @@ signup = function(){
                     console.log("valid")
                   }
                   else{
+                    $("#description").select()
                     Materialize.toast('Please enter a description (between 15 and 500 characters)', 4000)
                   }
               });
@@ -205,10 +172,10 @@ signup = function(){
                       console.log("valid")
                     }
                     else{
+                      $("#phone").select()
                       Materialize.toast('Phone number is not valid', 4000)
                     }
                 });
-
 
 
                 $("#password").focus(function() {
@@ -222,130 +189,25 @@ signup = function(){
                         console.log("valid")
                       }
                       else{
+                        $("#password").select()
                         Materialize.toast('Password must be at least 6 characters and have different cases', 4000)
                       }
                   });
 
                   $("#passwordconf").focus(function() {
 
-                    }).blur(function() {
-                      var passwordInput = document.getElementsByTagName("input")[8].value
-                      var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
-                      var validatePassword = passwordInput.match(passwordRegex)
 
-                       if(validatePassword && validatePassword[0] == passwordInput){
+                      var passwordInput = document.getElementsByTagName("input")[8].value
+                      var passwordConfInput = document.getElementsByTagName("input")[9].value
+
+                       if(passwordInput == passwordConfInput){
                           console.log("valid")
                         }
                         else{
-                          Materialize.toast('Password must be at least 6 characters and have different cases', 4000)
+                          Materialize.toast('Password confirmation must match', 4000)
                         }
                     });
 
-
-
-
-
-
-
-      //
-      // setInterval(function(){
-      //
-      //     var textInput = document.getElementsByTagName("textarea")[0].value
-      //     var phoneInput = document.getElementsByTagName("input")[7].value
-      //     var passwordInput = document.getElementsByTagName("input")[8].value
-      //     var passwordConfInput = document.getElementsByTagName("input")[9].value
-      //
-      //     var messagesArray = []
-      //
-      //     var phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/
-      //     var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
-      //
-      //     var validatePhone = phoneInput.match(phoneRegex)
-      //     var validatePassword = passwordInput.match(passwordRegex)
-      //
-      //     if(textInput.length > 15 && textInput.length < 500){
-      //       if(validatePhone && validatePhone[0] == phoneInput){
-      //         if(validatePassword && validatePassword[0] == passwordInput){
-      //           if(passwordInput == passwordConfInput){
-      //             console.log("some thing")
-      //             // document.getElementById("new_business").setAttribute("data-remote", true)
-      //             $('.new_business').submit()
-      //
-      //           }
-      //           else{
-      //             var notice = "Passwords do not match :("
-      //             messagesArray.push(notice)
-      //             $('#sinUpAlert').text(messagesArray)
-      //             $('#sinUpAlert').show(100)
-      //           }
-      //
-      //         }
-      //         else{
-      //           var notice = "Password must be at least 6 characters and have different cases"
-      //           messagesArray.push(notice)
-      //           $('#sinUpAlert').text(messagesArray)
-      //           $('#sinUpAlert').show(100)
-      //         }
-      //
-      //
-      //       }
-      //       else {
-      //         var notice = "Phone Number is not valid"
-      //         messagesArray.push(notice)
-      //         $('#sinUpAlert').text(messagesArray)
-      //         $('#sinUpAlert').show(100)
-      //       }
-      //
-      //     }
-      //     else{
-      //       var notice = "Description should be between 15 and 500 characters"
-      //       messagesArray.push(notice)
-      //       $('#sinUpAlert').text(messagesArray)
-      //       $('#sinUpAlert').show(100)
-      //     }
-      //   }, 3000);
-
-
-
-
-
-
-      // console.log($("#backbtn1")[0])
-      $("#backbtn1").click(function(){
-        $('#sinUpAlert').hide()
-        $(".sign_upfields1").fadeIn("slow");
-        $(".sign_upfields2").hide(500);
-
-
-      });
-
-      $("#backbtn2").click(function(){
-        $('#sinUpAlert').hide()
-        $(".sign_upfields2").fadeIn("slow");
-        $(".sign_upfields3").hide(500);
-
-    });
-
-    $("#loginbtn").click(function(){
-      $("#login").fadeIn("slow");
-
-      $("#signupbtn, #signupbtnm").fadeOut(400);
-      $(document).mouseup(function (e)
-      {
-          var container = $("#login");
-
-          if (!container.is(e.target)
-              && container.has(e.target).length === 0)
-          {
-              container.hide(500);
-                $("#signupbtn").fadeIn(400);
-                $("#signupbtnm").fadeIn(400);
-                $(".sign_upfields1").hide(0);
-          }
-      });
-      $(".sign_upfields2").fadeIn("slow");
-      $(".sign_upfields3").hide(500);
-  });
   });
 }
 
