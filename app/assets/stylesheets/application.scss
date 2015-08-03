@@ -96,7 +96,8 @@ NAVBAR
 LANDING PAGE
 */
 $landing-promo: #eceff1;
-$landing-contact: #fbe9e7;
+// $landing-contact: #fbe9e7;
+$landing-contact: rgba(154, 184, 202, 0.48);
 $landing-overlay: rgba(35, 35, 50, 0.6);
 
 .landing-cta,
