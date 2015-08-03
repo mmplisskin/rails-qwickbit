@@ -33,7 +33,7 @@
       </ul>
       <ul class="side-nav" id="mobile-demo">
         <li><%= link_to "QwickBit", root_path, class:"nav-logo" %></li>
-        <li><%= link_to "QwickBit Locations", locations_path %></li>
+        <li><%= link_to "QwickBit Map", locations_path %></li>
         <% if current_business %>
         <li><%= link_to current_business.name, business_path(current_business.id) %></li>
         <li><%= link_to "Wallets", wallets_path %></li>
