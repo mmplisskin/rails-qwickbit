@@ -176,6 +176,72 @@ signup = function(){
             });
 
 
+            $("#description").focus(function() {
+
+              }).blur(function() {
+                // validation length between 1 and 30 characters
+                  var textInput = document.getElementsByTagName("textarea")[0].value
+
+                 if(textInput.length > 15 && textInput.length < 500){
+
+                    console.log("valid")
+                  }
+                  else{
+                    Materialize.toast('Please enter a description (between 15 and 500 characters)', 4000)
+                  }
+              });
+
+
+              $("#phone").focus(function() {
+
+                }).blur(function() {
+                  // validation length between 1 and 30 characters
+                  var phoneInput = document.getElementsByTagName("input")[7].value
+                  var phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/
+                  var validatePhone = phoneInput.match(phoneRegex)
+
+                   if(validatePhone && validatePhone[0] == phoneInput){
+
+                      console.log("valid")
+                    }
+                    else{
+                      Materialize.toast('Phone number is not valid', 4000)
+                    }
+                });
+
+
+
+                $("#password").focus(function() {
+
+                  }).blur(function() {
+                    var passwordInput = document.getElementsByTagName("input")[8].value
+                    var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
+                    var validatePassword = passwordInput.match(passwordRegex)
+
+                     if(validatePassword && validatePassword[0] == passwordInput){
+                        console.log("valid")
+                      }
+                      else{
+                        Materialize.toast('Password must be at least 6 characters and have different cases', 4000)
+                      }
+                  });
+
+                  $("#passwordconf").focus(function() {
+
+                    }).blur(function() {
+                      var passwordInput = document.getElementsByTagName("input")[8].value
+                      var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
+                      var validatePassword = passwordInput.match(passwordRegex)
+
+                       if(validatePassword && validatePassword[0] == passwordInput){
+                          console.log("valid")
+                        }
+                        else{
+                          Materialize.toast('Password must be at least 6 characters and have different cases', 4000)
+                        }
+                    });
+
+
 
 
 
