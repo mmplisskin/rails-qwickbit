@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require map.js
 //= require qrcode.js
-//= require bootstrap-sprockets
+//= require materialize-sprockets
 //= require turbolinks
 //= require wallets.js
 
@@ -38,7 +38,6 @@ function walletIndexLoad() {
   var private_key = $(".private_key_wrapper")
   var button = $(".private_key_button")
   $(".private_key_button").click(function () {
-
     $(this).parent().parent().next(".private_key_wrapper").toggle("fast")
     console.log($(this).parent().parent().next(".private_key_wrapper"));
     // $(this).parent().parent().next(".private_key_wrapper").toggleClass("private_key_hide private_key_show")
@@ -165,7 +164,7 @@ signup = function(){
 
       });
 
-      // 
+      //
       // setInterval(function(){
       //
       //     var textInput = document.getElementsByTagName("textarea")[0].value
@@ -308,9 +307,9 @@ function get_rates(){
 
 
 $(document).ready(function(){
-  setInterval(function(){get_rates()},3000)
-
-
+  // setInterval(function(){get_rates()},3000)
+  $(".button-collapse").sideNav();
+  $('.modal-trigger').leanModal();
 
 
 })

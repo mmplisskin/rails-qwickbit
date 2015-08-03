@@ -1,54 +1,59 @@
-<div class="col-md-10 col-md-offset-1" id="business_description">
-  <div clas="row">
-    <h1><%= current_business.name %></h1>
-    <span></span>
-  </div>
-
-    <%= current_business.description %>
-
-
-  </div>
-
-<div class="col-md-10 col-md-offset-1" id="business_description">
-  <div clas="row" id="business_btns">
-  <!-- <div class="col-md-12 col-offset-6"> -->
-    <%= link_to "Edit Business Info", edit_business_path(current_business.id) %>
-
-      <%= link_to '<i class="fa fa-plus"></i> List Item'.html_safe, new_item_path, class: 'ui blue button item', id: 'list_btn' %>
-    <!-- </div> -->
+<%= render 'layouts/modals/modal_items_form' %>
+<div class="row container">
+<% if current_business && current_business.id == @business.id %>
+  <div class="business-description">
+    <h3><%= current_business.name %></h3>
+    <div class="description-btn-wrapper">
+      <%= link_to "Edit Info", edit_business_path(current_business.id), class:"wave-effect waves-light btn-blue btn" %>
     </div>
-  <!-- <h2>What's for Sale</h2> -->
+    <p>Address: <%= current_business.full_address %></p>
+    <p>Phone: <%= current_business.phone_number %></p>
+    <p>Email: <%= current_business.email %></p>
+    <p>Description: <%= current_business.description %></p>
+  </div>
+  <a href="#item-modal" class="modal-trigger btn-green btn wave-effect waves-light"><i class="material-icons">add_circle_outline</i><span>Add Item</span></a>
+  <div class="business-item-wrapper row">
   <% current_business.items.each do |item| %>
-  <div class="business-items">
-    <% if item.image_file_name %>
+    <div class="business-item col l4">
+      <% if item.image_file_name %>
       <div class="item_image">
         <%= image_tag item.image.url(:large), class:'items_image' %>
       </div>
-    <% end %>
-    <hr>
-    <h3>
-       <%= item.name.capitalize %>
-    </h3>
-    <h4>
-      Description: <%= item.description %>
-    </h4>
-    <p>
-      Price: <%= number_to_currency(item.price) %>
-    </p>
-    <p>
-      wallet: <%= item.item_address%>
-    </p>
-    <p>
-      <!-- <div class="row"> -->
-      <%= link_to '<i class="fa fa-pencil"></i> Edit Item'.html_safe, edit_item_path(item.id), class: 'ui button' %>
-      <%= link_to '<i class="fa fa-trash-o"></i> Delete Item'.html_safe, item_path(item.id), :method => 'delete', class: 'ui button' %>
-    <!-- </div> -->
-    </p>
-
-  </div>
+      <% end %>
+      <h5 class="item-name"><%= item.name.capitalize %></h5>
+      <div class="item-btn-wrapper">
+        <a href="/items/<%= item.id %>/edit" class="btn-floating wave-effect waves-light btn-blue tooltipped" data-position="top" data-delay="10" data-tooltip="Edit Item"><i class="material-icons">mode_edit</i></a>
+        <a href="/items/<%= item.id %>" rel="nofollow" data-method="delete" class="btn-floating wave-effect waves-light btn-red tooltipped" data-position="top" data-delay="10" data-tooltip="Delete Item"><i class="material-icons">delete</i></a>
+      </div>
+      <p>Price: <%= number_to_currency(item.price) %></p>
+      <p><%= item.description %></p>
+      <% if item.item_address %>
+      <p>Wallet: <%= item.item_address %></p>
+      <% else %>
+      <p class="no-wallet">This item does not have a wallet, add a wallet by clicking the item edit <i class="material-icons">mode_edit</i>  button.</p>
+      <% end %>
+    </div>
   <% end %>
-
-  <!-- <div class="ui button "><i class="fa fa-plus"></i> -->
-
-
+  </div>
+<% else %>
+  <div class="business-description">
+    <h3><%= @business.name %></h3>
+    <p>Address: <%= @business.full_address %></p>
+    <p>Phone: <%= @business.phone_number %></p>
+    <p>Description: <%= @business.description %></p>
+  </div>
+  <div class="business-item-wrapper row">
+  <% @business.items.each do |item| %>
+    <div class="business-item col m4">
+      <% if item.image_file_name %>
+      <div class="item_image">
+        <%= image_tag item.image.url(:large), class:'items_image' %>
+      </div>
+      <% end %>
+      <h5><%= item.name.capitalize %></h5>
+      <p><%= item.description %></p>
+      <p>Price: <%= number_to_currency(item.price) %></p>
+    </div>
+  <% end %>
+<% end %>
 </div>

@@ -32,10 +32,13 @@ end
 
     # resources :businesses
   post '/'    => 'sessions#create'
+  post '/static_pages/locations' => 'sessions#create'
+  post '/static_pages/locations' => 'businesses#create'
+  post '/businesses/:id' => 'sessions#create'
+  post '/businesses/:id' => 'businesses#create'
 
-  # post 'static_pages/locations' => 'sessions#create'
-
-
+  post '/businesses/:id' => 'items#create'
+  patch '/businesses/:id' => 'items#update'
 
   patch '/wallets' => 'wallets#index'
     # get '/wallets/generate'     => 'wallets#generate', as: :generate_key

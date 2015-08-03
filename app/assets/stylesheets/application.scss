@@ -11,426 +11,406 @@
  * file per style scope.
  *
 
-
  *= require_tree .
  *= require_self
 
-
-
-
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
-
-
 
 
 /*
-
  *= require rails_bootstrap_forms
-
-
-
 */
 
+@import "materialize";
+@import "materialize/components/color";
+$primary: #eceff1;
+$primary-light: #e0f7fa;
+$secondary: #ff5722;
+$secondary-light: #ff7043;
+$nav-text: #546e7a;
+$btn-green: #8bc34a;
+$btn-green-hover: #c5e1a5;
+$btn-red: #f44336;
+$btn-red-hover: #e57373;
+$btn-blue: #2196f3;
+$btn-blue-hover: #64b5f6;
+$border-color: #C0E8E8;
 
-
-
-
-@keyframes bigEntrance {
-	0% {
-		transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
-		opacity: 0.2;
-	}
-	30% {
-		transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
-		opacity: 1;
-	}
-	45% {
-		transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	60% {
-		transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	75% {
-		transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	90% {
-		transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-}
-
-@-webkit-keyframes bigEntrance {
-	0% {
-		-webkit-transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
-		opacity: 0.2;
-	}
-	30% {
-		-webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
-		opacity: 1;
-	}
-	45% {
-		-webkit-transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	60% {
-		-webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	75% {
-		-webkit-transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	90% {
-		-webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-	100% {
-		-webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
-		opacity: 1;
-	}
-}
-
-
-
-@keyframes pulse {
-	0% {
-		transform: scale(1);
-		opacity: 0.7;
-	}
-  25% {
-    transform: scale(0.9);
-    opacity: 0.7;
-  }
-	50% {
-		transform: scale(1);
-		opacity: 1;
-	}
-	100% {
-		transform: scale(0.9);
-		opacity: 0.7;
-	}
-}
-
-@-webkit-keyframes pulse {
-	0% {
-		-webkit-transform: scale(1);
-		opacity: 0.7;
-	}
-  25% {
-		-webkit-transform: scale(0.95);
-		opacity: 0.7;
-	}
-	50% {
-		-webkit-transform: scale(1);
-		opacity: 1;
-	}
-	100% {
-		-webkit-transform: scale(0.95);
-		opacity: 0.7;
-	}
-}
-
-
-
-
-
-
-#googleMap{
-
-  width: 82vw;
-  height: 100vh;
-}
-
-
-
-.right_locations.col-md-4 {
-  float: right;
-  width: 20vw;
+@mixin landing-position($position) {
   position: relative;
-  top: -97vh;
-
+  top: $position;
 }
 
 
-.businesses_locations {
-  box-shadow: 3px 2px 4px black;
-  width: 15.5vw;
+.btn-green {
+  background-color: $btn-green;
+  &:hover {
+    background-color: $btn-green-hover;
+  }
+}
+.btn-blue {
+  background-color: $btn-blue;
+  &:hover {
+    background-color: $btn-blue-hover;
+  }
+}
+.btn-red {
+  background-color: $btn-red;
+  &:hover {
+    background-color: $btn-red-hover;
+  }
+}
+select {
+  display: block;
+}
+body {
+  overflow-x: hidden;
 }
 
-.businesses_locations:active {
-  box-shadow: 8px 3px 6px black;
-
-  animation-name: bigEntrance;
-  -webkit-animation-name: bigEntrance;
-
-  animation-duration: 1s;
-  -webkit-animation-duration: 1s;
-  animation-timing-function: ease-out;
-  -webkit-animation-timing-function: ease-out;
-
-  visibility: visible !important;
-
+/*
+NAVBAR
+*/
+#header-nav {
+  background-color: rgba(255,255,255,.9);
+  a {
+    color: $nav-text;
+  }
+  .rate-wrapper {
+    span {
+      position:relative;
+      color: $nav-text;
+      font-size: .8em;
+    }
+    .rate-title {
+      top: -10px;
+      color: #8bc34a;
+    }
+    .rate {
+      top: 10px;
+      left: -41px;
+      color: #8bc34a;
+    }
+  }
 }
-.businesses_locations:hover {
-  // box-shadow: 8px 3px 6px black;
+/*
+LANDING PAGE
+*/
+$landing-promo: #eceff1;
+$landing-contact: #fbe9e7;
+$landing-overlay: rgba(35, 35, 50, 0.6);
 
-  animation-name: pulse;
-  	-webkit-animation-name: pulse;
-
-  	animation-duration: 1.5s;
-  	-webkit-animation-duration: 1.5s;
-
-  	animation-iteration-count: 1;
-  	-webkit-animation-iteration-count: 1;
-
-
-}
-
-
-
-
-
-
-
-textarea {
-   resize: none !important;;
-   width: 3vw;
-}
-
-.form-group {
-  padding-top: 1vh;
-}
-
-
-
-
-.hidden.menu {
-  display: none;
-}
-
-
-#landing {
-  position: absolute;
-  top: 33vh;
-  left: 26vw;
-  width: 100vw;
-  height: 39vh;
-}
-
-.landing{
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png');
-  background-repeat: no-repeat;
-  position: fixed;
-  width: 100vw;
+.landing-cta,
+.landing-promo,
+.landing-contact {
   height: 100vh;
-  background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
+  width: 100vw;
 }
-
-
-.signupdiv {
-  z-index: 10;
-  // width: 38vw;
-  // height: 60vh;
-  // position: relative;
-  margin-top: 8%;
-  padding-bottom: 2%;
-  left: 19vw;
-  background-color: white;
-  z-index: 1;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30)
-
-}
-
-#forward_back_btns{
-  text-align: center;
-
-}
-
-
-.logindiv {
-  z-index: 10;
-  // width: 38vw;
-  // height: 60vh;
-  // position: relative;
-  margin-top: 13%;
-  padding-bottom: 2%;
-  left: 19vw;
-  background-color: white;
-  z-index: 1;
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30)
-}
-
-.overlay {
-  z-index: -2;
+.cta-overlay {
   height: 100%;
   width: 100%;
-  position: fixed;
-  overflow: auto;
-  top: 0px;
-  left: 0px;
-  background: rgba(12, 13, 35, 0.6);
+  background: $landing-overlay;
+}
+.landing-cta {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png");
+  background-repeat: none;
+  background-size: cover;
+  background-position: center;
+  h2 {
+    margin: 0;
   }
-
-h1.ui.header{
-  font-size: 5vw;
+  .container {
+    @include landing-position(30vh);
+    text-align: center;
+    color: white;
+  }
 }
 
-h2.h2{
-  font-size: 2.3vw;
+.landing-promo {
+  background: $landing-promo;
+  .container {
+    @include landing-position(30vh);
+  }
+  .col {
+    text-align: center;
+  }
+  .material-icons {
+
+  }
 }
 
-.h2.txt{
-  color: #d3d3d3;
+.landing-contact {
+  background: $landing-contact;
+  .container {
+    @include landing-position(20vh);
+  }
+  .col {
+    text-align: center;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+  }
+  .contact-link-wrapper {
+    .github {
+      width: 25px;
+      height: 25px;
+      margin: 0 10px;
+    }
+    .linkedin {
+      width: 30px;
+      height:25px;
+    }
+  }
 }
 
-.ui.grid{
-  margin-top: 4vh;
+/*
+LOCATIONS PAGE
+*/
+$searchInput: #C0E8E8;
+.static_pages-locations-wrapper {
+  height:92vh;
+}
+.locations {
+  width: 100vw;
+  height: 92vh;
+  .progress {
+    position: absolute;
+    top: 50vh;
+    left: 15vw;
+  }
+  #search {
+    background-color: $searchInput;
+  }
+  #googleMap {
+    width: 70%;
+    height: 100%;
+    float:left;
+  }
+  #googleMapSearch {
+    width: 30%;
+    height: 100%;
+    float:left;
+    .googleMapSearch-results {
+      height: 90%;
+      overflow: scroll;
+      .result {
+        border-bottom: 1px solid $border-color;
+        padding: 15px;
+        cursor: pointer;
+        margin-bottom: 5px;
+      }
+    }
+  }
 }
 
-input.ui.standard.black.button {
-  margin-left: 14vw;
-  margin-top: 3vh;
+/*
+BUSINESS SHOW
+*/
+.businesses-show-wrapper {
+  h1 {
+    margin-top: 0;
+  }
+  .btn span {
+    position: relative;
+    bottom: 4px;
+    left: 2px;
+  }
+  .business-description {
+    margin: 25px 0;
+  }
+  .business-description {
+    border-bottom: 2px solid $border-color;
+    padding-bottom: 20px;
+  }
+  .business-item-wrapper {
+    margin-top: 20px;
+    .item-btn-wrapper {
+      position: relative;
+      bottom: 5px;
+      left: 10px;
+      .no-wallet {
+        font-weight: bold;
+      }
+    }
+    .item-name {
+      float: left;
+      margin-top: 0;
+    }
+    .business-item {
+      padding: 15px;
+    }
+  }
 }
 
-
-
-#forward_back_btns{
-  // position: absolute;
-  // top: 44%;
-}
-// .ui.huge.green.button{
-//   display: block;
-//   position: absolute;
-//   // width: 20%;
-//   // height: 20%;
-//   // top: 29vh;
-//   left: 15vw;
-// }
-
-.items_image{
-  width: 40%;
-  height: 40%;
+/*
+ITEM FORM
+*/
+.item-image-submit {
+  margin: 20px 0;
 }
 
-/********************************
-          WALLETS INDEX
-********************************/
+/*
+ITEM EDIT FORM
+*/
+.edit-form-wrapper {
+  margin-top: 35px;
+  width: 60vw;
+}
+
+.edit-business-form {
+  margin-top: 35px;
+  margin-bottom: 50px;
+  width: 60vw;
+}
+
+/*
+WALLET INDEX
+*/
+.add-wallet-wrapper {
+  span {
+    position: relative;
+    top: -4px;
+  }
+  .btn {
+    padding: 0 1.0rem;
+  }
+}
+#pub_qrcode img,
+#priv_qrcode img {
+  margin:0 auto;
+}
+.public_address,
+.private_key {
+  text-align: center;
+  font-size: 8px;
+}
+
+.public_key_wrapper {
+  margin-bottom: 10px;
+  padding: 5px;
+  p, h4 {
+    text-align: center;
+  }
+}
+.wallet-btns {
+  display: block;
+  margin: 10px auto;
+  width: 78px;
+}
 .private_key_wrapper {
-  background-color: rgba(20,80,40,0.4);
-
-  text-align: center;
-  padding-left: 1vw;
-}
-.hide {
-  display:none;
-}
-.public_key_wrapper {
-  background-color: rgba(120,120,120,0.4);
-}
-.private_key_wrapper,
-.public_key_wrapper {
-
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19);
-  text-align: center;
-  // height: 37vh;
-  // height: 30vh;
-}
-
-#pub_qrcode,#priv_qrcode {
-  padding-left: 10vw;
-
-}
-
-#priv_qrcode{
-  padding-top: 2vh;
-  padding-bottom: 5vh;
+  padding: 25px 5px 5px 5px;
+  p {
+    text-align: center
+  }
 }
 
 
-//
-// .item.ui.inverted.button{
-//   margin-left: 10px;
-// }
-
-
-#pub_qrcode{
-
-
+/*
+MEDIA QUERIES
+*/
+@media (max-width: 992px) {
+  .nav-logo {
+    display: none;
+  }
+  #header-nav {
+    text-align: center;
+  }
+  .landing-cta {
+    height: 90vh;
+    h2 {
+      /* font-size: 1.5em; */
+    }
+    h4 {
+      /* font-size: 1.5em; */
+    }
+  }
+  .landing-promo {
+    height: 80vh;
+    .container {
+      @include landing-position(10vh);
+    }
+    .col {
+      margin-bottom: 40px;
+      h5 {
+        font-size: 1.2em;
+      }
+    }
+  }
+  .landing-contact {
+    height: 125vh;
+    .container {
+      @include landing-position(10vh);
+    }
+    .col {
+      margin-bottom: 15px;
+      h5 {
+        font-size: 1.2em;
+      }
+    }
+  }
+  #googleMap, #googleMapSearch {
+    width: 100vw !important;
+    float: none !important;
+  }
+  #googleMap {
+    height: 70vh !important;
+  }
+  #googleMapSearch {
+    max-height: 30vh !important;
+    .googleMapSearch-results {
+      max-height: 20vh;
+    }
+    .material-icons {
+      position: relative;
+      top: 2px;
+    }
+    .googleMapSearch-results {
+      overflow:scroll;
+    }
+  }
 }
-
-
-#signupbtnm{
-  margin-right: 2em;
-  // margin-top: 2em;
-
-}
-
-.items_image{
-  float: right;
-  padding-top: 4em;
-
-}
-// #business_description{
-//     padding-top: 4vh;
-//
-// }
-
-// #business_btns{
-//   padding-bottom: 4vh;
-// }
-
-a.ui.blue.button.item {
-  margin-left: 25vw;
-}
-
-.item.rate{
-  left: 8vw;
-  color: rgb(80, 171, 80);
-  font-weight: 1vw;
-    font-style: oblique;
-}
-
-
-
-
-.right.item {
-  left: 8vw;
-}
-
-
-
-#wallet_btns {
-  // position: relative;
-  top: 3vh;
-  // padding-bottom: 1vw;
-}
-
-
-#list_btn {
-  margin-left: 42vw;
-}
-
-
-.item_image {
-  margin-left: 10vw;
-  margin-top: 12vh;
-}
-
-.warning {
-  color: red;
-}
-.ui.container{
-
+@media only screen and (max-device-width: 992px) {
+  .nav-logo {
+    display: none;
+  }
+  #header-nav {
+    text-align: center;
+    .rate-wrapper {
+      position: static;
+      span {
+        font-size: 10px;
+      }
+      .rate {
+        position: relative;
+        left: -36px;
+      }
+    }
+  }
+  .landing-cta {
+    height: 90vh;
+    h2 {
+      font-size: 1.5em;
+    }
+    h4 {
+      font-size: 1.5em;
+    }
+  }
+  .landing-promo {
+    height: 110vh;
+    .container {
+      @include landing-position(10vh);
+    }
+    .col h5 {
+      font-size: 1.2em;
+    }
+  }
+  .landing-contact {
+    height: 170vh;
+    .container {
+      @include landing-position(10vh);
+    }
+    .col h5 {
+      font-size: 1.2em;
+    }
+  }
 }

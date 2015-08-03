@@ -17,6 +17,5 @@ class StaticPagesController < ApplicationController
   def locations
     @business = Business.new
     @businesses = Business.all
-
   end
 end

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use postgresql as the database for Active Record
@@ -57,6 +57,7 @@ gem 'clockwork', '~> 1.2.0'
 gem 'html5_validators'
 
 gem 'paperclip'
+gem 'materialize-sass'
 
 group :production do
   gem 'rails_12factor'

@@ -14,6 +14,7 @@ class BusinessesController < ApplicationController
   end
 
   def show
+    @item = Item.new
     respond_to do |format|
         format.html {
             render
