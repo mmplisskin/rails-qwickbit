@@ -75,64 +75,60 @@ signup = function(){
       //     }
       // });
 
-$("#bussiness_name").click(function(){
-    // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
-  var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
-  var Input = document.getElementsByTagName("input")[2].value
-  if ( validateName && validateName[0] == nameInput ){
-  }
-  else{
-    var notice = "Busssiness name is not valid"
-    messagesArray.push(notice)
-    $('#sinUpAlert').text(messagesArray)
-    $('#sinUpAlert').show(100)
-  }
-
-})
-
-
-      $("#nextbtn").click(function(){
-        var messagesArray = []
-      // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
-        var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
-        var emailRegex = /([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)/
-
-        var nameInput = document.getElementsByTagName("input")[2].value
-        var emailInput = document.getElementsByTagName("input")[3].value
-
-        var validateName = nameInput.match(businessRegex)
-        var validateEmail = emailInput.match(emailRegex)
-        document.getElementById("new_business").removeAttribute("data-remote")
-        // document.getElementById("new_business").removeAttribute("method")
-      // document.getElementById("new_business").attributes[5].value = false
+// $("#name").click(function(){
+//   // alert()
+//   var messagesArray = []
+//     // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
+//   var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
+//   var nameInput = document.getElementsByTagName("input")[2].value
+//   var validateName = nameInput.match(businessRegex)
+//   if ( validateName && validateName[0] == nameInput ){
+//   }
+//   else{
+//     // var notice = "Busssiness name is not valid"
+//     Materialize.toast('Busssiness name is not valid', 400)
+//     // messagesArray.push(notice)
+//     // $('#signUpAlert').text(messagesArray)
+//     // $('#signUpAlert').show(100)
+//   }
+//
+// })
 
 
-        if ( validateName && validateName[0] == nameInput ){
+  $("#name").focus(function() {
 
+    }).blur(function() {
+      // validation length between 1 and 30 characters
+        var len = {min:1,max:30};
+        var nameInput = document.getElementsByTagName("input")[2].value.length
 
-          if ( validateEmail && validateEmail[0] == emailInput ){
-            $(".sign_upfields2").slideDown("slow");
-            $(".sign_upfields1").hide(500);
-            $('#sinUpAlert').hide()
-          }
-
-          else{
-            var notice = "Email is not Valid"
-            messagesArray.push(notice)
-            $('#sinUpAlert').text(messagesArray)
-            $('#sinUpAlert').show(100)
-          }
+        if ( nameInput >= len.min && nameInput <=len.max ){
+          console.log("valid")
         }
-
         else{
-          var notice = "Busssiness name is not valid"
-          messagesArray.push(notice)
-          $('#sinUpAlert').text(messagesArray)
-          $('#sinUpAlert').show(100)
+          console.log("name invalid")
+          Materialize.toast('Busssiness name is not valid', 4000)
         }
+    });
+
+    $("#email").focus(function() {
+
+      }).blur(function() {
+        // validation length between 1 and 30 characters
+          var emailInput = document.getElementsByTagName("input")[3].value
+          var emailRegex = /([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)/
+          var validateEmail = emailInput.match(emailRegex)
+
+          if ( validateEmail && validateEmail[0] == emailInput){
+            console.log("valid")
+          }
+          else{
+            console.log("name invalid")
+            Materialize.toast('Please use a valid email :)', 4000)
+          }
+      });
 
 
-      })
 
 
 

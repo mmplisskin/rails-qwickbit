@@ -1,16 +1,17 @@
 <div id="signup-modal" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h4>Sign Up</h4>
-    <!-- <div class="alert alert-warning" style="display:none;" id="sinUpAlert"> -->
 
     <%= form_for @business do |f| %>
+    <div id="toast-container"></div>
+
       <div class="">
         <%= f.label :name %>
-        <%= f.text_field :name, placeholder:'Business name', :required => true %>
+        <%= f.text_field :name, placeholder:'Business name', :required => true, id:'name' %>
       </div>
       <div class="">
         <%= f.label :email %>
-        <%= f.text_field :email, placeholder:'email@example.com', :required => true %>
+        <%= f.text_field :email, placeholder:'email@example.com', :required => true, id:'email' %>
       </div>
       <div class="">
         <%= f.label :address %>
