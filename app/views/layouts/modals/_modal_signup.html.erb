@@ -3,7 +3,7 @@
     <h4>Sign Up</h4>
 
     <%= form_for @business do |f| %>
-    <div id="toast-container"></div>
+
 
       <div class="">
         <%= f.label :name %>
@@ -15,18 +15,18 @@
       </div>
       <div class="">
         <%= f.label :address %>
-        <%= f.text_field :address, placeholder:'Address' %>
+        <%= f.text_field :address, placeholder:'Address', id:'address' %>
       </div>
       <div class="">
         <%= f.label :city %>
-        <%= f.text_field :city, placeholder:'City' %>
+        <%= f.text_field :city, placeholder:'City', id:'city' %>
       </div>
       <div class="">
         <%= f.select :state, options_for_select(us_states, "CA") %>
       </div>
       <div class="">
         <%= f.label :zipcode %>
-        <%= f.text_field :zipcode, placeholder:'5 digit zipcode' %>
+        <%= f.text_field :zipcode, placeholder:'5 digit zipcode', id:'zip' %>
       </div>
       <div class="">
         <%= f.label :description %>
@@ -49,6 +49,7 @@
       </div>
   </div>
   <div class="modal-footer">
+      <div id="toast-container"></div>
     <%= f.submit "List Business", class:"btn waves-light wave-effect btn-green" %>
   </div>
   <% end %>

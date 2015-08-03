@@ -123,59 +123,63 @@ signup = function(){
             console.log("valid")
           }
           else{
-            console.log("name invalid")
             Materialize.toast('Please use a valid email :)', 4000)
           }
       });
 
+      $("#address").focus(function() {
 
+        }).blur(function() {
+          // validation length between 1 and 30 characters
+            var addressInput = document.getElementsByTagName("input")[4].value
+            var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Pl|AVE|st|ct|Rd.)/
+            var validateAddress = addressInput.match(addressRegex)
 
-
-
-        $("#nextbtn2").click(function(){
-          var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Pl|AVE|st|ct|Rd.)/
-          var cityRegex = /[a-zA-Z]+(?:[\s-][a-zA-Z]+)*/
-          var zipRegex = /((\d{5}-\d{4})|(\d{5})|([A-Z]\d[A-Z]\s\d[A-Z]\d))/
-
-          var addressInput = document.getElementsByTagName("input")[4].value
-          var cityInput = document.getElementsByTagName("input")[5].value
-          var ZipInput = document.getElementsByTagName("input")[6].value
-
-          var validateAddress = addressInput.match(addressRegex)
-          var validateCity = cityInput.match(cityRegex)
-          var validateZip = ZipInput.match(zipRegex)
-          var messagesArray = []
-
-          if ( validateAddress && validateAddress[0] == addressInput ){
-
-            if(validateCity && validateCity[0] == cityInput){
-              if(validateZip && validateZip[0] == ZipInput){
-                $(".sign_upfields3").fadeIn("slow");
-                $(".sign_upfields2").hide(500);
-                $('#sinUpAlert').hide()
-              }
-              else{
-                var notice = "Zip code is not valid"
-                messagesArray.push(notice)
-                $('#sinUpAlert').text(messagesArray)
-                $('#sinUpAlert').show(100)
-              }
+            if ( validateAddress && validateAddress[0] == addressInput ){
+              console.log("valid")
             }
             else{
-              var notice = "City name is not valid"
-              messagesArray.push(notice)
-              $('#sinUpAlert').text(messagesArray)
-              $('#sinUpAlert').show(100)
+              Materialize.toast('Invalid Address', 4000)
             }
-          }
-          else{
-            var notice = "Address is not valid"
-            messagesArray.push(notice)
-            $('#sinUpAlert').text(messagesArray)
-            $('#sinUpAlert').show(100)
-          }
+        });
 
-      });
+        $("#city").focus(function() {
+
+          }).blur(function() {
+            // validation length between 1 and 30 characters
+              var cityInput = document.getElementsByTagName("input")[5].value
+              var cityRegex = /[a-zA-Z]+(?:[\s-][a-zA-Z]+)*/
+              var validateCity = cityInput.match(cityRegex)
+
+              if (validateCity && validateCity[0] == cityInput){
+                console.log("valid")
+              }
+              else{
+                Materialize.toast('Invalid City', 4000)
+              }
+          });
+
+          $("#zip").focus(function() {
+
+            }).blur(function() {
+              // validation length between 1 and 30 characters
+                var ZipInput = document.getElementsByTagName("input")[6].value
+                var zipRegex = /((\d{5}-\d{4})|(\d{5})|([A-Z]\d[A-Z]\s\d[A-Z]\d))/
+                var validateZip = ZipInput.match(zipRegex)
+
+                if (validateZip && validateZip[0] == ZipInput){
+                  console.log("valid")
+                }
+                else{
+                  Materialize.toast('Invalid Zipcode', 4000)
+                }
+            });
+
+
+
+
+
+
 
       //
       // setInterval(function(){
