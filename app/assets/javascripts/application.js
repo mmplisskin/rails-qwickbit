@@ -20,6 +20,7 @@
 //= require wallets.js
 
 
+
 function walletIndexLoad() {
   function render_QR(divClass, inputClass) {
     for (var i = 0; i < $(inputClass).length; i++) {
@@ -55,24 +56,40 @@ var signup
 signup = function(){
   $(document).ready(function(){
 
-      $("#signupbtn, #signupbtnm").click(function(){
-          $("#sign_up1").fadeIn("slow");
-          $("#signupbtn, #signupbtnm").fadeOut(400);
-            $('#sinUpAlert').hide()
+      // $("#signupbtn, #signupbtnm").click(function(){
+      //     $("#sign_up1").fadeIn("slow");
+      //     $("#signupbtn, #signupbtnm").fadeOut(400);
+      //       $('#sinUpAlert').hide()
+      //
+      // });
 
-      });
+      // $(document).mouseup(function (e)
+      // {
+      //     var container = $("#sign_up1");
+      //     if (!container.is(e.target) // if the target of the click isn't the container...
+      //         && container.has(e.target).length === 0) // ... nor a descendant of the container
+      //     {
+      //         container.hide(500);
+      //         $("#signupbtn").fadeIn(400);
+      //         $("#signupbtnm").fadeIn(400);
+      //     }
+      // });
 
-      $(document).mouseup(function (e)
-      {
-          var container = $("#sign_up1");
-          if (!container.is(e.target) // if the target of the click isn't the container...
-              && container.has(e.target).length === 0) // ... nor a descendant of the container
-          {
-              container.hide(500);
-              $("#signupbtn").fadeIn(400);
-              $("#signupbtnm").fadeIn(400);
-          }
-      });
+$("#bussiness_name").click(function(){
+    // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
+  var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
+  var Input = document.getElementsByTagName("input")[2].value
+  if ( validateName && validateName[0] == nameInput ){
+  }
+  else{
+    var notice = "Busssiness name is not valid"
+    messagesArray.push(notice)
+    $('#sinUpAlert').text(messagesArray)
+    $('#sinUpAlert').show(100)
+  }
+
+})
+
 
       $("#nextbtn").click(function(){
         var messagesArray = []
@@ -268,40 +285,42 @@ signup = function(){
 
 
 $('.static_pages.landing').ready(signup)
-  index = 0
-function get_rates(){
-
-  console.log("get rates running")
-  $.ajax({
-          type: "GET",
-          dataType: "json",
-          url: "/rates",
-          success: function(data){
-          var rates = data[0]
-          var colors = ["#61B329", "#A6D785"]
 
 
-
-          document.getElementsByClassName("item rate")[0].innerHTML = rates.average_rate + "<br>  Average"
-          document.getElementsByClassName("item rate")[1].innerHTML = rates.coinbase_rate + "<br> Coinbase"
-          document.getElementsByClassName("item rate")[2].innerHTML = rates.okcoin_rate + "<br> Ok Coin"
-          document.getElementsByClassName("item rate")[3].innerHTML = rates.bitfinex_rate + "<br> Bitfinex"
-
-          document.getElementsByClassName("item rate")[0].style.color = colors[index]
-          document.getElementsByClassName("item rate")[1].style.color = colors[index]
-          document.getElementsByClassName("item rate")[2].style.color = colors[index]
-          document.getElementsByClassName("item rate")[3].style.color = colors[index]
-
-          if (index == 0){
-            index += 1
-          }
-          else{ index = 0
-          }
-
-          }
-      });
-
-}
+//   index = 0
+// function get_rates(){
+//
+//   console.log("get rates running")
+//   $.ajax({
+//           type: "GET",
+//           dataType: "json",
+//           url: "/rates",
+//           success: function(data){
+//           var rates = data[0]
+//           var colors = ["#61B329", "#A6D785"]
+//
+//
+//
+//           document.getElementsByClassName("item rate")[0].innerHTML = rates.average_rate + "<br>  Average"
+//           document.getElementsByClassName("item rate")[1].innerHTML = rates.coinbase_rate + "<br> Coinbase"
+//           document.getElementsByClassName("item rate")[2].innerHTML = rates.okcoin_rate + "<br> Ok Coin"
+//           document.getElementsByClassName("item rate")[3].innerHTML = rates.bitfinex_rate + "<br> Bitfinex"
+//
+//           document.getElementsByClassName("item rate")[0].style.color = colors[index]
+//           document.getElementsByClassName("item rate")[1].style.color = colors[index]
+//           document.getElementsByClassName("item rate")[2].style.color = colors[index]
+//           document.getElementsByClassName("item rate")[3].style.color = colors[index]
+//
+//           if (index == 0){
+//             index += 1
+//           }
+//           else{ index = 0
+//           }
+//
+//           }
+//       });
+//
+// }
 
 
 

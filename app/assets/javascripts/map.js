@@ -1,7 +1,10 @@
 var initialize
 
 $(document).ready(function(){
-  $('.static_pages.locations').ready(function (){
+
+
+
+if ($("body").hasClass("locations")){
     $("#googleMapSearch").hide();
     initialize = function(e) {
       console.log("init running")
@@ -84,6 +87,6 @@ $(document).ready(function(){
         })
       })
     }
-  });
+  }
   google.maps.event.addDomListener(window, 'load', initialize);
 })
