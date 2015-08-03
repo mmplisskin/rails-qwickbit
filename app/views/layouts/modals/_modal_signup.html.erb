@@ -1,53 +1,55 @@
 <div id="signup-modal" class="modal modal-fixed-footer">
   <div class="modal-content">
     <h4>Sign Up</h4>
-    <!-- <div class="alert alert-warning" style="display:none;" id="sinUpAlert"> -->
 
     <%= form_for @business do |f| %>
+
+
       <div class="">
         <%= f.label :name %>
-        <%= f.text_field :name, placeholder:'Business name', :required => true %>
+        <%= f.text_field :name, placeholder:'Business name', :required => true, id:'name' %>
       </div>
       <div class="">
         <%= f.label :email %>
-        <%= f.text_field :email, placeholder:'email@example.com', :required => true %>
+        <%= f.text_field :email, placeholder:'email@example.com', :required => true, id:'email' %>
       </div>
       <div class="">
         <%= f.label :address %>
-        <%= f.text_field :address, placeholder:'Address' %>
+        <%= f.text_field :address, placeholder:'Address', id:'address' %>
       </div>
       <div class="">
         <%= f.label :city %>
-        <%= f.text_field :city, placeholder:'City' %>
+        <%= f.text_field :city, placeholder:'City', id:'city' %>
       </div>
       <div class="">
         <%= f.select :state, options_for_select(us_states, "CA") %>
       </div>
       <div class="">
         <%= f.label :zipcode %>
-        <%= f.text_field :zipcode, placeholder:'5 digit zipcode' %>
+        <%= f.text_field :zipcode, placeholder:'5 digit zipcode', id:'zip' %>
       </div>
       <div class="">
         <%= f.label :description %>
-        <%= f.text_area :description, placeholder:'A brief description of your business', class:"materialize-textarea" %>
+        <%= f.text_area :description, placeholder:'A brief description of your business', class:"materialize-textarea", id:'description' %>
       </div>
       <div class="">
         <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: false %>
       </div>
       <div class="">
         <%= f.label :phone_number %>
-        <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder:'(555)555-5555' %>
+        <%= f.telephone_field :phone_number, :maxlength => 10, :size => 15, placeholder:'(555)555-5555', id:'phone' %>
       </div>
       <div class="">
         <%= f.label :password %>
-        <%= f.password_field :password, placeholder:'Password' %>
+        <%= f.password_field :password, placeholder:'Password', id:'password' %>
       </div>
       <div class="">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, placeholder:'Confirm Password' %>
+        <%= f.password_field :password_confirmation, placeholder:'Confirm Password', id:'passwordconf' %>
       </div>
   </div>
   <div class="modal-footer">
+      <div id="toast-container"></div>
     <%= f.submit "List Business", class:"btn waves-light wave-effect btn-green" %>
   </div>
   <% end %>

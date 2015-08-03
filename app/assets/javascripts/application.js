@@ -56,230 +56,158 @@ var signup
 signup = function(){
   $(document).ready(function(){
 
-      // $("#signupbtn, #signupbtnm").click(function(){
-      //     $("#sign_up1").fadeIn("slow");
-      //     $("#signupbtn, #signupbtnm").fadeOut(400);
-      //       $('#sinUpAlert').hide()
-      //
-      // });
+  $("#name").focus(function() {
 
-      // $(document).mouseup(function (e)
-      // {
-      //     var container = $("#sign_up1");
-      //     if (!container.is(e.target) // if the target of the click isn't the container...
-      //         && container.has(e.target).length === 0) // ... nor a descendant of the container
-      //     {
-      //         container.hide(500);
-      //         $("#signupbtn").fadeIn(400);
-      //         $("#signupbtnm").fadeIn(400);
-      //     }
-      // });
+    }).blur(function() {
+      // validation length between 1 and 30 characters
+        var len = {min:1,max:30};
+        var nameInput = document.getElementsByTagName("input")[2].value.length
 
-$("#bussiness_name").click(function(){
-    // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
-  var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
-  var Input = document.getElementsByTagName("input")[2].value
-  if ( validateName && validateName[0] == nameInput ){
-  }
-  else{
-    var notice = "Busssiness name is not valid"
-    messagesArray.push(notice)
-    $('#sinUpAlert').text(messagesArray)
-    $('#sinUpAlert').show(100)
-  }
-
-})
-
-
-      $("#nextbtn").click(function(){
-        var messagesArray = []
-      // validation regex matches 0-5 lower or uppercase words between 1 and 11 characters
-        var businessRegex = /[a-zA-Z\-0-9]{1,11}(\s[a-zA-Z\-0-9]{1,11}){0,5}/
-        var emailRegex = /([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)/
-
-        var nameInput = document.getElementsByTagName("input")[2].value
-        var emailInput = document.getElementsByTagName("input")[3].value
-
-        var validateName = nameInput.match(businessRegex)
-        var validateEmail = emailInput.match(emailRegex)
-        document.getElementById("new_business").removeAttribute("data-remote")
-        // document.getElementById("new_business").removeAttribute("method")
-      // document.getElementById("new_business").attributes[5].value = false
-
-
-        if ( validateName && validateName[0] == nameInput ){
-
-
-          if ( validateEmail && validateEmail[0] == emailInput ){
-            $(".sign_upfields2").slideDown("slow");
-            $(".sign_upfields1").hide(500);
-            $('#sinUpAlert').hide()
-          }
-
-          else{
-            var notice = "Email is not Valid"
-            messagesArray.push(notice)
-            $('#sinUpAlert').text(messagesArray)
-            $('#sinUpAlert').show(100)
-          }
+        if ( nameInput >= len.min && nameInput <=len.max ){
+          console.log("valid")
         }
-
         else{
-          var notice = "Busssiness name is not valid"
-          messagesArray.push(notice)
-          $('#sinUpAlert').text(messagesArray)
-          $('#sinUpAlert').show(100)
+          $("#name").select()
+          console.log("name invalid")
+          Materialize.toast('Busssiness name is not valid', 4000)
         }
-
-
-      })
-
-
-
-        $("#nextbtn2").click(function(){
-          var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Pl|AVE|st|ct|Rd.)/
-          var cityRegex = /[a-zA-Z]+(?:[\s-][a-zA-Z]+)*/
-          var zipRegex = /((\d{5}-\d{4})|(\d{5})|([A-Z]\d[A-Z]\s\d[A-Z]\d))/
-
-          var addressInput = document.getElementsByTagName("input")[4].value
-          var cityInput = document.getElementsByTagName("input")[5].value
-          var ZipInput = document.getElementsByTagName("input")[6].value
-
-          var validateAddress = addressInput.match(addressRegex)
-          var validateCity = cityInput.match(cityRegex)
-          var validateZip = ZipInput.match(zipRegex)
-          var messagesArray = []
-
-          if ( validateAddress && validateAddress[0] == addressInput ){
-
-            if(validateCity && validateCity[0] == cityInput){
-              if(validateZip && validateZip[0] == ZipInput){
-                $(".sign_upfields3").fadeIn("slow");
-                $(".sign_upfields2").hide(500);
-                $('#sinUpAlert').hide()
-              }
-              else{
-                var notice = "Zip code is not valid"
-                messagesArray.push(notice)
-                $('#sinUpAlert').text(messagesArray)
-                $('#sinUpAlert').show(100)
-              }
-            }
-            else{
-              var notice = "City name is not valid"
-              messagesArray.push(notice)
-              $('#sinUpAlert').text(messagesArray)
-              $('#sinUpAlert').show(100)
-            }
-          }
-          else{
-            var notice = "Address is not valid"
-            messagesArray.push(notice)
-            $('#sinUpAlert').text(messagesArray)
-            $('#sinUpAlert').show(100)
-          }
-
-      });
-
-      //
-      // setInterval(function(){
-      //
-      //     var textInput = document.getElementsByTagName("textarea")[0].value
-      //     var phoneInput = document.getElementsByTagName("input")[7].value
-      //     var passwordInput = document.getElementsByTagName("input")[8].value
-      //     var passwordConfInput = document.getElementsByTagName("input")[9].value
-      //
-      //     var messagesArray = []
-      //
-      //     var phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/
-      //     var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
-      //
-      //     var validatePhone = phoneInput.match(phoneRegex)
-      //     var validatePassword = passwordInput.match(passwordRegex)
-      //
-      //     if(textInput.length > 15 && textInput.length < 500){
-      //       if(validatePhone && validatePhone[0] == phoneInput){
-      //         if(validatePassword && validatePassword[0] == passwordInput){
-      //           if(passwordInput == passwordConfInput){
-      //             console.log("some thing")
-      //             // document.getElementById("new_business").setAttribute("data-remote", true)
-      //             $('.new_business').submit()
-      //
-      //           }
-      //           else{
-      //             var notice = "Passwords do not match :("
-      //             messagesArray.push(notice)
-      //             $('#sinUpAlert').text(messagesArray)
-      //             $('#sinUpAlert').show(100)
-      //           }
-      //
-      //         }
-      //         else{
-      //           var notice = "Password must be at least 6 characters and have different cases"
-      //           messagesArray.push(notice)
-      //           $('#sinUpAlert').text(messagesArray)
-      //           $('#sinUpAlert').show(100)
-      //         }
-      //
-      //
-      //       }
-      //       else {
-      //         var notice = "Phone Number is not valid"
-      //         messagesArray.push(notice)
-      //         $('#sinUpAlert').text(messagesArray)
-      //         $('#sinUpAlert').show(100)
-      //       }
-      //
-      //     }
-      //     else{
-      //       var notice = "Description should be between 15 and 500 characters"
-      //       messagesArray.push(notice)
-      //       $('#sinUpAlert').text(messagesArray)
-      //       $('#sinUpAlert').show(100)
-      //     }
-      //   }, 3000);
-
-
-
-
-
-
-      // console.log($("#backbtn1")[0])
-      $("#backbtn1").click(function(){
-        $('#sinUpAlert').hide()
-        $(".sign_upfields1").fadeIn("slow");
-        $(".sign_upfields2").hide(500);
-
-
-      });
-
-      $("#backbtn2").click(function(){
-        $('#sinUpAlert').hide()
-        $(".sign_upfields2").fadeIn("slow");
-        $(".sign_upfields3").hide(500);
-
     });
 
-    $("#loginbtn").click(function(){
-      $("#login").fadeIn("slow");
+    $("#email").focus(function() {
 
-      $("#signupbtn, #signupbtnm").fadeOut(400);
-      $(document).mouseup(function (e)
-      {
-          var container = $("#login");
+      }).blur(function() {
+        // validation length between 1 and 30 characters
+          var emailInput = document.getElementsByTagName("input")[3].value
+          var emailRegex = /([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)/
+          var validateEmail = emailInput.match(emailRegex)
 
-          if (!container.is(e.target)
-              && container.has(e.target).length === 0)
-          {
-              container.hide(500);
-                $("#signupbtn").fadeIn(400);
-                $("#signupbtnm").fadeIn(400);
-                $(".sign_upfields1").hide(0);
+          if ( validateEmail && validateEmail[0] == emailInput){
+            console.log("valid")
+          }
+          else{
+            $("#email").select()
+            Materialize.toast('Please use a valid email :)', 4000)
           }
       });
-      $(".sign_upfields2").fadeIn("slow");
-      $(".sign_upfields3").hide(500);
-  });
+
+      $("#address").focus(function() {
+
+        }).blur(function() {
+
+            var addressInput = document.getElementsByTagName("input")[4].value
+            var addressRegex = /[0-9]{1,7}.*\s(?:Street|street|St.|St|Road|Rd|Pl|AVE|st|ct|Rd.)/
+            var validateAddress = addressInput.match(addressRegex)
+
+            if ( validateAddress && validateAddress[0] == addressInput ){
+              console.log("valid")
+            }
+            else{
+              $("#address").select()
+              Materialize.toast('Invalid Address', 4000)
+            }
+        });
+
+        $("#city").focus(function() {
+
+          }).blur(function() {
+            // validation length between 1 and 30 characters
+              var cityInput = document.getElementsByTagName("input")[5].value
+              var cityRegex = /[a-zA-Z]+(?:[\s-][a-zA-Z]+)*/
+              var validateCity = cityInput.match(cityRegex)
+
+              if (validateCity && validateCity[0] == cityInput){
+                console.log("valid")
+              }
+              else{
+                Materialize.toast('Invalid City', 4000)
+                $("#city").select()
+              }
+          });
+
+          $("#zip").focus(function() {
+
+            }).blur(function() {
+              // validation length between 1 and 30 characters
+                var ZipInput = document.getElementsByTagName("input")[6].value
+                var zipRegex = /((\d{5}-\d{4})|(\d{5})|([A-Z]\d[A-Z]\s\d[A-Z]\d))/
+                var validateZip = ZipInput.match(zipRegex)
+
+                if (validateZip && validateZip[0] == ZipInput){
+                  console.log("valid")
+                }
+                else{
+                  Materialize.toast('Invalid Zipcode', 4000)
+                  $("#zip").select()
+                }
+            });
+
+
+            $("#description").focus(function() {
+
+              }).blur(function() {
+                // validation length between 1 and 30 characters
+                  var textInput = document.getElementsByTagName("textarea")[0].value
+
+                 if(textInput.length > 15 && textInput.length < 500){
+
+                    console.log("valid")
+                  }
+                  else{
+                    $("#description").select()
+                    Materialize.toast('Please enter a description (between 15 and 500 characters)', 4000)
+                  }
+              });
+
+
+              $("#phone").focus(function() {
+
+                }).blur(function() {
+                  // validation length between 1 and 30 characters
+                  var phoneInput = document.getElementsByTagName("input")[7].value
+                  var phoneRegex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/
+                  var validatePhone = phoneInput.match(phoneRegex)
+
+                   if(validatePhone && validatePhone[0] == phoneInput){
+
+                      console.log("valid")
+                    }
+                    else{
+                      $("#phone").select()
+                      Materialize.toast('Phone number is not valid', 4000)
+                    }
+                });
+
+
+                $("#password").focus(function() {
+
+                  }).blur(function() {
+                    var passwordInput = document.getElementsByTagName("input")[8].value
+                    var passwordRegex = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{6,})\S$/
+                    var validatePassword = passwordInput.match(passwordRegex)
+
+                     if(validatePassword && validatePassword[0] == passwordInput){
+                        console.log("valid")
+                      }
+                      else{
+                        $("#password").select()
+                        Materialize.toast('Password must be at least 6 characters and have different cases', 4000)
+                      }
+                  });
+
+                  $("#passwordconf").focus(function() {
+
+
+                      var passwordInput = document.getElementsByTagName("input")[8].value
+                      var passwordConfInput = document.getElementsByTagName("input")[9].value
+
+                       if(passwordInput == passwordConfInput){
+                          console.log("valid")
+                        }
+                        else{
+                          Materialize.toast('Password confirmation must match', 4000)
+                        }
+                    });
+
   });
 }
 
