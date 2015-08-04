@@ -69,7 +69,7 @@ signup = function(){
         else{
           $("#name").select()
           console.log("name invalid")
-          Materialize.toast('Busssiness name is not valid', 4000)
+          Materialize.toast('Busssiness name is not valid', 400000)
         }
     });
 
@@ -85,7 +85,7 @@ signup = function(){
             console.log("valid")
           }
           else{
-            $("#email").select()
+            // $("#email").select()
             Materialize.toast('Please use a valid email :)', 4000)
           }
       });
@@ -102,7 +102,7 @@ signup = function(){
               console.log("valid")
             }
             else{
-              $("#address").select()
+              // $("#address").select()
               Materialize.toast('Invalid Address', 4000)
             }
         });
@@ -120,7 +120,7 @@ signup = function(){
               }
               else{
                 Materialize.toast('Invalid City', 4000)
-                $("#city").select()
+                // $("#city").select()
               }
           });
 
@@ -137,7 +137,7 @@ signup = function(){
                 }
                 else{
                   Materialize.toast('Invalid Zipcode', 4000)
-                  $("#zip").select()
+                  // $("#zip").select()
                 }
             });
 
@@ -153,7 +153,7 @@ signup = function(){
                     console.log("valid")
                   }
                   else{
-                    $("#description").select()
+                    // $("#description").select()
                     Materialize.toast('Please enter a description (between 15 and 500 characters)', 4000)
                   }
               });
@@ -172,7 +172,7 @@ signup = function(){
                       console.log("valid")
                     }
                     else{
-                      $("#phone").select()
+                      // $("#phone").select()
                       Materialize.toast('Phone number is not valid', 4000)
                     }
                 });
@@ -189,7 +189,7 @@ signup = function(){
                         console.log("valid")
                       }
                       else{
-                        $("#password").select()
+                        // $("#password").select()
                         Materialize.toast('Password must be at least 6 characters and have different cases', 4000)
                       }
                   });

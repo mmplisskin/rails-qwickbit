@@ -129,9 +129,10 @@ $landing-overlay: rgba(35, 35, 50, 0.6);
   background-position: center;
   h2 {
     margin: 0;
+    font-size: 70px;
   }
   .container {
-    @include landing-position(30vh);
+    @include landing-position(23vh);
     text-align: center;
     color: white;
   }
