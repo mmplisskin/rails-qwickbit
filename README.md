@@ -1,4 +1,3 @@
- 
 #Qwikbit
 [![Build Status](https://travis-ci.org/mmplisskin/rails-qwickbit.svg)](https://travis-ci.org/mmplisskin/rails-qwickbit)
 
@@ -7,8 +6,8 @@
 
 
 
-#### qwickbit connects businesses that accept bitcoins with users via a 
-[hybrid mobile app](https://github.com/Ephapox/ionic-qwkbit).
+#### qwickbit connects businesses that accept bitcoins with users via a
+hybrid mobile app](https://github.com/Ephapox/ionic-qwkbit).
 
  <br />
 
@@ -43,11 +42,10 @@
 ##### Bitcoin integration
 - wallet generation
 - balance checking
-- Average bitcoin rate is calculated every 2 minutes from five api's
+- Average bitcoin rate is calculated every 2 minutes from three api's
 
 ##### Deploy
 - unicorn
 - nginx
 - ubuntu
 - Ssl
-

@@ -215,46 +215,55 @@ signup = function(){
 $('.static_pages.landing').ready(signup)
 
 
-//   index = 0
-// function get_rates(){
+  index = 0
+function get_rates(){
+
+  console.log("get rates running")
+  $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: "/rates",
+          success: function(data){
+          var rates = data[0]
+          var colors = ["#61B329", "#A6D785"]
+          console.log(data[0])
+          console.log(rates.average_rate)
+          $("#bitfinex").html('$ ' + rates.bitfinex_rate).css("color:#61B329")
+          $("#average").html( '$ ' + rates.average_rate).css("color:#61B329")
+          $("#coinbase").html('$ ' + rates.coinbase_rate).css("color:#61B329")
+
+          document.getElementsByClassName("rate")[0].style.color = colors[index]
+          document.getElementsByClassName("rate")[1].style.color = colors[index]
+          document.getElementsByClassName("rate")[2].style.color = colors[index]
+
+
+          if (index == 0){
+            index += 1
+          }
+          else{ index = 0
+          }
+
+          }
+      });
+
+}
+
+
+// document.getElementsByClassName("item rate")[0].innerHTML = rates.average_rate + "<br>  Average"
+// document.getElementsByClassName("item rate")[1].innerHTML = rates.coinbase_rate + "<br> Coinbase"
+// document.getElementsByClassName("item rate")[2].innerHTML = rates.okcoin_rate + "<br> Ok Coin"
+// document.getElementsByClassName("item rate")[3].innerHTML = rates.bitfinex_rate + "<br> Bitfinex"
 //
-//   console.log("get rates running")
-//   $.ajax({
-//           type: "GET",
-//           dataType: "json",
-//           url: "/rates",
-//           success: function(data){
-//           var rates = data[0]
-//           var colors = ["#61B329", "#A6D785"]
-//
-//
-//
-//           document.getElementsByClassName("item rate")[0].innerHTML = rates.average_rate + "<br>  Average"
-//           document.getElementsByClassName("item rate")[1].innerHTML = rates.coinbase_rate + "<br> Coinbase"
-//           document.getElementsByClassName("item rate")[2].innerHTML = rates.okcoin_rate + "<br> Ok Coin"
-//           document.getElementsByClassName("item rate")[3].innerHTML = rates.bitfinex_rate + "<br> Bitfinex"
-//
-//           document.getElementsByClassName("item rate")[0].style.color = colors[index]
-//           document.getElementsByClassName("item rate")[1].style.color = colors[index]
-//           document.getElementsByClassName("item rate")[2].style.color = colors[index]
-//           document.getElementsByClassName("item rate")[3].style.color = colors[index]
-//
-//           if (index == 0){
-//             index += 1
-//           }
-//           else{ index = 0
-//           }
-//
-//           }
-//       });
-//
-// }
+// document.getElementsByClassName("item rate")[0].style.color = colors[index]
+// document.getElementsByClassName("item rate")[1].style.color = colors[index]
+// document.getElementsByClassName("item rate")[2].style.color = colors[index]
+// document.getElementsByClassName("item rate")[3].style.color = colors[index]
 
 
 
 
 $(document).ready(function(){
-  // setInterval(function(){get_rates()},3000)
+  setInterval(function(){get_rates()},4000)
   $(".button-collapse").sideNav();
   $('.modal-trigger').leanModal();
 

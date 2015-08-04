@@ -87,9 +87,20 @@ NAVBAR
     }
     .rate {
       top: 10px;
-      left: -41px;
+      // left: -41px;
+      left: -59px;
       color: #8bc34a;
     }
+    span#average {
+        padding-left: 11px;
+    }
+    span#coinbase {
+        padding-left: 5px;
+    }
+    span#bitfinex {
+        padding-left: 14px;
+    }
+
   }
 }
 /*
@@ -112,7 +123,7 @@ $landing-overlay: rgba(35, 35, 50, 0.6);
   background: $landing-overlay;
 }
 .landing-cta {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png");
+  background: url("//upload.wikimedia.org/wikipedia/commons/5/5b/Portones_Shopping_Mall.png");
   background-repeat: none;
   background-size: cover;
   background-position: center;
