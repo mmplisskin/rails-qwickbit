@@ -30,7 +30,7 @@ if ($("body").hasClass("locations")){
       			var markerPosition = new google.maps.LatLng(results[i]["latitude"], results[i]["longitude"])
             var infowindow = new google.maps.InfoWindow({});
             var bitcoin_icon = {
-              url: 'http://i.imgur.com/yuqNP88.png',
+              url: '//i.imgur.com/yuqNP88.png',
               size: new google.maps.Size(30,30)
             }
             var marker = new google.maps.Marker({
