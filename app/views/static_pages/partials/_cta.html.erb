@@ -7,6 +7,8 @@
       </h4>
       <% if !current_business %>
       <a href="#signup-modal" class="modal-trigger wave-effect waves-light btn btn-blue">Sign Up</a>
+      <% else %>
+      <a href="/businesses/<%= current_business.id %>" class="wave-effect waves-light btn btn-blue">My Account</a>
       <% end %>
     </div>
   </div>
