@@ -36,6 +36,23 @@ $btn-blue: #2196f3;
 $btn-blue-hover: #64b5f6;
 $border-color: #C0E8E8;
 
+
+
+/*
+MEDIA Querries
+*/
+
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  nav.rate-wrapper.rate {
+      left: -51px;
+  }
+}
+
+
+
 @mixin landing-position($position) {
   position: relative;
   top: $position;
@@ -66,6 +83,8 @@ select {
 body {
   overflow-x: hidden;
 }
+
+
 
 /*
 NAVBAR
