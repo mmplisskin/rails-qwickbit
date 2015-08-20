@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+  
 
   force_ssl unless: -> { Rails.env.in? ['development', 'test'] }
 

@@ -129,6 +129,8 @@ GEM
       pry (~> 0.10)
     rack (1.6.4)
     rack-cors (0.4.0)
+    rack-jsonp-middleware (0.0.10)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.2)
@@ -245,6 +247,7 @@ DEPENDENCIES
   pg
   pry-byebug
   rack-cors
+  rack-jsonp-middleware
   rails (= 4.2.2)
   rails-bootstrap-helpers
   rails_12factor
@@ -257,4 +260,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.5
+   1.10.6

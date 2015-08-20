@@ -66,6 +66,9 @@ group :production do
 
 end
 
+gem 'rack-jsonp-middleware',
+  :require => 'rack/jsonp'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 

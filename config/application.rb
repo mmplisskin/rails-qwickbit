@@ -11,6 +11,7 @@ require "action_view/railtie"
 require "sprockets/railtie"
 require 'rack'
 require 'rack/cors'
+
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -19,7 +20,8 @@ Bundler.require(*Rails.groups)
 
 module Qwickbit
   class Application < Rails::Application
-      config.exceptions_app = self.routes
+    config.middleware.use Rack::JSONP
+    config.exceptions_app = self.routes
     config.middleware.insert_before 0, "Rack::Cors" do
        allow do
 
